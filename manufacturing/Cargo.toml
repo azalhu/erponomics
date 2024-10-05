@@ -1,0 +1,8 @@
+[workspace]
+resolver = "2"
+members = ["admin", "db", "sync", "web"]
+
+[workspace.package]
+version = "0.1.0"
+authors = ["azalhu"]
+edition = "2021"
