@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package items;
+
+import "google/protobuf/timestamp.proto";
+
+service Item {
+    rpc CreateItem(ItemRequest) returns (ItemResponse);
+    rpc GetItem(ItemRequest) returns (ItemResponse);
+}
+
+message ItemRequest {
+  string code = 2;
+}
+
+message ItemResponse {
+  uint32 id = 1;
+  string code = 2;
+  google.protobuf.Timestamp created_at = 3;
+}

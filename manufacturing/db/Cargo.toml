@@ -5,3 +5,10 @@ authors.workspace = true
 edition.workspace = true
 
 [dependencies]
+prost = { workspace = true }
+prost-types = { workspace = true }
+tokio = { workspace = true, features = ["macros", "rt-multi-thread"] }
+tonic = { workspace = true }
+
+[build-dependencies]
+tonic-build = { workspace = true }
