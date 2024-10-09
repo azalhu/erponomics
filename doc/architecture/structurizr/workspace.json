@@ -3,8 +3,7 @@
   "description" : "Ergonomic ERP agnostic platform",
   "documentation" : { },
   "id" : 1,
-  "lastModifiedAgent" : "structurizr-ui",
-  "lastModifiedDate" : "2024-10-09T14:56:23Z",
+  "lastModifiedDate" : "2024-10-09T15:07:29Z",
   "model" : {
     "people" : [ {
       "description" : "Manages Domain.",
@@ -19,7 +18,7 @@
         "destinationId" : "18",
         "id" : "59",
         "properties" : {
-          "structurizr.dsl.identifier" : "a5d5b3d1-50db-421d-834f-d642637113c4"
+          "structurizr.dsl.identifier" : "7ebb12df-bc8a-42bf-b5de-a94f95e47431"
         },
         "sourceId" : "20",
         "tags" : "Relationship,Software System"
@@ -38,7 +37,7 @@
         "destinationId" : "18",
         "id" : "60",
         "properties" : {
-          "structurizr.dsl.identifier" : "37d5c7ab-7cc4-4362-915e-da5e40d424dc"
+          "structurizr.dsl.identifier" : "b647c00e-5dd9-48a0-83cf-d30628076bed"
         },
         "sourceId" : "21",
         "tags" : "Relationship,Software System"
@@ -57,7 +56,7 @@
         "destinationId" : "18",
         "id" : "61",
         "properties" : {
-          "structurizr.dsl.identifier" : "c1a89ca5-ba5b-4944-b44e-4f805775aa66"
+          "structurizr.dsl.identifier" : "dcb27758-2996-4b64-ad4e-31d8792da944"
         },
         "sourceId" : "22",
         "tags" : "Relationship,Software System"
@@ -76,7 +75,7 @@
         "destinationId" : "18",
         "id" : "62",
         "properties" : {
-          "structurizr.dsl.identifier" : "86ce805f-13a8-4487-b699-6f54b653b6fb"
+          "structurizr.dsl.identifier" : "64f7ac31-8931-49e6-a513-4d2d75a25a62"
         },
         "sourceId" : "23",
         "tags" : "Relationship,Software System"
@@ -95,7 +94,7 @@
         "destinationId" : "31",
         "id" : "63",
         "properties" : {
-          "structurizr.dsl.identifier" : "dbb18833-b3ae-4235-a5f2-01452badfc89"
+          "structurizr.dsl.identifier" : "d05c5573-6ca0-402a-bfe0-413e3cd2bacd"
         },
         "sourceId" : "24",
         "tags" : "Relationship,Software System"
@@ -114,7 +113,7 @@
         "destinationId" : "32",
         "id" : "64",
         "properties" : {
-          "structurizr.dsl.identifier" : "9ff110fe-3f18-492a-b18a-64ecf140b63d"
+          "structurizr.dsl.identifier" : "ed0ae878-17ac-4833-b000-41bb9bff309d"
         },
         "sourceId" : "25",
         "tags" : "Relationship,Software System"
@@ -133,7 +132,7 @@
         "destinationId" : "33",
         "id" : "65",
         "properties" : {
-          "structurizr.dsl.identifier" : "cbe14731-2408-4e22-ad5c-cf9912092a02"
+          "structurizr.dsl.identifier" : "95f70e56-c5f2-472e-b9ea-6fc8c9719052"
         },
         "sourceId" : "26",
         "tags" : "Relationship,Software System"
@@ -152,7 +151,7 @@
         "destinationId" : "27",
         "id" : "82",
         "properties" : {
-          "structurizr.dsl.identifier" : "f06bed3b-73f9-4e65-b59e-82746f3d212f"
+          "structurizr.dsl.identifier" : "f29e9bae-d541-4878-9206-65959b1c7d57"
         },
         "sourceId" : "34",
         "tags" : "Relationship,Software System"
@@ -171,7 +170,7 @@
         "destinationId" : "28",
         "id" : "83",
         "properties" : {
-          "structurizr.dsl.identifier" : "6b993c3f-2de6-41fa-81e5-e615b3883300"
+          "structurizr.dsl.identifier" : "02d8f212-003c-48fc-bc9a-8b5882dae369"
         },
         "sourceId" : "35",
         "tags" : "Relationship,Software System"
@@ -190,7 +189,7 @@
         "destinationId" : "29",
         "id" : "84",
         "properties" : {
-          "structurizr.dsl.identifier" : "79563feb-7af7-43e9-90c9-29e1041465f6"
+          "structurizr.dsl.identifier" : "d7fd90a7-48c7-42ea-b0a0-6b772f4599e0"
         },
         "sourceId" : "36",
         "tags" : "Relationship,Software System"
@@ -209,7 +208,7 @@
         "destinationId" : "30",
         "id" : "85",
         "properties" : {
-          "structurizr.dsl.identifier" : "746efe1e-579b-4e99-ab37-386573e87272"
+          "structurizr.dsl.identifier" : "2f04c0de-e886-4cbc-89e3-b450f1868736"
         },
         "sourceId" : "37",
         "tags" : "Relationship,Software System"
@@ -251,7 +250,7 @@
           "destinationId" : "6",
           "id" : "48",
           "properties" : {
-            "structurizr.dsl.identifier" : "e83f1fa6-4646-4323-b94e-dca717aac466"
+            "structurizr.dsl.identifier" : "51675e77-2d52-47af-a3d8-399b344196da"
           },
           "sourceId" : "2",
           "tags" : "Relationship,Container"
@@ -260,7 +259,7 @@
           "destinationId" : "12",
           "id" : "49",
           "properties" : {
-            "structurizr.dsl.identifier" : "f27259a2-0d7b-4e25-bde2-49c14dcfb834"
+            "structurizr.dsl.identifier" : "aeb1ff0d-444e-441e-8349-3391b627d6be"
           },
           "sourceId" : "2",
           "tags" : "Relationship,Container"
@@ -291,7 +290,7 @@
           "destinationId" : "5",
           "id" : "50",
           "properties" : {
-            "structurizr.dsl.identifier" : "aaca970b-9c45-4af8-9ed4-7cebf7dc96d9"
+            "structurizr.dsl.identifier" : "1396f0d3-f474-4427-b7bb-3967c53c1679"
           },
           "sourceId" : "6",
           "tags" : "Relationship,Container"
@@ -312,7 +311,7 @@
           "destinationId" : "8",
           "id" : "51",
           "properties" : {
-            "structurizr.dsl.identifier" : "d1973990-d153-45b7-8b37-2060084b482b"
+            "structurizr.dsl.identifier" : "17598d3e-0d8b-4fd7-b1d4-d13a2f68e3f3"
           },
           "sourceId" : "7",
           "tags" : "Relationship,Container"
@@ -333,7 +332,7 @@
             "destinationId" : "5",
             "id" : "74",
             "properties" : {
-              "structurizr.dsl.identifier" : "6f9b5ac6-7f63-42cd-a635-df268c24572a"
+              "structurizr.dsl.identifier" : "44ccbffb-2713-4b02-990a-746a0c35c201"
             },
             "sourceId" : "9",
             "tags" : "Relationship,Component"
@@ -353,7 +352,7 @@
             "destinationId" : "5",
             "id" : "72",
             "properties" : {
-              "structurizr.dsl.identifier" : "4806be37-5aee-4b83-8458-bdfaa39d8a39"
+              "structurizr.dsl.identifier" : "c3fdbacc-3c3b-43b2-97b1-b8e57659e4b9"
             },
             "sourceId" : "10",
             "tags" : "Relationship,Component"
@@ -374,7 +373,7 @@
           "destinationId" : "6",
           "id" : "52",
           "properties" : {
-            "structurizr.dsl.identifier" : "86423bb3-4fee-4a6d-bdcd-245155a8d567"
+            "structurizr.dsl.identifier" : "89591eee-5ab5-470c-bb23-1d3d65b08bce"
           },
           "sourceId" : "8",
           "tags" : "Relationship,Container"
@@ -401,7 +400,7 @@
           "destinationId" : "13",
           "id" : "55",
           "properties" : {
-            "structurizr.dsl.identifier" : "82d7e569-fee5-40ed-9a47-632cc7e90c2a"
+            "structurizr.dsl.identifier" : "bf4838e4-b6a9-4a63-9dad-cf37675ff9d6"
           },
           "sourceId" : "11",
           "tags" : "Relationship,Container"
@@ -410,7 +409,7 @@
           "destinationId" : "6",
           "id" : "56",
           "properties" : {
-            "structurizr.dsl.identifier" : "bae5399e-2800-4844-9b21-fd27a5411722"
+            "structurizr.dsl.identifier" : "3c361a15-aba2-47e1-b9de-84a1cf6ed767"
           },
           "sourceId" : "11",
           "tags" : "Relationship,Container"
@@ -419,7 +418,7 @@
           "destinationId" : "14",
           "id" : "57",
           "properties" : {
-            "structurizr.dsl.identifier" : "69e885a6-9aae-4f73-9ee6-4ee615f1f9e9"
+            "structurizr.dsl.identifier" : "48d732de-eb33-4e65-b41a-31d56d0e1979"
           },
           "sourceId" : "11",
           "tags" : "Relationship,Container"
@@ -428,7 +427,7 @@
           "destinationId" : "15",
           "id" : "58",
           "properties" : {
-            "structurizr.dsl.identifier" : "516495a7-29c3-41ac-b621-6e56774260ca"
+            "structurizr.dsl.identifier" : "4debd760-4478-4c0a-9b6c-d38d7a349dde"
           },
           "sourceId" : "11",
           "tags" : "Relationship,Container"
@@ -449,7 +448,7 @@
           "destinationId" : "13",
           "id" : "53",
           "properties" : {
-            "structurizr.dsl.identifier" : "4afce17e-497c-457b-bd6f-e156427d769f"
+            "structurizr.dsl.identifier" : "91fda441-983a-41e8-a9ec-d4537c6fab84"
           },
           "sourceId" : "12",
           "tags" : "Relationship,Container"
@@ -458,7 +457,7 @@
           "destinationId" : "11",
           "id" : "54",
           "properties" : {
-            "structurizr.dsl.identifier" : "5b5fed90-692c-4633-9bf5-18a863e3e057"
+            "structurizr.dsl.identifier" : "65ab0e5a-6fc1-4957-a4f9-7dc42768089c"
           },
           "sourceId" : "12",
           "tags" : "Relationship,Container",
@@ -513,7 +512,7 @@
         "destinationId" : "19",
         "id" : "43",
         "properties" : {
-          "structurizr.dsl.identifier" : "2c35b789-754f-4c3f-8b96-f09f4513084b"
+          "structurizr.dsl.identifier" : "c27d9cb2-58c2-4ce8-8899-60d053c15874"
         },
         "sourceId" : "1",
         "tags" : "Relationship,Software System"
@@ -533,7 +532,7 @@
         "destinationId" : "1",
         "id" : "38",
         "properties" : {
-          "structurizr.dsl.identifier" : "b1c67f8a-4f16-46f7-bcbc-072ed202e8ae"
+          "structurizr.dsl.identifier" : "776632e9-58d0-4c63-8850-d1b427243e42"
         },
         "sourceId" : "16",
         "tags" : "Relationship,Software System"
@@ -542,7 +541,7 @@
         "destinationId" : "18",
         "id" : "41",
         "properties" : {
-          "structurizr.dsl.identifier" : "800165d1-f56f-4a79-ad32-9dad4ed3f77d"
+          "structurizr.dsl.identifier" : "5899579e-c527-46f8-b4e2-b887c695f789"
         },
         "sourceId" : "16",
         "tags" : "Relationship,Software System"
@@ -551,7 +550,7 @@
         "destinationId" : "19",
         "id" : "44",
         "properties" : {
-          "structurizr.dsl.identifier" : "f0cc5161-aa36-4345-97fa-02967c70549f"
+          "structurizr.dsl.identifier" : "f201c906-30eb-4481-a0fe-efd41af02471"
         },
         "sourceId" : "16",
         "tags" : "Relationship,Software System"
@@ -560,7 +559,7 @@
         "destinationId" : "14",
         "id" : "66",
         "properties" : {
-          "structurizr.dsl.identifier" : "b4c0917e-6185-4cea-8edb-3effe73b93b1"
+          "structurizr.dsl.identifier" : "ad4d6433-0b21-4644-910f-8826a7ac07ad"
         },
         "sourceId" : "16",
         "tags" : "Relationship,Container"
@@ -569,7 +568,7 @@
         "destinationId" : "2",
         "id" : "67",
         "properties" : {
-          "structurizr.dsl.identifier" : "6ff264c1-bd27-4b89-b41b-82852ff92c3d"
+          "structurizr.dsl.identifier" : "f1036a56-9154-4935-9ec2-a880989670b3"
         },
         "sourceId" : "16",
         "tags" : "Relationship,Container"
@@ -589,7 +588,7 @@
         "destinationId" : "1",
         "id" : "39",
         "properties" : {
-          "structurizr.dsl.identifier" : "38f6f664-f4c0-4bc5-ba41-e2e69c251663"
+          "structurizr.dsl.identifier" : "438c143c-83d2-4190-bd1f-286fccd49d7c"
         },
         "sourceId" : "17",
         "tags" : "Relationship,Software System",
@@ -599,7 +598,7 @@
         "destinationId" : "18",
         "id" : "42",
         "properties" : {
-          "structurizr.dsl.identifier" : "e0942acb-36a5-43a6-b86f-51e43debe309"
+          "structurizr.dsl.identifier" : "0176401f-4b3c-4056-9271-fe1114987fb1"
         },
         "sourceId" : "17",
         "tags" : "Relationship,Software System"
@@ -608,7 +607,7 @@
         "destinationId" : "19",
         "id" : "45",
         "properties" : {
-          "structurizr.dsl.identifier" : "1463aba9-8386-424a-be1b-71f9680619d1"
+          "structurizr.dsl.identifier" : "ce7a9cd4-3764-4902-9623-078740513dc7"
         },
         "sourceId" : "17",
         "tags" : "Relationship,Software System"
@@ -617,7 +616,7 @@
         "destinationId" : "2",
         "id" : "47",
         "properties" : {
-          "structurizr.dsl.identifier" : "14cb0393-db8e-4307-b39a-7b0b25faf9e0"
+          "structurizr.dsl.identifier" : "f801fc88-8874-42b4-9a4a-577ba845cd08"
         },
         "sourceId" : "17",
         "tags" : "Relationship,Container",
@@ -627,7 +626,7 @@
         "destinationId" : "15",
         "id" : "68",
         "properties" : {
-          "structurizr.dsl.identifier" : "77b88279-e832-49f8-9917-e284bf3e3b72"
+          "structurizr.dsl.identifier" : "68bab3f1-ced6-451f-bcf7-ac4acd048a53"
         },
         "sourceId" : "17",
         "tags" : "Relationship,Container"
@@ -636,7 +635,7 @@
         "destinationId" : "4",
         "id" : "70",
         "properties" : {
-          "structurizr.dsl.identifier" : "e4d6ebb5-91ef-489c-accf-faf02b902b90"
+          "structurizr.dsl.identifier" : "5fe61276-ba98-4f5f-9607-7e86fed6664a"
         },
         "sourceId" : "17",
         "tags" : "Relationship,Component",
@@ -646,7 +645,7 @@
         "destinationId" : "3",
         "id" : "71",
         "properties" : {
-          "structurizr.dsl.identifier" : "f19a7fa0-0db1-4ad9-a2bc-feb9387d8827"
+          "structurizr.dsl.identifier" : "376c0226-7fcb-4fc3-8fd7-3897b5a34172"
         },
         "sourceId" : "17",
         "tags" : "Relationship,Component",
@@ -667,7 +666,7 @@
         "destinationId" : "1",
         "id" : "40",
         "properties" : {
-          "structurizr.dsl.identifier" : "de88330b-e089-412d-9e11-640e2b994452"
+          "structurizr.dsl.identifier" : "f6bfa5b3-7db9-48ab-9ef9-fb1124bac41b"
         },
         "sourceId" : "18",
         "tags" : "Relationship,Software System"
@@ -676,7 +675,7 @@
         "destinationId" : "19",
         "id" : "46",
         "properties" : {
-          "structurizr.dsl.identifier" : "45693153-3cef-4ca9-940b-903a4b0631b0"
+          "structurizr.dsl.identifier" : "73b71b78-5b5c-4c8a-b2fc-584a7d05c7a3"
         },
         "sourceId" : "18",
         "tags" : "Relationship,Software System"
@@ -685,7 +684,7 @@
         "destinationId" : "2",
         "id" : "69",
         "properties" : {
-          "structurizr.dsl.identifier" : "a97ce84c-59c1-4e0d-b6f4-93bbb1abfa29"
+          "structurizr.dsl.identifier" : "d8837afc-be4e-49b8-a36d-c1356b18c47d"
         },
         "sourceId" : "18",
         "tags" : "Relationship,Container"
@@ -715,7 +714,7 @@
         "destinationId" : "16",
         "id" : "75",
         "properties" : {
-          "structurizr.dsl.identifier" : "9d3abf7c-f179-4bc1-b746-24871da2ebed"
+          "structurizr.dsl.identifier" : "1e2f7744-96b5-464d-a2b1-8ecd0d8de8f5"
         },
         "sourceId" : "27",
         "tags" : "Relationship,Software System"
@@ -735,7 +734,7 @@
         "destinationId" : "16",
         "id" : "76",
         "properties" : {
-          "structurizr.dsl.identifier" : "47abad02-596e-44f2-8925-35169e6f3332"
+          "structurizr.dsl.identifier" : "4348eda9-4008-4860-aa9f-286a81f94c02"
         },
         "sourceId" : "28",
         "tags" : "Relationship,Software System"
@@ -755,7 +754,7 @@
         "destinationId" : "16",
         "id" : "77",
         "properties" : {
-          "structurizr.dsl.identifier" : "6e1de887-f9d4-4ed3-be85-23e87a488def"
+          "structurizr.dsl.identifier" : "8308eda7-626e-4aa6-a7bf-b83f34119f7c"
         },
         "sourceId" : "29",
         "tags" : "Relationship,Software System"
@@ -775,7 +774,7 @@
         "destinationId" : "16",
         "id" : "78",
         "properties" : {
-          "structurizr.dsl.identifier" : "0c626e56-c66b-4fc7-9474-7eea38996de2"
+          "structurizr.dsl.identifier" : "71309e97-1dc1-4936-a599-240f19395c23"
         },
         "sourceId" : "30",
         "tags" : "Relationship,Software System"
@@ -795,7 +794,7 @@
         "destinationId" : "17",
         "id" : "79",
         "properties" : {
-          "structurizr.dsl.identifier" : "993c94b4-d5d0-43fe-b63c-a914f0ae1545"
+          "structurizr.dsl.identifier" : "52e3fd96-d596-454f-abf5-c6f537e4102b"
         },
         "sourceId" : "31",
         "tags" : "Relationship,Software System"
@@ -815,7 +814,7 @@
         "destinationId" : "17",
         "id" : "80",
         "properties" : {
-          "structurizr.dsl.identifier" : "b9e33b38-1fce-4288-82d0-9d895f38b79c"
+          "structurizr.dsl.identifier" : "33636234-a1db-4482-a26e-6ce9f5713c25"
         },
         "sourceId" : "32",
         "tags" : "Relationship,Software System"
@@ -835,7 +834,7 @@
         "destinationId" : "17",
         "id" : "81",
         "properties" : {
-          "structurizr.dsl.identifier" : "2ec80a2b-0c5a-42f0-b097-150a86c737fe"
+          "structurizr.dsl.identifier" : "5507dfe4-b300-48eb-aba3-7d783264cfe3"
         },
         "sourceId" : "33",
         "tags" : "Relationship,Software System"
@@ -921,7 +920,6 @@
     "configuration" : {
       "branding" : { },
       "lastSavedView" : "Erponomics",
-      "metadataSymbols" : "SquareBrackets",
       "styles" : {
         "elements" : [ {
           "background" : "#08427b",
@@ -1070,7 +1068,7 @@
       "softwareSystemId" : "16"
     }, {
       "automaticLayout" : {
-        "applied" : true,
+        "applied" : false,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -1079,10 +1077,6 @@
         "vertices" : false
       },
       "description" : "The container diagram for Erponomics App Connectivity.",
-      "dimensions" : {
-        "height" : 400,
-        "width" : 871
-      },
       "externalSoftwareSystemBoundariesVisible" : false,
       "key" : "con-eac",
       "order" : 10,
@@ -1174,7 +1168,7 @@
       "softwareSystemId" : "1"
     }, {
       "automaticLayout" : {
-        "applied" : true,
+        "applied" : false,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -1183,52 +1177,44 @@
         "vertices" : false
       },
       "description" : "The system context diagram for Erponomics ERP Connectivity.",
-      "dimensions" : {
-        "height" : 3100,
-        "width" : 3100
-      },
       "elements" : [ {
         "id" : "1",
-        "x" : 683,
-        "y" : 1999
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "16",
-        "x" : 1324,
-        "y" : 799
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "18",
-        "x" : 1324,
-        "y" : 1399
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "19",
-        "x" : 1362,
-        "y" : 2599
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "27",
-        "x" : 199,
-        "y" : 199
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "28",
-        "x" : 949,
-        "y" : 199
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "29",
-        "x" : 1699,
-        "y" : 199
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "30",
-        "x" : 2449,
-        "y" : 199
+        "x" : 0,
+        "y" : 0
       } ],
       "enterpriseBoundaryVisible" : true,
       "key" : "sc-eec",
       "order" : 7,
       "relationships" : [ {
-        "id" : "38",
-        "vertices" : [ {
-          "x" : 1174,
-          "y" : 1399
-        } ]
+        "id" : "38"
       }, {
         "id" : "40"
       }, {
@@ -1236,17 +1222,7 @@
       }, {
         "id" : "43"
       }, {
-        "id" : "44",
-        "vertices" : [ {
-          "x" : 1924,
-          "y" : 1399
-        }, {
-          "x" : 1924,
-          "y" : 1699
-        }, {
-          "x" : 1795,
-          "y" : 2299
-        } ]
+        "id" : "44"
       }, {
         "id" : "46"
       }, {
@@ -1261,7 +1237,7 @@
       "softwareSystemId" : "16"
     }, {
       "automaticLayout" : {
-        "applied" : true,
+        "applied" : false,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -1270,48 +1246,40 @@
         "vertices" : false
       },
       "description" : "The system context diagram for Erponomics App Connectivity.",
-      "dimensions" : {
-        "height" : 3100,
-        "width" : 2350
-      },
       "elements" : [ {
         "id" : "1",
-        "x" : 309,
-        "y" : 1999
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "17",
-        "x" : 950,
-        "y" : 799
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "18",
-        "x" : 950,
-        "y" : 1399
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "19",
-        "x" : 988,
-        "y" : 2599
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "31",
-        "x" : 200,
-        "y" : 199
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "32",
-        "x" : 950,
-        "y" : 199
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "33",
-        "x" : 1700,
-        "y" : 199
+        "x" : 0,
+        "y" : 0
       } ],
       "enterpriseBoundaryVisible" : true,
       "key" : "sc-eac",
       "order" : 9,
       "relationships" : [ {
-        "id" : "39",
-        "vertices" : [ {
-          "x" : 800,
-          "y" : 1399
-        } ]
+        "id" : "39"
       }, {
         "id" : "40"
       }, {
@@ -1319,17 +1287,7 @@
       }, {
         "id" : "43"
       }, {
-        "id" : "45",
-        "vertices" : [ {
-          "x" : 1550,
-          "y" : 1399
-        }, {
-          "x" : 1550,
-          "y" : 1699
-        }, {
-          "x" : 1421,
-          "y" : 2299
-        } ]
+        "id" : "45"
       }, {
         "id" : "46"
       }, {
@@ -1342,7 +1300,7 @@
       "softwareSystemId" : "17"
     }, {
       "automaticLayout" : {
-        "applied" : true,
+        "applied" : false,
         "edgeSeparation" : 0,
         "implementation" : "Graphviz",
         "nodeSeparation" : 300,
@@ -1351,46 +1309,42 @@
         "vertices" : false
       },
       "description" : "The system context diagram for Erponomics Management.",
-      "dimensions" : {
-        "height" : 2600,
-        "width" : 4400
-      },
       "elements" : [ {
         "id" : "1",
-        "x" : 2278,
-        "y" : 1499
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "16",
-        "x" : 199,
-        "y" : 249
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "17",
-        "x" : 3749,
-        "y" : 249
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "18",
-        "x" : 1974,
-        "y" : 899
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "19",
-        "x" : 1937,
-        "y" : 2099
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "20",
-        "x" : 3049,
-        "y" : 199
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "21",
-        "x" : 949,
-        "y" : 199
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "22",
-        "x" : 1649,
-        "y" : 199
+        "x" : 0,
+        "y" : 0
       }, {
         "id" : "23",
-        "x" : 2349,
-        "y" : 199
+        "x" : 0,
+        "y" : 0
       } ],
       "enterpriseBoundaryVisible" : true,
       "key" : "sc-emn",
@@ -1402,39 +1356,17 @@
       }, {
         "id" : "40"
       }, {
-        "id" : "41",
-        "vertices" : [ {
-          "x" : 799,
-          "y" : 599
-        } ]
+        "id" : "41"
       }, {
-        "id" : "42",
-        "vertices" : [ {
-          "x" : 3599,
-          "y" : 599
-        } ]
+        "id" : "42"
       }, {
         "id" : "43"
       }, {
         "id" : "44"
       }, {
-        "id" : "45",
-        "vertices" : [ {
-          "x" : 3445,
-          "y" : 1199
-        }, {
-          "x" : 2878,
-          "y" : 1799
-        } ]
+        "id" : "45"
       }, {
-        "id" : "46",
-        "vertices" : [ {
-          "x" : 2128,
-          "y" : 1499
-        }, {
-          "x" : 2128,
-          "y" : 1799
-        } ]
+        "id" : "46"
       }, {
         "id" : "59"
       }, {
