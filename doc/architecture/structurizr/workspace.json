@@ -1,0 +1,1667 @@
+{
+  "configuration" : { },
+  "description" : "Ergonomic ERP agnostic platform",
+  "documentation" : { },
+  "id" : 1,
+  "lastModifiedAgent" : "structurizr-ui",
+  "lastModifiedDate" : "2024-10-09T14:56:23Z",
+  "model" : {
+    "people" : [ {
+      "description" : "Manages Domain.",
+      "id" : "20",
+      "location" : "Unspecified",
+      "name" : "Domain Manager",
+      "properties" : {
+        "structurizr.dsl.identifier" : "dom-man"
+      },
+      "relationships" : [ {
+        "description" : "Sets up Domain",
+        "destinationId" : "18",
+        "id" : "59",
+        "properties" : {
+          "structurizr.dsl.identifier" : "a5d5b3d1-50db-421d-834f-d642637113c4"
+        },
+        "sourceId" : "20",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Person,Manager"
+    }, {
+      "description" : "Manages ERP Connector.",
+      "id" : "21",
+      "location" : "Unspecified",
+      "name" : "ERP Manager",
+      "properties" : {
+        "structurizr.dsl.identifier" : "erp-man"
+      },
+      "relationships" : [ {
+        "description" : "Sets up Connectivity for ERP Connector",
+        "destinationId" : "18",
+        "id" : "60",
+        "properties" : {
+          "structurizr.dsl.identifier" : "37d5c7ab-7cc4-4362-915e-da5e40d424dc"
+        },
+        "sourceId" : "21",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Person,Manager"
+    }, {
+      "description" : "Manages Organization.",
+      "id" : "22",
+      "location" : "Unspecified",
+      "name" : "Organization Manager",
+      "properties" : {
+        "structurizr.dsl.identifier" : "org-man"
+      },
+      "relationships" : [ {
+        "description" : "Sets up Organization",
+        "destinationId" : "18",
+        "id" : "61",
+        "properties" : {
+          "structurizr.dsl.identifier" : "c1a89ca5-ba5b-4944-b44e-4f805775aa66"
+        },
+        "sourceId" : "22",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Person,Manager"
+    }, {
+      "description" : "Manages App Connector",
+      "id" : "23",
+      "location" : "Unspecified",
+      "name" : "Application Manager",
+      "properties" : {
+        "structurizr.dsl.identifier" : "app-man"
+      },
+      "relationships" : [ {
+        "description" : "Sets up Connectivity for App Connector",
+        "destinationId" : "18",
+        "id" : "62",
+        "properties" : {
+          "structurizr.dsl.identifier" : "86ce805f-13a8-4487-b699-6f54b653b6fb"
+        },
+        "sourceId" : "23",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Person,Manager"
+    }, {
+      "description" : "Needs to optimize the execution of Production Orders.",
+      "id" : "24",
+      "location" : "Unspecified",
+      "name" : "Schedule User",
+      "properties" : {
+        "structurizr.dsl.identifier" : "schd-user"
+      },
+      "relationships" : [ {
+        "description" : "Schedules Production Orders",
+        "destinationId" : "31",
+        "id" : "63",
+        "properties" : {
+          "structurizr.dsl.identifier" : "dbb18833-b3ae-4235-a5f2-01452badfc89"
+        },
+        "sourceId" : "24",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Person,External,App User"
+    }, {
+      "description" : "Needs to track the status of Production Orders.",
+      "id" : "25",
+      "location" : "Unspecified",
+      "name" : "Produce User",
+      "properties" : {
+        "structurizr.dsl.identifier" : "prod-user"
+      },
+      "relationships" : [ {
+        "description" : "Tracks Production Orders",
+        "destinationId" : "32",
+        "id" : "64",
+        "properties" : {
+          "structurizr.dsl.identifier" : "9ff110fe-3f18-492a-b18a-64ecf140b63d"
+        },
+        "sourceId" : "25",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Person,External,App User"
+    }, {
+      "description" : "Needs to inspect the quality of materials and products of Production Orders.",
+      "id" : "26",
+      "location" : "Unspecified",
+      "name" : "Inspect User",
+      "properties" : {
+        "structurizr.dsl.identifier" : "insp-user"
+      },
+      "relationships" : [ {
+        "description" : "Inspects Production Orders",
+        "destinationId" : "33",
+        "id" : "65",
+        "properties" : {
+          "structurizr.dsl.identifier" : "cbe14731-2408-4e22-ad5c-cf9912092a02"
+        },
+        "sourceId" : "26",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Person,External,App User"
+    }, {
+      "description" : "Reads and Updates Data in SBO.",
+      "id" : "34",
+      "location" : "Unspecified",
+      "name" : "SBO User",
+      "properties" : {
+        "structurizr.dsl.identifier" : "sbo-user"
+      },
+      "relationships" : [ {
+        "description" : "Creates Production Order and Tracks its Process",
+        "destinationId" : "27",
+        "id" : "82",
+        "properties" : {
+          "structurizr.dsl.identifier" : "f06bed3b-73f9-4e65-b59e-82746f3d212f"
+        },
+        "sourceId" : "34",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Person,External,ERP User"
+    }, {
+      "description" : "Reads and Updates Data in MSBC.",
+      "id" : "35",
+      "location" : "Unspecified",
+      "name" : "MSBC User",
+      "properties" : {
+        "structurizr.dsl.identifier" : "msbc-user"
+      },
+      "relationships" : [ {
+        "description" : "Creates Production Order and Tracks its Process",
+        "destinationId" : "28",
+        "id" : "83",
+        "properties" : {
+          "structurizr.dsl.identifier" : "6b993c3f-2de6-41fa-81e5-e615b3883300"
+        },
+        "sourceId" : "35",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Person,External,ERP User"
+    }, {
+      "description" : "Reads and Updates Data in APS.",
+      "id" : "36",
+      "location" : "Unspecified",
+      "name" : "APS User",
+      "properties" : {
+        "structurizr.dsl.identifier" : "aps-user"
+      },
+      "relationships" : [ {
+        "description" : "Creates Production Order and Tracks its Process",
+        "destinationId" : "29",
+        "id" : "84",
+        "properties" : {
+          "structurizr.dsl.identifier" : "79563feb-7af7-43e9-90c9-29e1041465f6"
+        },
+        "sourceId" : "36",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Person,External,ERP User"
+    }, {
+      "description" : "Reads and Updates Data in Odoo.",
+      "id" : "37",
+      "location" : "Unspecified",
+      "name" : "Odoo User",
+      "properties" : {
+        "structurizr.dsl.identifier" : "odoo-user"
+      },
+      "relationships" : [ {
+        "description" : "Creates Production Order and Tracks its Process",
+        "destinationId" : "30",
+        "id" : "85",
+        "properties" : {
+          "structurizr.dsl.identifier" : "746efe1e-579b-4e99-ab37-386573e87272"
+        },
+        "sourceId" : "37",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Person,External,ERP User"
+    } ],
+    "softwareSystems" : [ {
+      "containers" : [ {
+        "components" : [ {
+          "description" : "REST API for interacting with Erponomics Manufacturing.",
+          "documentation" : { },
+          "id" : "3",
+          "name" : "Erponomics Manufacturing REST Web API",
+          "properties" : {
+            "structurizr.dsl.identifier" : "emf-rest"
+          },
+          "tags" : "Element,Component,Web API",
+          "technology" : "Rust + Axum"
+        }, {
+          "description" : "GraphQL API for interacting with Erponomics Manufacturing.",
+          "documentation" : { },
+          "id" : "4",
+          "name" : "Erponomics Manufacturing GraphQL Web API",
+          "properties" : {
+            "structurizr.dsl.identifier" : "emf-graphql"
+          },
+          "tags" : "Element,Component,Web API",
+          "technology" : "Rust + GraphQL"
+        } ],
+        "description" : "Web API for interacting with Erponomics Manufacturing.",
+        "documentation" : { },
+        "id" : "2",
+        "name" : "Erponomics Manufacturing Web API",
+        "properties" : {
+          "structurizr.dsl.identifier" : "emf-api"
+        },
+        "relationships" : [ {
+          "description" : "Queries Data",
+          "destinationId" : "6",
+          "id" : "48",
+          "properties" : {
+            "structurizr.dsl.identifier" : "e83f1fa6-4646-4323-b94e-dca717aac466"
+          },
+          "sourceId" : "2",
+          "tags" : "Relationship,Container"
+        }, {
+          "description" : "Sends Commands",
+          "destinationId" : "12",
+          "id" : "49",
+          "properties" : {
+            "structurizr.dsl.identifier" : "f27259a2-0d7b-4e25-bde2-49c14dcfb834"
+          },
+          "sourceId" : "2",
+          "tags" : "Relationship,Container"
+        } ],
+        "tags" : "Element,Container,Web API"
+      }, {
+        "description" : "Stores Production Orders, Items, Resources, Operation Plans, etc.",
+        "documentation" : { },
+        "group" : "db",
+        "id" : "5",
+        "name" : "Erponomics Manufacturing DB",
+        "properties" : {
+          "structurizr.dsl.identifier" : "emf-db"
+        },
+        "tags" : "Element,Container,Database",
+        "technology" : "PostgreSQL"
+      }, {
+        "description" : "Web API for accessing Erponomics Manufacturing DB.",
+        "documentation" : { },
+        "group" : "db",
+        "id" : "6",
+        "name" : "Erponomics Manufacturing DB API",
+        "properties" : {
+          "structurizr.dsl.identifier" : "emf-db-api"
+        },
+        "relationships" : [ {
+          "description" : "Sends SQL Queries/Statements",
+          "destinationId" : "5",
+          "id" : "50",
+          "properties" : {
+            "structurizr.dsl.identifier" : "aaca970b-9c45-4af8-9ed4-7cebf7dc96d9"
+          },
+          "sourceId" : "6",
+          "tags" : "Relationship,Container"
+        } ],
+        "tags" : "Element,Container,Web API",
+        "technology" : "Rust + Axum + sqlx"
+      }, {
+        "description" : "Admin Website for interacting with Erponomics Manufacturing.",
+        "documentation" : { },
+        "group" : "Admin",
+        "id" : "7",
+        "name" : "Erponomics Manufacturing Admin Website",
+        "properties" : {
+          "structurizr.dsl.identifier" : "emf-admin-browser"
+        },
+        "relationships" : [ {
+          "description" : "CRUD operations",
+          "destinationId" : "8",
+          "id" : "51",
+          "properties" : {
+            "structurizr.dsl.identifier" : "d1973990-d153-45b7-8b37-2060084b482b"
+          },
+          "sourceId" : "7",
+          "tags" : "Relationship,Container"
+        } ],
+        "tags" : "Element,Container,Website",
+        "technology" : "htmx"
+      }, {
+        "components" : [ {
+          "description" : "Admin Web API for interacting with Erponomics Manufacturing.",
+          "documentation" : { },
+          "id" : "9",
+          "name" : "Erponomics Manufacturing Admin Web API",
+          "properties" : {
+            "structurizr.dsl.identifier" : "emf-admin-api"
+          },
+          "relationships" : [ {
+            "description" : "CRUD operations",
+            "destinationId" : "5",
+            "id" : "74",
+            "properties" : {
+              "structurizr.dsl.identifier" : "6f9b5ac6-7f63-42cd-a635-df268c24572a"
+            },
+            "sourceId" : "9",
+            "tags" : "Relationship,Component"
+          } ],
+          "tags" : "Element,Component,Web API",
+          "technology" : "Rust + Axum"
+        }, {
+          "description" : "Admin CLI for interacting with Erponomics Manufacturing.",
+          "documentation" : { },
+          "id" : "10",
+          "name" : "Erponomics Manufacturing Admin CLI",
+          "properties" : {
+            "structurizr.dsl.identifier" : "emf-admin-cli"
+          },
+          "relationships" : [ {
+            "description" : "CRUD operations",
+            "destinationId" : "5",
+            "id" : "72",
+            "properties" : {
+              "structurizr.dsl.identifier" : "4806be37-5aee-4b83-8458-bdfaa39d8a39"
+            },
+            "sourceId" : "10",
+            "tags" : "Relationship,Component"
+          } ],
+          "tags" : "Element,Component,CLI",
+          "technology" : "Rust"
+        } ],
+        "description" : "Admin Web Application for interacting with Erponomics Manufacturing.",
+        "documentation" : { },
+        "group" : "Admin",
+        "id" : "8",
+        "name" : "Erponomics Manufacturing Admin Web Application",
+        "properties" : {
+          "structurizr.dsl.identifier" : "emf-admin-web"
+        },
+        "relationships" : [ {
+          "description" : "CRUD operations",
+          "destinationId" : "6",
+          "id" : "52",
+          "properties" : {
+            "structurizr.dsl.identifier" : "86423bb3-4fee-4a6d-bdcd-245155a8d567"
+          },
+          "sourceId" : "8",
+          "tags" : "Relationship,Container"
+        }, {
+          "description" : "CRUD operations",
+          "destinationId" : "5",
+          "id" : "73",
+          "linkedRelationshipId" : "72",
+          "sourceId" : "8"
+        } ],
+        "tags" : "Element,Container,Web App",
+        "technology" : "Rust + Axum"
+      }, {
+        "description" : "Manages Synchronization of Data for Erponomics Manufacturing.",
+        "documentation" : { },
+        "group" : "Sync",
+        "id" : "11",
+        "name" : "Erponomics Manufacturing Sync Application",
+        "properties" : {
+          "structurizr.dsl.identifier" : "emf-sync"
+        },
+        "relationships" : [ {
+          "description" : "Reads Request/Result",
+          "destinationId" : "13",
+          "id" : "55",
+          "properties" : {
+            "structurizr.dsl.identifier" : "82d7e569-fee5-40ed-9a47-632cc7e90c2a"
+          },
+          "sourceId" : "11",
+          "tags" : "Relationship,Container"
+        }, {
+          "description" : "Stores Data after Sync",
+          "destinationId" : "6",
+          "id" : "56",
+          "properties" : {
+            "structurizr.dsl.identifier" : "bae5399e-2800-4844-9b21-fd27a5411722"
+          },
+          "sourceId" : "11",
+          "tags" : "Relationship,Container"
+        }, {
+          "description" : "Publishes Sync Request",
+          "destinationId" : "14",
+          "id" : "57",
+          "properties" : {
+            "structurizr.dsl.identifier" : "69e885a6-9aae-4f73-9ee6-4ee615f1f9e9"
+          },
+          "sourceId" : "11",
+          "tags" : "Relationship,Container"
+        }, {
+          "description" : "Publishes Sync Result",
+          "destinationId" : "15",
+          "id" : "58",
+          "properties" : {
+            "structurizr.dsl.identifier" : "516495a7-29c3-41ac-b621-6e56774260ca"
+          },
+          "sourceId" : "11",
+          "tags" : "Relationship,Container"
+        } ],
+        "tags" : "Element,Container,Message Queue",
+        "technology" : "Rust"
+      }, {
+        "description" : "Manages Requests for Synchronization of Data for Erponomics Manufacturing.",
+        "documentation" : { },
+        "group" : "Sync",
+        "id" : "12",
+        "name" : "Erponomics Manufacturing Sync API",
+        "properties" : {
+          "structurizr.dsl.identifier" : "emf-sync-api"
+        },
+        "relationships" : [ {
+          "description" : "Stores Request/Result",
+          "destinationId" : "13",
+          "id" : "53",
+          "properties" : {
+            "structurizr.dsl.identifier" : "4afce17e-497c-457b-bd6f-e156427d769f"
+          },
+          "sourceId" : "12",
+          "tags" : "Relationship,Container"
+        }, {
+          "description" : "Initiates/Ends Sync",
+          "destinationId" : "11",
+          "id" : "54",
+          "properties" : {
+            "structurizr.dsl.identifier" : "5b5fed90-692c-4633-9bf5-18a863e3e057"
+          },
+          "sourceId" : "12",
+          "tags" : "Relationship,Container",
+          "technology" : "via Sync Queue"
+        } ],
+        "tags" : "Element,Container,Web API",
+        "technology" : "Rust + Axum"
+      }, {
+        "description" : "Stores Pending and Ongoing Synchronizations.",
+        "documentation" : { },
+        "group" : "Sync",
+        "id" : "13",
+        "name" : "Erponomics Manufacturing Sync DB",
+        "properties" : {
+          "structurizr.dsl.identifier" : "emf-sync-db"
+        },
+        "tags" : "Element,Container,Database",
+        "technology" : "PostgreSQL"
+      }, {
+        "description" : "Stores Sync Requests.",
+        "documentation" : { },
+        "group" : "Sync",
+        "id" : "14",
+        "name" : "Erponomics Manufacturing Sync Request Queue",
+        "properties" : {
+          "structurizr.dsl.identifier" : "emf-sync-queue-req"
+        },
+        "tags" : "Element,Container,Queue",
+        "technology" : "RabbitMQ"
+      }, {
+        "description" : "Stores Sync Results.",
+        "documentation" : { },
+        "group" : "Sync",
+        "id" : "15",
+        "name" : "Erponomics Manufacturing Sync Result Queue",
+        "properties" : {
+          "structurizr.dsl.identifier" : "emf-sync-queue-res"
+        },
+        "tags" : "Element,Container,Queue",
+        "technology" : "RabbitMQ"
+      } ],
+      "description" : "Manages Data and Domain Requirements.",
+      "documentation" : { },
+      "id" : "1",
+      "location" : "Unspecified",
+      "name" : "Erponomics Manufacturing",
+      "properties" : {
+        "structurizr.dsl.identifier" : "emf"
+      },
+      "relationships" : [ {
+        "description" : "Verifies Identity of System",
+        "destinationId" : "19",
+        "id" : "43",
+        "properties" : {
+          "structurizr.dsl.identifier" : "2c35b789-754f-4c3f-8b96-f09f4513084b"
+        },
+        "sourceId" : "1",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Software System,Core Domain"
+    }, {
+      "description" : "Manages Connectivity with ERP Connectors.",
+      "documentation" : { },
+      "id" : "16",
+      "location" : "Unspecified",
+      "name" : "Erponomics ERP Connectivity",
+      "properties" : {
+        "structurizr.dsl.identifier" : "eec"
+      },
+      "relationships" : [ {
+        "description" : "Provides Data from Connector",
+        "destinationId" : "1",
+        "id" : "38",
+        "properties" : {
+          "structurizr.dsl.identifier" : "b1c67f8a-4f16-46f7-bcbc-072ed202e8ae"
+        },
+        "sourceId" : "16",
+        "tags" : "Relationship,Software System"
+      }, {
+        "description" : "Gets ERP Connectivity for Connector",
+        "destinationId" : "18",
+        "id" : "41",
+        "properties" : {
+          "structurizr.dsl.identifier" : "800165d1-f56f-4a79-ad32-9dad4ed3f77d"
+        },
+        "sourceId" : "16",
+        "tags" : "Relationship,Software System"
+      }, {
+        "description" : "Verifies Identity of System/Connector",
+        "destinationId" : "19",
+        "id" : "44",
+        "properties" : {
+          "structurizr.dsl.identifier" : "f0cc5161-aa36-4345-97fa-02967c70549f"
+        },
+        "sourceId" : "16",
+        "tags" : "Relationship,Software System"
+      }, {
+        "description" : "Subscribes to Sync Requests",
+        "destinationId" : "14",
+        "id" : "66",
+        "properties" : {
+          "structurizr.dsl.identifier" : "b4c0917e-6185-4cea-8edb-3effe73b93b1"
+        },
+        "sourceId" : "16",
+        "tags" : "Relationship,Container"
+      }, {
+        "description" : "Sends Sync Request/Sync Result",
+        "destinationId" : "2",
+        "id" : "67",
+        "properties" : {
+          "structurizr.dsl.identifier" : "6ff264c1-bd27-4b89-b41b-82852ff92c3d"
+        },
+        "sourceId" : "16",
+        "tags" : "Relationship,Container"
+      } ],
+      "tags" : "Element,Software System,Integration System"
+    }, {
+      "description" : "Manages Connectivity with App Connectors.",
+      "documentation" : { },
+      "id" : "17",
+      "location" : "Unspecified",
+      "name" : "Erponomics App Connectivity",
+      "properties" : {
+        "structurizr.dsl.identifier" : "eac"
+      },
+      "relationships" : [ {
+        "description" : "Sends Queries and Commands",
+        "destinationId" : "1",
+        "id" : "39",
+        "properties" : {
+          "structurizr.dsl.identifier" : "38f6f664-f4c0-4bc5-ba41-e2e69c251663"
+        },
+        "sourceId" : "17",
+        "tags" : "Relationship,Software System",
+        "technology" : "GraphQL/HTTPS"
+      }, {
+        "description" : "Verifies App Connectivity to Erponomics",
+        "destinationId" : "18",
+        "id" : "42",
+        "properties" : {
+          "structurizr.dsl.identifier" : "e0942acb-36a5-43a6-b86f-51e43debe309"
+        },
+        "sourceId" : "17",
+        "tags" : "Relationship,Software System"
+      }, {
+        "description" : "Verifies Identity of System/Connector/User",
+        "destinationId" : "19",
+        "id" : "45",
+        "properties" : {
+          "structurizr.dsl.identifier" : "1463aba9-8386-424a-be1b-71f9680619d1"
+        },
+        "sourceId" : "17",
+        "tags" : "Relationship,Software System"
+      }, {
+        "description" : "Sends Queries and Commands",
+        "destinationId" : "2",
+        "id" : "47",
+        "properties" : {
+          "structurizr.dsl.identifier" : "14cb0393-db8e-4307-b39a-7b0b25faf9e0"
+        },
+        "sourceId" : "17",
+        "tags" : "Relationship,Container",
+        "technology" : "GraphQL/HTTPS"
+      }, {
+        "description" : "Subscribes to Sync Results",
+        "destinationId" : "15",
+        "id" : "68",
+        "properties" : {
+          "structurizr.dsl.identifier" : "77b88279-e832-49f8-9917-e284bf3e3b72"
+        },
+        "sourceId" : "17",
+        "tags" : "Relationship,Container"
+      }, {
+        "description" : "Sends Queries and Commands",
+        "destinationId" : "4",
+        "id" : "70",
+        "properties" : {
+          "structurizr.dsl.identifier" : "e4d6ebb5-91ef-489c-accf-faf02b902b90"
+        },
+        "sourceId" : "17",
+        "tags" : "Relationship,Component",
+        "technology" : "GraphQL/HTTPS"
+      }, {
+        "description" : "Sends Queries and Commands",
+        "destinationId" : "3",
+        "id" : "71",
+        "properties" : {
+          "structurizr.dsl.identifier" : "f19a7fa0-0db1-4ad9-a2bc-feb9387d8827"
+        },
+        "sourceId" : "17",
+        "tags" : "Relationship,Component",
+        "technology" : "JSON/HTTPS"
+      } ],
+      "tags" : "Element,Software System,Integration System"
+    }, {
+      "description" : "Manages ERP/User/App settings, licenses, permissions, features, templates, etc.",
+      "documentation" : { },
+      "id" : "18",
+      "location" : "Unspecified",
+      "name" : "Erponomics Management",
+      "properties" : {
+        "structurizr.dsl.identifier" : "emn"
+      },
+      "relationships" : [ {
+        "description" : "Gets API Metadata",
+        "destinationId" : "1",
+        "id" : "40",
+        "properties" : {
+          "structurizr.dsl.identifier" : "de88330b-e089-412d-9e11-640e2b994452"
+        },
+        "sourceId" : "18",
+        "tags" : "Relationship,Software System"
+      }, {
+        "description" : "Verifies Identity of System/User",
+        "destinationId" : "19",
+        "id" : "46",
+        "properties" : {
+          "structurizr.dsl.identifier" : "45693153-3cef-4ca9-940b-903a4b0631b0"
+        },
+        "sourceId" : "18",
+        "tags" : "Relationship,Software System"
+      }, {
+        "description" : "Gets API Metadata",
+        "destinationId" : "2",
+        "id" : "69",
+        "properties" : {
+          "structurizr.dsl.identifier" : "a97ce84c-59c1-4e0d-b6f4-93bbb1abfa29"
+        },
+        "sourceId" : "18",
+        "tags" : "Relationship,Container"
+      } ],
+      "tags" : "Element,Software System,Integration System"
+    }, {
+      "description" : "Manages Authentication/Authorization across Systems.",
+      "documentation" : { },
+      "id" : "19",
+      "location" : "Unspecified",
+      "name" : "Erponomics Identity Provisioning",
+      "properties" : {
+        "structurizr.dsl.identifier" : "eip"
+      },
+      "tags" : "Element,Software System,Integration System"
+    }, {
+      "description" : "Implements Erponomics ERP API for SAP Business One.",
+      "documentation" : { },
+      "id" : "27",
+      "location" : "Unspecified",
+      "name" : "SBO Connector",
+      "properties" : {
+        "structurizr.dsl.identifier" : "sbo"
+      },
+      "relationships" : [ {
+        "description" : "Synchronizes Production Orders from SBO",
+        "destinationId" : "16",
+        "id" : "75",
+        "properties" : {
+          "structurizr.dsl.identifier" : "9d3abf7c-f179-4bc1-b746-24871da2ebed"
+        },
+        "sourceId" : "27",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Software System,External,ERP Connector"
+    }, {
+      "description" : "Implements Erponomics ERP API for Microsoft Business Central.",
+      "documentation" : { },
+      "id" : "28",
+      "location" : "Unspecified",
+      "name" : "MSBC Connector",
+      "properties" : {
+        "structurizr.dsl.identifier" : "msbc"
+      },
+      "relationships" : [ {
+        "description" : "Synchronizes Production Orders from MSBC",
+        "destinationId" : "16",
+        "id" : "76",
+        "properties" : {
+          "structurizr.dsl.identifier" : "47abad02-596e-44f2-8925-35169e6f3332"
+        },
+        "sourceId" : "28",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Software System,External,ERP Connector"
+    }, {
+      "description" : "Implements Erponomics ERP API for Azalhu Production Services.",
+      "documentation" : { },
+      "id" : "29",
+      "location" : "Unspecified",
+      "name" : "APS Connector",
+      "properties" : {
+        "structurizr.dsl.identifier" : "aps"
+      },
+      "relationships" : [ {
+        "description" : "Synchronizes Production Orders from APS",
+        "destinationId" : "16",
+        "id" : "77",
+        "properties" : {
+          "structurizr.dsl.identifier" : "6e1de887-f9d4-4ed3-be85-23e87a488def"
+        },
+        "sourceId" : "29",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Software System,External,ERP Connector"
+    }, {
+      "description" : "Implements Erponomics ERP API for Odoo.",
+      "documentation" : { },
+      "id" : "30",
+      "location" : "Unspecified",
+      "name" : "Odoo Connector",
+      "properties" : {
+        "structurizr.dsl.identifier" : "odoo"
+      },
+      "relationships" : [ {
+        "description" : "Synchronizes Production Orders from Odoo",
+        "destinationId" : "16",
+        "id" : "78",
+        "properties" : {
+          "structurizr.dsl.identifier" : "0c626e56-c66b-4fc7-9474-7eea38996de2"
+        },
+        "sourceId" : "30",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Software System,External,ERP Connector"
+    }, {
+      "description" : "Implements Erponomics App API for Schedule.",
+      "documentation" : { },
+      "id" : "31",
+      "location" : "Unspecified",
+      "name" : "Schedule Connector",
+      "properties" : {
+        "structurizr.dsl.identifier" : "schd"
+      },
+      "relationships" : [ {
+        "description" : "Gets Production Orders and Publishes Schedules",
+        "destinationId" : "17",
+        "id" : "79",
+        "properties" : {
+          "structurizr.dsl.identifier" : "993c94b4-d5d0-43fe-b63c-a914f0ae1545"
+        },
+        "sourceId" : "31",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Software System,External,App Connector"
+    }, {
+      "description" : "Implements Erponomics App API for Produce.",
+      "documentation" : { },
+      "id" : "32",
+      "location" : "Unspecified",
+      "name" : "Produce Connector",
+      "properties" : {
+        "structurizr.dsl.identifier" : "prod"
+      },
+      "relationships" : [ {
+        "description" : "Gets Production Orders and Publishes Progress",
+        "destinationId" : "17",
+        "id" : "80",
+        "properties" : {
+          "structurizr.dsl.identifier" : "b9e33b38-1fce-4288-82d0-9d895f38b79c"
+        },
+        "sourceId" : "32",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Software System,External,App Connector"
+    }, {
+      "description" : "Implements Erponomics App API for Inspect.",
+      "documentation" : { },
+      "id" : "33",
+      "location" : "Unspecified",
+      "name" : "Inspect Connector",
+      "properties" : {
+        "structurizr.dsl.identifier" : "insp"
+      },
+      "relationships" : [ {
+        "description" : "Gets Production Orders and Components and Publishes Inspection Results",
+        "destinationId" : "17",
+        "id" : "81",
+        "properties" : {
+          "structurizr.dsl.identifier" : "2ec80a2b-0c5a-42f0-b097-150a86c737fe"
+        },
+        "sourceId" : "33",
+        "tags" : "Relationship,Software System"
+      } ],
+      "tags" : "Element,Software System,External,App Connector"
+    } ]
+  },
+  "name" : "Erponomics",
+  "properties" : {
+    "structurizr.dsl" : "IWNvbnN0IE9SR0FOSVpBVElPTl9OQU1FICJFcnBvbm9taWNzIgohY29uc3QgTUFOVUZBQ1RVUklOR19OQU1FICIke09SR0FOSVpBVElPTl9OQU1FfSBNYW51ZmFjdHVyaW5nIgohY29uc3QgRVJQX0NPTk5FQ1RJVklUWV9OQU1FICIke09SR0FOSVpBVElPTl9OQU1FfSBFUlAgQ29ubmVjdGl2aXR5IgoKIWNvbnN0IFNPRlRXQVJFX1NZU1RFTV9UQUcgIlNvZnR3YXJlIFN5c3RlbSIKIWNvbnN0IENPTlRBSU5FUl9UQUcgIkNvbnRhaW5lciIKIWNvbnN0IENPTVBPTkVOVF9UQUcgIkNvbXBvbmVudCIKCiFjb25zdCBFWFRFUk5BTF9UQUcgIkV4dGVybmFsIgohY29uc3QgV0VCX0FQUF9UQUcgIldlYiBBcHAiCiFjb25zdCBXRUJfQVBJX1RBRyAiV2ViIEFQSSIKIWNvbnN0IFdFQlNJVEVfVEFHICJXZWJzaXRlIgohY29uc3QgREFUQUJBU0VfVEFHICJEYXRhYmFzZSIKIWNvbnN0IFFVRVVFX1RBRyAiUXVldWUiCiFjb25zdCBDTElfVEFHICJDTEkiCgp3b3Jrc3BhY2UgewogICAgbmFtZSAiJHtPUkdBTklaQVRJT05fTkFNRX0iCiAgICBkZXNjcmlwdGlvbiAiRXJnb25vbWljIEVSUCBhZ25vc3RpYyBwbGF0Zm9ybSIKCiAgICBtb2RlbCB7CiAgICAgICAgZW1mID0gc29mdHdhcmVTeXN0ZW0gIiR7TUFOVUZBQ1RVUklOR19OQU1FfSIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiTWFuYWdlcyBEYXRhIGFuZCBEb21haW4gUmVxdWlyZW1lbnRzLiIKICAgICAgICAgICAgdGFncyAiQ29yZSBEb21haW4iCiAgICAgICAgICAgIGVtZi1hcGkgPSBjb250YWluZXIgIiR7TUFOVUZBQ1RVUklOR19OQU1FfSBXZWIgQVBJIiB7CiAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbiAiV2ViIEFQSSBmb3IgaW50ZXJhY3Rpbmcgd2l0aCAke01BTlVGQUNUVVJJTkdfTkFNRX0uIgogICAgICAgICAgICAgICAgdGFncyAiJHtXRUJfQVBJX1RBR30iCiAgICAgICAgICAgICAgICBlbWYtcmVzdCA9IGNvbXBvbmVudCAiJHtNQU5VRkFDVFVSSU5HX05BTUV9IFJFU1QgV2ViIEFQSSIgewogICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uICJSRVNUIEFQSSBmb3IgaW50ZXJhY3Rpbmcgd2l0aCAke01BTlVGQUNUVVJJTkdfTkFNRX0uIgogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIlJ1c3QgKyBBeHVtIgogICAgICAgICAgICAgICAgICAgIHRhZ3MgIiR7V0VCX0FQSV9UQUd9IgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgZW1mLWdyYXBocWwgPSBjb21wb25lbnQgIiR7TUFOVUZBQ1RVUklOR19OQU1FfSBHcmFwaFFMIFdlYiBBUEkiIHsKICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbiAiR3JhcGhRTCBBUEkgZm9yIGludGVyYWN0aW5nIHdpdGggJHtNQU5VRkFDVFVSSU5HX05BTUV9LiIKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJSdXN0ICsgR3JhcGhRTCIKICAgICAgICAgICAgICAgICAgICB0YWdzICIke1dFQl9BUElfVEFHfSIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICBncm91cCBkYiB7CiAgICAgICAgICAgICAgICBlbWYtZGIgPSBjb250YWluZXIgIiR7TUFOVUZBQ1RVUklOR19OQU1FfSBEQiIgewogICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uICJTdG9yZXMgUHJvZHVjdGlvbiBPcmRlcnMsIEl0ZW1zLCBSZXNvdXJjZXMsIE9wZXJhdGlvbiBQbGFucywgZXRjLiIKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJQb3N0Z3JlU1FMIgogICAgICAgICAgICAgICAgICAgIHRhZ3MgIiR7REFUQUJBU0VfVEFHfSIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGVtZi1kYi1hcGkgPSBjb250YWluZXIgIiR7TUFOVUZBQ1RVUklOR19OQU1FfSBEQiBBUEkiIHsKICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbiAiV2ViIEFQSSBmb3IgYWNjZXNzaW5nICR7TUFOVUZBQ1RVUklOR19OQU1FfSBEQi4iCiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiUnVzdCArIEF4dW0gKyBzcWx4IgogICAgICAgICAgICAgICAgICAgIHRhZ3MgIiR7V0VCX0FQSV9UQUd9IgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9CiAgICAgICAgICAgIGdyb3VwICJBZG1pbiIgewogICAgICAgICAgICAgICAgZW1mLWFkbWluLWJyb3dzZXIgPSBjb250YWluZXIgIiR7TUFOVUZBQ1RVUklOR19OQU1FfSBBZG1pbiBXZWJzaXRlIiB7CiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb24gIkFkbWluIFdlYnNpdGUgZm9yIGludGVyYWN0aW5nIHdpdGggJHtNQU5VRkFDVFVSSU5HX05BTUV9LiIKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJodG14IgogICAgICAgICAgICAgICAgICAgIHRhZ3MgIiR7V0VCU0lURV9UQUd9IgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgZW1mLWFkbWluLXdlYiA9IGNvbnRhaW5lciAiJHtNQU5VRkFDVFVSSU5HX05BTUV9IEFkbWluIFdlYiBBcHBsaWNhdGlvbiIgewogICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uICJBZG1pbiBXZWIgQXBwbGljYXRpb24gZm9yIGludGVyYWN0aW5nIHdpdGggJHtNQU5VRkFDVFVSSU5HX05BTUV9LiIKICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJSdXN0ICsgQXh1bSIKICAgICAgICAgICAgICAgICAgICB0YWdzICIke1dFQl9BUFBfVEFHfSIKICAgICAgICAgICAgICAgICAgICBlbWYtYWRtaW4tYXBpID0gY29tcG9uZW50ICIke01BTlVGQUNUVVJJTkdfTkFNRX0gQWRtaW4gV2ViIEFQSSIgewogICAgICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbiAiQWRtaW4gV2ViIEFQSSBmb3IgaW50ZXJhY3Rpbmcgd2l0aCAke01BTlVGQUNUVVJJTkdfTkFNRX0uIgogICAgICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJSdXN0ICsgQXh1bSIKICAgICAgICAgICAgICAgICAgICAgICAgdGFncyAiJHtXRUJfQVBJX1RBR30iCiAgICAgICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgICAgIGVtZi1hZG1pbi1jbGkgPSBjb21wb25lbnQgIiR7TUFOVUZBQ1RVUklOR19OQU1FfSBBZG1pbiBDTEkiIHsKICAgICAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb24gIkFkbWluIENMSSBmb3IgaW50ZXJhY3Rpbmcgd2l0aCAke01BTlVGQUNUVVJJTkdfTkFNRX0uIgogICAgICAgICAgICAgICAgICAgICAgICB0ZWNobm9sb2d5ICJSdXN0IgogICAgICAgICAgICAgICAgICAgICAgICB0YWdzICIke0NMSV9UQUd9IgogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgICAgICBncm91cCAiU3luYyIgewogICAgICAgICAgICAgICAgZW1mLXN5bmMgPSBjb250YWluZXIgIiR7TUFOVUZBQ1RVUklOR19OQU1FfSBTeW5jIEFwcGxpY2F0aW9uIiB7CiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb24gIk1hbmFnZXMgU3luY2hyb25pemF0aW9uIG9mIERhdGEgZm9yICR7TUFOVUZBQ1RVUklOR19OQU1FfS4iCiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiUnVzdCIKICAgICAgICAgICAgICAgICAgICB0YWdzICJNZXNzYWdlIFF1ZXVlIgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgZW1mLXN5bmMtYXBpID0gY29udGFpbmVyICIke01BTlVGQUNUVVJJTkdfTkFNRX0gU3luYyBBUEkiIHsKICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbiAiTWFuYWdlcyBSZXF1ZXN0cyBmb3IgU3luY2hyb25pemF0aW9uIG9mIERhdGEgZm9yICR7TUFOVUZBQ1RVUklOR19OQU1FfS4iCiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiUnVzdCArIEF4dW0iCiAgICAgICAgICAgICAgICAgICAgdGFncyAiJHtXRUJfQVBJX1RBR30iCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBlbWYtc3luYy1kYiA9IGNvbnRhaW5lciAiJHtNQU5VRkFDVFVSSU5HX05BTUV9IFN5bmMgREIiIHsKICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbiAiU3RvcmVzIFBlbmRpbmcgYW5kIE9uZ29pbmcgU3luY2hyb25pemF0aW9ucy4iCiAgICAgICAgICAgICAgICAgICAgdGVjaG5vbG9neSAiUG9zdGdyZVNRTCIKICAgICAgICAgICAgICAgICAgICB0YWdzICIke0RBVEFCQVNFX1RBR30iCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBlbWYtc3luYy1xdWV1ZS1yZXEgPSBjb250YWluZXIgIiR7TUFOVUZBQ1RVUklOR19OQU1FfSBTeW5jIFJlcXVlc3QgUXVldWUiIHsKICAgICAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbiAiU3RvcmVzIFN5bmMgUmVxdWVzdHMuIgogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIlJhYmJpdE1RIgogICAgICAgICAgICAgICAgICAgIHRhZ3MgIiR7UVVFVUVfVEFHfSIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGVtZi1zeW5jLXF1ZXVlLXJlcyA9IGNvbnRhaW5lciAiJHtNQU5VRkFDVFVSSU5HX05BTUV9IFN5bmMgUmVzdWx0IFF1ZXVlIiB7CiAgICAgICAgICAgICAgICAgICAgZGVzY3JpcHRpb24gIlN0b3JlcyBTeW5jIFJlc3VsdHMuIgogICAgICAgICAgICAgICAgICAgIHRlY2hub2xvZ3kgIlJhYmJpdE1RIgogICAgICAgICAgICAgICAgICAgIHRhZ3MgIiR7UVVFVUVfVEFHfSIKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfQogICAgICAgIH0KICAgICAgICBlZWMgPSBzb2Z0d2FyZVN5c3RlbSAiJHtFUlBfQ09OTkVDVElWSVRZX05BTUV9IiB7CiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJNYW5hZ2VzIENvbm5lY3Rpdml0eSB3aXRoIEVSUCBDb25uZWN0b3JzLiIKICAgICAgICAgICAgdGFncyAiSW50ZWdyYXRpb24gU3lzdGVtIgogICAgICAgIH0KICAgICAgICBlYWMgPSBzb2Z0d2FyZVN5c3RlbSAiJHtPUkdBTklaQVRJT05fTkFNRX0gQXBwIENvbm5lY3Rpdml0eSIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiTWFuYWdlcyBDb25uZWN0aXZpdHkgd2l0aCBBcHAgQ29ubmVjdG9ycy4iCiAgICAgICAgICAgIHRhZ3MgIkludGVncmF0aW9uIFN5c3RlbSIKICAgICAgICB9CiAgICAgICAgZW1uID0gc29mdHdhcmVTeXN0ZW0gIiR7T1JHQU5JWkFUSU9OX05BTUV9IE1hbmFnZW1lbnQiIHsKICAgICAgICAgICAgZGVzY3JpcHRpb24gIk1hbmFnZXMgRVJQL1VzZXIvQXBwIHNldHRpbmdzLCBsaWNlbnNlcywgcGVybWlzc2lvbnMsIGZlYXR1cmVzLCB0ZW1wbGF0ZXMsIGV0Yy4iCiAgICAgICAgICAgIHRhZ3MgIkludGVncmF0aW9uIFN5c3RlbSIKICAgICAgICB9CiAgICAgICAgZWlwID0gc29mdHdhcmVTeXN0ZW0gIiR7T1JHQU5JWkFUSU9OX05BTUV9IElkZW50aXR5IFByb3Zpc2lvbmluZyIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiTWFuYWdlcyBBdXRoZW50aWNhdGlvbi9BdXRob3JpemF0aW9uIGFjcm9zcyBTeXN0ZW1zLiIKICAgICAgICAgICAgdGFncyAiSW50ZWdyYXRpb24gU3lzdGVtIgogICAgICAgIH0KCiAgICAgICAgIyB1c2VycwogICAgICAgIGRvbS1tYW4gPSBwZXJzb24gIkRvbWFpbiBNYW5hZ2VyIiB7CiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJNYW5hZ2VzIERvbWFpbi4iCiAgICAgICAgICAgIHRhZ3MgIk1hbmFnZXIiCiAgICAgICAgfQogICAgICAgIGVycC1tYW4gPSBwZXJzb24gIkVSUCBNYW5hZ2VyIiB7CiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJNYW5hZ2VzIEVSUCBDb25uZWN0b3IuIgogICAgICAgICAgICB0YWdzICJNYW5hZ2VyIgogICAgICAgIH0KICAgICAgICBvcmctbWFuID0gcGVyc29uICJPcmdhbml6YXRpb24gTWFuYWdlciIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiTWFuYWdlcyBPcmdhbml6YXRpb24uIgogICAgICAgICAgICB0YWdzICJNYW5hZ2VyIgogICAgICAgIH0KICAgICAgICBhcHAtbWFuID0gcGVyc29uICJBcHBsaWNhdGlvbiBNYW5hZ2VyIiB7CiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJNYW5hZ2VzIEFwcCBDb25uZWN0b3IiCiAgICAgICAgICAgIHRhZ3MgIk1hbmFnZXIiCiAgICAgICAgfQogICAgICAgIHNjaGQtdXNlciA9IHBlcnNvbiAiU2NoZWR1bGUgVXNlciIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiTmVlZHMgdG8gb3B0aW1pemUgdGhlIGV4ZWN1dGlvbiBvZiBQcm9kdWN0aW9uIE9yZGVycy4iCiAgICAgICAgICAgIHRhZ3MgIiR7RVhURVJOQUxfVEFHfSIgIkFwcCBVc2VyIgogICAgICAgIH0KICAgICAgICBwcm9kLXVzZXIgPSBwZXJzb24gIlByb2R1Y2UgVXNlciIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiTmVlZHMgdG8gdHJhY2sgdGhlIHN0YXR1cyBvZiBQcm9kdWN0aW9uIE9yZGVycy4iCiAgICAgICAgICAgIHRhZ3MgIiR7RVhURVJOQUxfVEFHfSIgIkFwcCBVc2VyIgogICAgICAgIH0KICAgICAgICBpbnNwLXVzZXIgPSBwZXJzb24gIkluc3BlY3QgVXNlciIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiTmVlZHMgdG8gaW5zcGVjdCB0aGUgcXVhbGl0eSBvZiBtYXRlcmlhbHMgYW5kIHByb2R1Y3RzIG9mIFByb2R1Y3Rpb24gT3JkZXJzLiIKICAgICAgICAgICAgdGFncyAiJHtFWFRFUk5BTF9UQUd9IiAiQXBwIFVzZXIiCiAgICAgICAgfQoKICAgICAgICAjIGV4dGVybmFsIHN5c3RlbXMvdXNlcnMKICAgICAgICBzYm8gPSBzb2Z0d2FyZVN5c3RlbSAiU0JPIENvbm5lY3RvciIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiSW1wbGVtZW50cyAke09SR0FOSVpBVElPTl9OQU1FfSBFUlAgQVBJIGZvciBTQVAgQnVzaW5lc3MgT25lLiIKICAgICAgICAgICAgdGFncyAiJHtFWFRFUk5BTF9UQUd9IiAiRVJQIENvbm5lY3RvciIKICAgICAgICB9CiAgICAgICAgbXNiYyA9IHNvZnR3YXJlU3lzdGVtICJNU0JDIENvbm5lY3RvciIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiSW1wbGVtZW50cyAke09SR0FOSVpBVElPTl9OQU1FfSBFUlAgQVBJIGZvciBNaWNyb3NvZnQgQnVzaW5lc3MgQ2VudHJhbC4iCiAgICAgICAgICAgIHRhZ3MgIiR7RVhURVJOQUxfVEFHfSIgIkVSUCBDb25uZWN0b3IiCiAgICAgICAgfQogICAgICAgIGFwcyA9IHNvZnR3YXJlU3lzdGVtICJBUFMgQ29ubmVjdG9yIiB7CiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJJbXBsZW1lbnRzICR7T1JHQU5JWkFUSU9OX05BTUV9IEVSUCBBUEkgZm9yIEF6YWxodSBQcm9kdWN0aW9uIFNlcnZpY2VzLiIKICAgICAgICAgICAgdGFncyAiJHtFWFRFUk5BTF9UQUd9IiAiRVJQIENvbm5lY3RvciIKICAgICAgICB9CiAgICAgICAgb2RvbyA9IHNvZnR3YXJlU3lzdGVtICJPZG9vIENvbm5lY3RvciIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiSW1wbGVtZW50cyAke09SR0FOSVpBVElPTl9OQU1FfSBFUlAgQVBJIGZvciBPZG9vLiIKICAgICAgICAgICAgdGFncyAiJHtFWFRFUk5BTF9UQUd9IiAiRVJQIENvbm5lY3RvciIKICAgICAgICB9CiAgICAgICAgc2NoZCA9IHNvZnR3YXJlU3lzdGVtICJTY2hlZHVsZSBDb25uZWN0b3IiIHsKICAgICAgICAgICAgZGVzY3JpcHRpb24gIkltcGxlbWVudHMgJHtPUkdBTklaQVRJT05fTkFNRX0gQXBwIEFQSSBmb3IgU2NoZWR1bGUuIgogICAgICAgICAgICB0YWdzICIke0VYVEVSTkFMX1RBR30iICJBcHAgQ29ubmVjdG9yIgogICAgICAgIH0KICAgICAgICBwcm9kID0gc29mdHdhcmVTeXN0ZW0gIlByb2R1Y2UgQ29ubmVjdG9yIiB7CiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJJbXBsZW1lbnRzICR7T1JHQU5JWkFUSU9OX05BTUV9IEFwcCBBUEkgZm9yIFByb2R1Y2UuIgogICAgICAgICAgICB0YWdzICIke0VYVEVSTkFMX1RBR30iICJBcHAgQ29ubmVjdG9yIgogICAgICAgIH0KICAgICAgICBpbnNwID0gc29mdHdhcmVTeXN0ZW0gIkluc3BlY3QgQ29ubmVjdG9yIiB7CiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJJbXBsZW1lbnRzICR7T1JHQU5JWkFUSU9OX05BTUV9IEFwcCBBUEkgZm9yIEluc3BlY3QuIgogICAgICAgICAgICB0YWdzICIke0VYVEVSTkFMX1RBR30iICJBcHAgQ29ubmVjdG9yIgogICAgICAgIH0KICAgICAgICBzYm8tdXNlciA9IHBlcnNvbiAiU0JPIFVzZXIiIHsKICAgICAgICAgICAgZGVzY3JpcHRpb24gIlJlYWRzIGFuZCBVcGRhdGVzIERhdGEgaW4gU0JPLiIKICAgICAgICAgICAgdGFncyAiJHtFWFRFUk5BTF9UQUd9IiAiRVJQIFVzZXIiCiAgICAgICAgfQogICAgICAgIG1zYmMtdXNlciA9IHBlcnNvbiAiTVNCQyBVc2VyIiB7CiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJSZWFkcyBhbmQgVXBkYXRlcyBEYXRhIGluIE1TQkMuIgogICAgICAgICAgICB0YWdzICIke0VYVEVSTkFMX1RBR30iICJFUlAgVXNlciIKICAgICAgICB9CiAgICAgICAgYXBzLXVzZXIgPSBwZXJzb24gIkFQUyBVc2VyIiB7CiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJSZWFkcyBhbmQgVXBkYXRlcyBEYXRhIGluIEFQUy4iCiAgICAgICAgICAgIHRhZ3MgIiR7RVhURVJOQUxfVEFHfSIgIkVSUCBVc2VyIgogICAgICAgIH0KICAgICAgICBvZG9vLXVzZXIgPSBwZXJzb24gIk9kb28gVXNlciIgewogICAgICAgICAgICBkZXNjcmlwdGlvbiAiUmVhZHMgYW5kIFVwZGF0ZXMgRGF0YSBpbiBPZG9vLiIKICAgICAgICAgICAgdGFncyAiJHtFWFRFUk5BTF9UQUd9IiAiRVJQIFVzZXIiCiAgICAgICAgfQoKICAgICAgICAjIHJlbGF0aW9uc2hpcHMgYmV0d2VlbiBwZW9wbGUgYW5kIHNvZnR3YXJlIHN5c3RlbXMKICAgICAgICBlZWMgLT4gZW1mICJQcm92aWRlcyBEYXRhIGZyb20gQ29ubmVjdG9yIiB7CiAgICAgICAgICAgIHRhZ3MgIiR7U09GVFdBUkVfU1lTVEVNX1RBR30iCiAgICAgICAgfQogICAgICAgIGVhYyAtPiBlbWYgIlNlbmRzIFF1ZXJpZXMgYW5kIENvbW1hbmRzIiAiR3JhcGhRTC9IVFRQUyIgewogICAgICAgICAgICB0YWdzICIke1NPRlRXQVJFX1NZU1RFTV9UQUd9IgogICAgICAgIH0KICAgICAgICBlbW4gLT4gZW1mICJHZXRzIEFQSSBNZXRhZGF0YSIgewogICAgICAgICAgICB0YWdzICIke1NPRlRXQVJFX1NZU1RFTV9UQUd9IgogICAgICAgIH0KCiAgICAgICAgZWVjIC0+IGVtbiAiR2V0cyBFUlAgQ29ubmVjdGl2aXR5IGZvciBDb25uZWN0b3IiIHsKICAgICAgICAgICAgdGFncyAiJHtTT0ZUV0FSRV9TWVNURU1fVEFHfSIKICAgICAgICB9CiAgICAgICAgZWFjIC0+IGVtbiAiVmVyaWZpZXMgQXBwIENvbm5lY3Rpdml0eSB0byAke09SR0FOSVpBVElPTl9OQU1FfSIgewogICAgICAgICAgICB0YWdzICIke1NPRlRXQVJFX1NZU1RFTV9UQUd9IgogICAgICAgIH0KCiAgICAgICAgZW1mIC0+IGVpcCAiVmVyaWZpZXMgSWRlbnRpdHkgb2YgU3lzdGVtIiB7CiAgICAgICAgICAgIHRhZ3MgIiR7U09GVFdBUkVfU1lTVEVNX1RBR30iCiAgICAgICAgfQogICAgICAgIGVlYyAtPiBlaXAgIlZlcmlmaWVzIElkZW50aXR5IG9mIFN5c3RlbS9Db25uZWN0b3IiIHsKICAgICAgICAgICAgdGFncyAiJHtTT0ZUV0FSRV9TWVNURU1fVEFHfSIKICAgICAgICB9CiAgICAgICAgZWFjIC0+IGVpcCAiVmVyaWZpZXMgSWRlbnRpdHkgb2YgU3lzdGVtL0Nvbm5lY3Rvci9Vc2VyIiB7CiAgICAgICAgICAgIHRhZ3MgIiR7U09GVFdBUkVfU1lTVEVNX1RBR30iCiAgICAgICAgfQogICAgICAgIGVtbiAtPiBlaXAgIlZlcmlmaWVzIElkZW50aXR5IG9mIFN5c3RlbS9Vc2VyIiB7CiAgICAgICAgICAgIHRhZ3MgIiR7U09GVFdBUkVfU1lTVEVNX1RBR30iCiAgICAgICAgfQoKICAgICAgICAjIHJlbGF0aW9uc2hpcHMgdG8vZnJvbSBjb250YWluZXJzCiAgICAgICAgZWFjIC0+IGVtZi1hcGkgIlNlbmRzIFF1ZXJpZXMgYW5kIENvbW1hbmRzIiAiR3JhcGhRTC9IVFRQUyIgewogICAgICAgICAgICB0YWdzICIke0NPTlRBSU5FUl9UQUd9IgogICAgICAgIH0KICAgICAgICBlbWYtYXBpIC0+IGVtZi1kYi1hcGkgIlF1ZXJpZXMgRGF0YSIgewogICAgICAgICAgICB0YWdzICIke0NPTlRBSU5FUl9UQUd9IgogICAgICAgIH0KICAgICAgICBlbWYtYXBpIC0+IGVtZi1zeW5jLWFwaSAiU2VuZHMgQ29tbWFuZHMiIHsKICAgICAgICAgICAgdGFncyAiJHtDT05UQUlORVJfVEFHfSIKICAgICAgICB9CgogICAgICAgIGVtZi1kYi1hcGkgLT4gZW1mLWRiICJTZW5kcyBTUUwgUXVlcmllcy9TdGF0ZW1lbnRzIiB7CiAgICAgICAgICAgIHRhZ3MgIiR7Q09OVEFJTkVSX1RBR30iCiAgICAgICAgfQogICAgICAgIGVtZi1hZG1pbi1icm93c2VyIC0+IGVtZi1hZG1pbi13ZWIgIkNSVUQgb3BlcmF0aW9ucyIgewogICAgICAgICAgICB0YWdzICIke0NPTlRBSU5FUl9UQUd9IgogICAgICAgIH0KICAgICAgICBlbWYtYWRtaW4td2ViIC0+IGVtZi1kYi1hcGkgIkNSVUQgb3BlcmF0aW9ucyIgewogICAgICAgICAgICB0YWdzICIke0NPTlRBSU5FUl9UQUd9IgogICAgICAgIH0KCiAgICAgICAgZW1mLXN5bmMtYXBpIC0+IGVtZi1zeW5jLWRiICJTdG9yZXMgUmVxdWVzdC9SZXN1bHQiIHsKICAgICAgICAgICAgdGFncyAiJHtDT05UQUlORVJfVEFHfSIKICAgICAgICB9CiAgICAgICAgZW1mLXN5bmMtYXBpIC0+IGVtZi1zeW5jICJJbml0aWF0ZXMvRW5kcyBTeW5jIiAidmlhIFN5bmMgUXVldWUiIHsKICAgICAgICAgICAgdGFncyAiJHtDT05UQUlORVJfVEFHfSIKICAgICAgICB9CiAgICAgICAgZW1mLXN5bmMgLT4gZW1mLXN5bmMtZGIgIlJlYWRzIFJlcXVlc3QvUmVzdWx0IiB7CiAgICAgICAgICAgIHRhZ3MgIiR7Q09OVEFJTkVSX1RBR30iCiAgICAgICAgfQogICAgICAgIGVtZi1zeW5jIC0+IGVtZi1kYi1hcGkgIlN0b3JlcyBEYXRhIGFmdGVyIFN5bmMiIHsKICAgICAgICAgICAgdGFncyAiJHtDT05UQUlORVJfVEFHfSIKICAgICAgICB9CiAgICAgICAgZW1mLXN5bmMgLT4gZW1mLXN5bmMtcXVldWUtcmVxICJQdWJsaXNoZXMgU3luYyBSZXF1ZXN0IiB7CiAgICAgICAgICAgIHRhZ3MgIiR7Q09OVEFJTkVSX1RBR30iCiAgICAgICAgfQogICAgICAgIGVtZi1zeW5jIC0+IGVtZi1zeW5jLXF1ZXVlLXJlcyAiUHVibGlzaGVzIFN5bmMgUmVzdWx0IiB7CiAgICAgICAgICAgIHRhZ3MgIiR7Q09OVEFJTkVSX1RBR30iCiAgICAgICAgfQoKICAgICAgICBkb20tbWFuIC0+IGVtbiAiU2V0cyB1cCBEb21haW4iIHsKICAgICAgICAgICAgdGFncyAiJHtTT0ZUV0FSRV9TWVNURU1fVEFHfSIKICAgICAgICB9CiAgICAgICAgZXJwLW1hbiAtPiBlbW4gIlNldHMgdXAgQ29ubmVjdGl2aXR5IGZvciBFUlAgQ29ubmVjdG9yIiB7CiAgICAgICAgICAgIHRhZ3MgIiR7U09GVFdBUkVfU1lTVEVNX1RBR30iCiAgICAgICAgfQogICAgICAgIG9yZy1tYW4gLT4gZW1uICJTZXRzIHVwIE9yZ2FuaXphdGlvbiIgewogICAgICAgICAgICB0YWdzICIke1NPRlRXQVJFX1NZU1RFTV9UQUd9IgogICAgICAgIH0KICAgICAgICBhcHAtbWFuIC0+IGVtbiAiU2V0cyB1cCBDb25uZWN0aXZpdHkgZm9yIEFwcCBDb25uZWN0b3IiIHsKICAgICAgICAgICAgdGFncyAiJHtTT0ZUV0FSRV9TWVNURU1fVEFHfSIKICAgICAgICB9CiAgICAgICAgc2NoZC11c2VyIC0+IHNjaGQgIlNjaGVkdWxlcyBQcm9kdWN0aW9uIE9yZGVycyIgewogICAgICAgICAgICB0YWdzICIke1NPRlRXQVJFX1NZU1RFTV9UQUd9IgogICAgICAgIH0KICAgICAgICBwcm9kLXVzZXIgLT4gcHJvZCAiVHJhY2tzIFByb2R1Y3Rpb24gT3JkZXJzIiB7CiAgICAgICAgICAgIHRhZ3MgIiR7U09GVFdBUkVfU1lTVEVNX1RBR30iCiAgICAgICAgfQogICAgICAgIGluc3AtdXNlciAtPiBpbnNwICJJbnNwZWN0cyBQcm9kdWN0aW9uIE9yZGVycyIgewogICAgICAgICAgICB0YWdzICIke1NPRlRXQVJFX1NZU1RFTV9UQUd9IgogICAgICAgIH0KCiAgICAgICAgZWVjIC0+IGVtZi1zeW5jLXF1ZXVlLXJlcSAiU3Vic2NyaWJlcyB0byBTeW5jIFJlcXVlc3RzIiB7CiAgICAgICAgICAgIHRhZ3MgIiR7Q09OVEFJTkVSX1RBR30iCiAgICAgICAgfQogICAgICAgIGVlYyAtPiBlbWYtYXBpICJTZW5kcyBTeW5jIFJlcXVlc3QvU3luYyBSZXN1bHQiIHsKICAgICAgICAgICAgdGFncyAiJHtDT05UQUlORVJfVEFHfSIKICAgICAgICB9CiAgICAgICAgZWFjIC0+IGVtZi1zeW5jLXF1ZXVlLXJlcyAiU3Vic2NyaWJlcyB0byBTeW5jIFJlc3VsdHMiIHsKICAgICAgICAgICAgdGFncyAiJHtDT05UQUlORVJfVEFHfSIKICAgICAgICB9CgogICAgICAgIGVtbiAtPiBlbWYtYXBpICJHZXRzIEFQSSBNZXRhZGF0YSIgewogICAgICAgICAgICB0YWdzICIke0NPTlRBSU5FUl9UQUd9IgogICAgICAgIH0KCiAgICAgICAgIyByZWxhdGlvbnNoaXAgdG8vZnJvbSBjb21wb25lbnRzCiAgICAgICAgZWFjIC0+IGVtZi1ncmFwaHFsICJTZW5kcyBRdWVyaWVzIGFuZCBDb21tYW5kcyIgIkdyYXBoUUwvSFRUUFMiIHsKICAgICAgICAgICAgdGFncyAiJHtDT01QT05FTlRfVEFHfSIKICAgICAgICB9CiAgICAgICAgZWFjIC0+IGVtZi1yZXN0ICJTZW5kcyBRdWVyaWVzIGFuZCBDb21tYW5kcyIgIkpTT04vSFRUUFMiIHsKICAgICAgICAgICAgdGFncyAiJHtDT01QT05FTlRfVEFHfSIKICAgICAgICB9CgogICAgICAgIGVtZi1hZG1pbi1jbGkgLT4gZW1mLWRiICJDUlVEIG9wZXJhdGlvbnMiIHsKICAgICAgICAgICAgdGFncyAiJHtDT01QT05FTlRfVEFHfSIKICAgICAgICB9CiAgICAgICAgZW1mLWFkbWluLWFwaSAtPiBlbWYtZGIgIkNSVUQgb3BlcmF0aW9ucyIgewogICAgICAgICAgICB0YWdzICIke0NPTVBPTkVOVF9UQUd9IgogICAgICAgIH0KCiAgICAgICAgIyByZWxhdGlvbnNoaXBzIHRvL2Zyb20gZXh0ZXJuYWwgcGVvcGxlIGFuZCBzeXN0ZW1zCiAgICAgICAgc2JvIC0+IGVlYyAiU3luY2hyb25pemVzIFByb2R1Y3Rpb24gT3JkZXJzIGZyb20gU0JPIiB7CiAgICAgICAgICAgIHRhZ3MgIiR7U09GVFdBUkVfU1lTVEVNX1RBR30iCiAgICAgICAgfQogICAgICAgIG1zYmMgLT4gZWVjICJTeW5jaHJvbml6ZXMgUHJvZHVjdGlvbiBPcmRlcnMgZnJvbSBNU0JDIiB7CiAgICAgICAgICAgIHRhZ3MgIiR7U09GVFdBUkVfU1lTVEVNX1RBR30iCiAgICAgICAgfQogICAgICAgIGFwcyAtPiBlZWMgIlN5bmNocm9uaXplcyBQcm9kdWN0aW9uIE9yZGVycyBmcm9tIEFQUyIgewogICAgICAgICAgICB0YWdzICIke1NPRlRXQVJFX1NZU1RFTV9UQUd9IgogICAgICAgIH0KICAgICAgICBvZG9vIC0+IGVlYyAiU3luY2hyb25pemVzIFByb2R1Y3Rpb24gT3JkZXJzIGZyb20gT2RvbyIgewogICAgICAgICAgICB0YWdzICIke1NPRlRXQVJFX1NZU1RFTV9UQUd9IgogICAgICAgIH0KICAgICAgICBzY2hkIC0+IGVhYyAiR2V0cyBQcm9kdWN0aW9uIE9yZGVycyBhbmQgUHVibGlzaGVzIFNjaGVkdWxlcyIgewogICAgICAgICAgICB0YWdzICIke1NPRlRXQVJFX1NZU1RFTV9UQUd9IgogICAgICAgIH0KICAgICAgICBwcm9kIC0+IGVhYyAiR2V0cyBQcm9kdWN0aW9uIE9yZGVycyBhbmQgUHVibGlzaGVzIFByb2dyZXNzIiB7CiAgICAgICAgICAgIHRhZ3MgIiR7U09GVFdBUkVfU1lTVEVNX1RBR30iCiAgICAgICAgfQogICAgICAgIGluc3AgLT4gZWFjICJHZXRzIFByb2R1Y3Rpb24gT3JkZXJzIGFuZCBDb21wb25lbnRzIGFuZCBQdWJsaXNoZXMgSW5zcGVjdGlvbiBSZXN1bHRzIiB7CiAgICAgICAgICAgIHRhZ3MgIiR7U09GVFdBUkVfU1lTVEVNX1RBR30iCiAgICAgICAgfQoKICAgICAgICBzYm8tdXNlciAtPiBzYm8gIkNyZWF0ZXMgUHJvZHVjdGlvbiBPcmRlciBhbmQgVHJhY2tzIGl0cyBQcm9jZXNzIiB7CiAgICAgICAgICAgIHRhZ3MgIiR7U09GVFdBUkVfU1lTVEVNX1RBR30iCiAgICAgICAgfQogICAgICAgIG1zYmMtdXNlciAtPiBtc2JjICJDcmVhdGVzIFByb2R1Y3Rpb24gT3JkZXIgYW5kIFRyYWNrcyBpdHMgUHJvY2VzcyIgewogICAgICAgICAgICB0YWdzICIke1NPRlRXQVJFX1NZU1RFTV9UQUd9IgogICAgICAgIH0KICAgICAgICBhcHMtdXNlciAtPiBhcHMgIkNyZWF0ZXMgUHJvZHVjdGlvbiBPcmRlciBhbmQgVHJhY2tzIGl0cyBQcm9jZXNzIiB7CiAgICAgICAgICAgIHRhZ3MgIiR7U09GVFdBUkVfU1lTVEVNX1RBR30iCiAgICAgICAgfQogICAgICAgIG9kb28tdXNlciAtPiBvZG9vICJDcmVhdGVzIFByb2R1Y3Rpb24gT3JkZXIgYW5kIFRyYWNrcyBpdHMgUHJvY2VzcyIgewogICAgICAgICAgICB0YWdzICIke1NPRlRXQVJFX1NZU1RFTV9UQUd9IgogICAgICAgIH0KICAgIH0gCgogICAgdmlld3MgewogICAgICAgIHN5c3RlbUxhbmRzY2FwZSAiJHtPUkdBTklaQVRJT05fTkFNRX0iIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGV4Y2x1ZGUgInJlbGF0aW9uc2hpcC50YWchPSR7U09GVFdBUkVfU1lTVEVNX1RBR30iCiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJUaGUgc3lzdGVtIGxhbmRzY2FwZSBkaWFncmFtIGZvciAke09SR0FOSVpBVElPTl9OQU1FfS4iCiAgICAgICAgfQoKICAgICAgICBzeXN0ZW1Db250ZXh0IGVtZiAic2MtZW1mIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBleGNsdWRlICJyZWxhdGlvbnNoaXAudGFnIT0ke1NPRlRXQVJFX1NZU1RFTV9UQUd9IgogICAgICAgICAgICBkZXNjcmlwdGlvbiAiVGhlIHN5c3RlbSBjb250ZXh0IGRpYWdyYW0gZm9yICR7TUFOVUZBQ1RVUklOR19OQU1FfS4iCiAgICAgICAgfQoKICAgICAgICBjb250YWluZXIgZW1mICJjb24tZW1mIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBleGNsdWRlICJyZWxhdGlvbnNoaXAudGFnIT0ke0NPTlRBSU5FUl9UQUd9IgogICAgICAgICAgICBkZXNjcmlwdGlvbiAiVGhlIGNvbnRhaW5lciBkaWFncmFtIGZvciAke01BTlVGQUNUVVJJTkdfTkFNRX0uIgogICAgICAgIH0KCiAgICAgICAgY29tcG9uZW50IGVtZi1hcGkgImNvbS1lbWYtYXBpIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBleGNsdWRlICJyZWxhdGlvbnNoaXAudGFnIT0ke0NPTVBPTkVOVF9UQUd9IgogICAgICAgICAgICBkZXNjcmlwdGlvbiAiVGhlIGNvbXBvbmVudCBkaWFncmFtIGZvciAke01BTlVGQUNUVVJJTkdfTkFNRX0gV2ViIEFQSS4iCiAgICAgICAgfQoKICAgICAgICBjb21wb25lbnQgZW1mLWFkbWluLWJyb3dzZXIgImNvbS1lbWYtYWRtaW4tYnJvd3NlciIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgZXhjbHVkZSAicmVsYXRpb25zaGlwLnRhZyE9JHtDT01QT05FTlRfVEFHfSIKICAgICAgICAgICAgZGVzY3JpcHRpb24gIlRoZSBjb21wb25lbnQgZGlhZ3JhbSBmb3IgJHtNQU5VRkFDVFVSSU5HX05BTUV9IEFkbWluIFdlYnNpdGUuIgogICAgICAgIH0KCiAgICAgICAgY29tcG9uZW50IGVtZi1hZG1pbi13ZWIgImNvbS1lbWYtYWRtaW4td2ViIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBleGNsdWRlICJyZWxhdGlvbnNoaXAudGFnIT0ke0NPTVBPTkVOVF9UQUd9IgogICAgICAgICAgICBkZXNjcmlwdGlvbiAiVGhlIGNvbXBvbmVudCBkaWFncmFtIGZvciAke01BTlVGQUNUVVJJTkdfTkFNRX0gQWRtaW4gV2ViIEFwcGxpY2F0aW9uLiIKICAgICAgICB9CgogICAgICAgIHN5c3RlbUNvbnRleHQgZWVjICJzYy1lZWMiIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGV4Y2x1ZGUgInJlbGF0aW9uc2hpcC50YWchPSR7U09GVFdBUkVfU1lTVEVNX1RBR30iCiAgICAgICAgICAgIGF1dG9MYXlvdXQKICAgICAgICAgICAgZGVzY3JpcHRpb24gIlRoZSBzeXN0ZW0gY29udGV4dCBkaWFncmFtIGZvciAke0VSUF9DT05ORUNUSVZJVFlfTkFNRX0uIgogICAgICAgIH0KCiAgICAgICAgY29udGFpbmVyIGVlYyAiY29uLWVlYyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgYXV0b0xheW91dAogICAgICAgICAgICBkZXNjcmlwdGlvbiAiVGhlIGNvbnRhaW5lciBkaWFncmFtIGZvciAke0VSUF9DT05ORUNUSVZJVFlfTkFNRX0uIgogICAgICAgIH0KCiAgICAgICAgc3lzdGVtQ29udGV4dCBlYWMgInNjLWVhYyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgZXhjbHVkZSAicmVsYXRpb25zaGlwLnRhZyE9JHtTT0ZUV0FSRV9TWVNURU1fVEFHfSIKICAgICAgICAgICAgYXV0b0xheW91dAogICAgICAgICAgICBkZXNjcmlwdGlvbiAiVGhlIHN5c3RlbSBjb250ZXh0IGRpYWdyYW0gZm9yICR7T1JHQU5JWkFUSU9OX05BTUV9IEFwcCBDb25uZWN0aXZpdHkuIgogICAgICAgIH0KCiAgICAgICAgY29udGFpbmVyIGVhYyAiY29uLWVhYyIgewogICAgICAgICAgICBpbmNsdWRlICoKICAgICAgICAgICAgYXV0b0xheW91dAogICAgICAgICAgICBkZXNjcmlwdGlvbiAiVGhlIGNvbnRhaW5lciBkaWFncmFtIGZvciAke09SR0FOSVpBVElPTl9OQU1FfSBBcHAgQ29ubmVjdGl2aXR5LiIKICAgICAgICB9CgogICAgICAgIHN5c3RlbUNvbnRleHQgZW1uICJzYy1lbW4iIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGV4Y2x1ZGUgInJlbGF0aW9uc2hpcC50YWchPSR7U09GVFdBUkVfU1lTVEVNX1RBR30iCiAgICAgICAgICAgIGF1dG9MYXlvdXQKICAgICAgICAgICAgZGVzY3JpcHRpb24gIlRoZSBzeXN0ZW0gY29udGV4dCBkaWFncmFtIGZvciAke09SR0FOSVpBVElPTl9OQU1FfSBNYW5hZ2VtZW50LiIKICAgICAgICB9CgogICAgICAgIGNvbnRhaW5lciBlbW4gImNvbi1lbW4iIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGF1dG9MYXlvdXQKICAgICAgICAgICAgZGVzY3JpcHRpb24gIlRoZSBjb250YWluZXIgZGlhZ3JhbSBmb3IgJHtPUkdBTklaQVRJT05fTkFNRX0gTWFuYWdlbWVudC4iCiAgICAgICAgfQoKICAgICAgICBzeXN0ZW1Db250ZXh0IGVpcCAic2MtZWlwIiB7CiAgICAgICAgICAgIGluY2x1ZGUgKgogICAgICAgICAgICBleGNsdWRlICJyZWxhdGlvbnNoaXAudGFnIT0ke1NPRlRXQVJFX1NZU1RFTV9UQUd9IgogICAgICAgICAgICBhdXRvTGF5b3V0CiAgICAgICAgICAgIGRlc2NyaXB0aW9uICJUaGUgc3lzdGVtIGNvbnRleHQgZGlhZ3JhbSBmb3IgJHtPUkdBTklaQVRJT05fTkFNRX0gSWRlbnRpdHkgUHJvdmlzaW9uaW5nLiIKICAgICAgICB9CgogICAgICAgIGNvbnRhaW5lciBlaXAgImNvbi1laXAiIHsKICAgICAgICAgICAgaW5jbHVkZSAqCiAgICAgICAgICAgIGF1dG9MYXlvdXQKICAgICAgICAgICAgZGVzY3JpcHRpb24gIlRoZSBjb250YWluZXIgZGlhZ3JhbSBmb3IgJHtPUkdBTklaQVRJT05fTkFNRX0gSWRlbnRpdHkgUHJvdmlzaW9uaW5nLiIKICAgICAgICB9CgogICAgICAgIHN0eWxlcyB7CiAgICAgICAgICAgIGVsZW1lbnQgIlBlcnNvbiIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjMDg0MjdiCiAgICAgICAgICAgICAgICBzaGFwZSBQZXJzb24KICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICIke1NPRlRXQVJFX1NZU1RFTV9UQUd9IiB7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kICMxMTY4YmQKICAgICAgICAgICAgfQogICAgICAgICAgICBlbGVtZW50ICIke0VYVEVSTkFMX1RBR30iIHsKICAgICAgICAgICAgICAgIGJhY2tncm91bmQgIzk5OTk5OQogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkNvbnRhaW5lciIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjNDM4ZGQ1CiAgICAgICAgICAgIH0KICAgICAgICAgICAgZWxlbWVudCAiJHtEQVRBQkFTRV9UQUd9IiB7CiAgICAgICAgICAgICAgICBzaGFwZSBDeWxpbmRlcgogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIiR7UVVFVUVfVEFHfSIgewogICAgICAgICAgICAgICAgc2hhcGUgUGlwZQogICAgICAgICAgICB9CiAgICAgICAgICAgIGVsZW1lbnQgIkNvbXBvbmVudCIgewogICAgICAgICAgICAgICAgYmFja2dyb3VuZCAjODViYmYwCiAgICAgICAgICAgIH0KICAgICAgICB9CiAgICB9Cn0="
+  },
+  "views" : {
+    "componentViews" : [ {
+      "containerId" : "2",
+      "description" : "The component diagram for Erponomics Manufacturing Web API.",
+      "dimensions" : {
+        "height" : 1748,
+        "width" : 2480
+      },
+      "elements" : [ {
+        "id" : "3",
+        "x" : 1500,
+        "y" : 515
+      }, {
+        "id" : "4",
+        "x" : 685,
+        "y" : 515
+      }, {
+        "id" : "17",
+        "x" : 1050,
+        "y" : 35
+      } ],
+      "externalContainerBoundariesVisible" : false,
+      "key" : "com-emf-api",
+      "order" : 4,
+      "paperSize" : "A5_Landscape",
+      "relationships" : [ {
+        "id" : "70"
+      }, {
+        "id" : "71"
+      } ]
+    }, {
+      "containerId" : "7",
+      "description" : "The component diagram for Erponomics Manufacturing Admin Website.",
+      "dimensions" : {
+        "height" : 1748,
+        "width" : 2480
+      },
+      "externalContainerBoundariesVisible" : false,
+      "key" : "com-emf-admin-browser",
+      "order" : 5,
+      "paperSize" : "A5_Landscape"
+    }, {
+      "containerId" : "8",
+      "description" : "The component diagram for Erponomics Manufacturing Admin Web Application.",
+      "dimensions" : {
+        "height" : 1748,
+        "width" : 2480
+      },
+      "elements" : [ {
+        "id" : "5",
+        "x" : 185,
+        "y" : 615
+      }, {
+        "id" : "9",
+        "x" : 875,
+        "y" : 105
+      }, {
+        "id" : "10",
+        "x" : 870,
+        "y" : 745
+      } ],
+      "externalContainerBoundariesVisible" : false,
+      "key" : "com-emf-admin-web",
+      "order" : 6,
+      "paperSize" : "A5_Landscape",
+      "relationships" : [ {
+        "id" : "72"
+      }, {
+        "id" : "74"
+      } ]
+    } ],
+    "configuration" : {
+      "branding" : { },
+      "lastSavedView" : "Erponomics",
+      "metadataSymbols" : "SquareBrackets",
+      "styles" : {
+        "elements" : [ {
+          "background" : "#08427b",
+          "shape" : "Person",
+          "tag" : "Person"
+        }, {
+          "background" : "#1168bd",
+          "tag" : "Software System"
+        }, {
+          "background" : "#999999",
+          "tag" : "External"
+        }, {
+          "background" : "#438dd5",
+          "tag" : "Container"
+        }, {
+          "shape" : "Cylinder",
+          "tag" : "Database"
+        }, {
+          "shape" : "Pipe",
+          "tag" : "Queue"
+        }, {
+          "background" : "#85bbf0",
+          "tag" : "Component"
+        } ]
+      },
+      "terminology" : { }
+    },
+    "containerViews" : [ {
+      "description" : "The container diagram for Erponomics Manufacturing.",
+      "dimensions" : {
+        "height" : 3015,
+        "width" : 3240
+      },
+      "elements" : [ {
+        "id" : "2",
+        "x" : 1640,
+        "y" : 830
+      }, {
+        "id" : "5",
+        "x" : 2550,
+        "y" : 2344
+      }, {
+        "id" : "6",
+        "x" : 2545,
+        "y" : 1879
+      }, {
+        "id" : "7",
+        "x" : 2540,
+        "y" : 839
+      }, {
+        "id" : "8",
+        "x" : 2535,
+        "y" : 1324
+      }, {
+        "id" : "11",
+        "x" : 960,
+        "y" : 2349
+      }, {
+        "id" : "12",
+        "x" : 1640,
+        "y" : 1354
+      }, {
+        "id" : "13",
+        "x" : 1630,
+        "y" : 1869
+      }, {
+        "id" : "14",
+        "x" : 240,
+        "y" : 1344
+      }, {
+        "id" : "15",
+        "x" : 970,
+        "y" : 1344
+      }, {
+        "id" : "16",
+        "x" : 245,
+        "y" : 210
+      }, {
+        "id" : "17",
+        "x" : 960,
+        "y" : 199
+      }, {
+        "id" : "18",
+        "x" : 1635,
+        "y" : 204
+      } ],
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "con-emf",
+      "order" : 3,
+      "relationships" : [ {
+        "id" : "47"
+      }, {
+        "id" : "48"
+      }, {
+        "id" : "49"
+      }, {
+        "id" : "50"
+      }, {
+        "id" : "51"
+      }, {
+        "id" : "52"
+      }, {
+        "id" : "53",
+        "position" : 35
+      }, {
+        "id" : "54"
+      }, {
+        "id" : "55"
+      }, {
+        "id" : "56"
+      }, {
+        "id" : "57"
+      }, {
+        "id" : "58"
+      }, {
+        "id" : "66",
+        "position" : 15
+      }, {
+        "id" : "67",
+        "position" : 30,
+        "vertices" : [ {
+          "x" : 785,
+          "y" : 620
+        } ]
+      }, {
+        "id" : "68",
+        "position" : 20
+      }, {
+        "id" : "69"
+      } ],
+      "softwareSystemId" : "1"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "The container diagram for Erponomics ERP Connectivity.",
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "con-eec",
+      "order" : 8,
+      "softwareSystemId" : "16"
+    }, {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "The container diagram for Erponomics App Connectivity.",
+      "dimensions" : {
+        "height" : 400,
+        "width" : 871
+      },
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "con-eac",
+      "order" : 10,
+      "softwareSystemId" : "17"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "The container diagram for Erponomics Management.",
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "con-emn",
+      "order" : 12,
+      "softwareSystemId" : "18"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "The container diagram for Erponomics Identity Provisioning.",
+      "externalSoftwareSystemBoundariesVisible" : false,
+      "key" : "con-eip",
+      "order" : 14,
+      "softwareSystemId" : "19"
+    } ],
+    "systemContextViews" : [ {
+      "description" : "The system context diagram for Erponomics Manufacturing.",
+      "dimensions" : {
+        "height" : 2500,
+        "width" : 2209
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 886,
+        "y" : 1139
+      }, {
+        "id" : "16",
+        "x" : 881,
+        "y" : 509
+      }, {
+        "id" : "17",
+        "x" : 891,
+        "y" : 1689
+      }, {
+        "id" : "18",
+        "x" : 181,
+        "y" : 1124
+      }, {
+        "id" : "19",
+        "x" : 1576,
+        "y" : 1139
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "sc-emf",
+      "order" : 2,
+      "relationships" : [ {
+        "id" : "38"
+      }, {
+        "id" : "39"
+      }, {
+        "id" : "40"
+      }, {
+        "id" : "41"
+      }, {
+        "id" : "42"
+      }, {
+        "id" : "43"
+      }, {
+        "id" : "44"
+      }, {
+        "id" : "45"
+      }, {
+        "id" : "46",
+        "vertices" : [ {
+          "x" : 1106,
+          "y" : 1064
+        } ]
+      } ],
+      "softwareSystemId" : "1"
+    }, {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "The system context diagram for Erponomics ERP Connectivity.",
+      "dimensions" : {
+        "height" : 3100,
+        "width" : 3100
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 683,
+        "y" : 1999
+      }, {
+        "id" : "16",
+        "x" : 1324,
+        "y" : 799
+      }, {
+        "id" : "18",
+        "x" : 1324,
+        "y" : 1399
+      }, {
+        "id" : "19",
+        "x" : 1362,
+        "y" : 2599
+      }, {
+        "id" : "27",
+        "x" : 199,
+        "y" : 199
+      }, {
+        "id" : "28",
+        "x" : 949,
+        "y" : 199
+      }, {
+        "id" : "29",
+        "x" : 1699,
+        "y" : 199
+      }, {
+        "id" : "30",
+        "x" : 2449,
+        "y" : 199
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "sc-eec",
+      "order" : 7,
+      "relationships" : [ {
+        "id" : "38",
+        "vertices" : [ {
+          "x" : 1174,
+          "y" : 1399
+        } ]
+      }, {
+        "id" : "40"
+      }, {
+        "id" : "41"
+      }, {
+        "id" : "43"
+      }, {
+        "id" : "44",
+        "vertices" : [ {
+          "x" : 1924,
+          "y" : 1399
+        }, {
+          "x" : 1924,
+          "y" : 1699
+        }, {
+          "x" : 1795,
+          "y" : 2299
+        } ]
+      }, {
+        "id" : "46"
+      }, {
+        "id" : "75"
+      }, {
+        "id" : "76"
+      }, {
+        "id" : "77"
+      }, {
+        "id" : "78"
+      } ],
+      "softwareSystemId" : "16"
+    }, {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "The system context diagram for Erponomics App Connectivity.",
+      "dimensions" : {
+        "height" : 3100,
+        "width" : 2350
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 309,
+        "y" : 1999
+      }, {
+        "id" : "17",
+        "x" : 950,
+        "y" : 799
+      }, {
+        "id" : "18",
+        "x" : 950,
+        "y" : 1399
+      }, {
+        "id" : "19",
+        "x" : 988,
+        "y" : 2599
+      }, {
+        "id" : "31",
+        "x" : 200,
+        "y" : 199
+      }, {
+        "id" : "32",
+        "x" : 950,
+        "y" : 199
+      }, {
+        "id" : "33",
+        "x" : 1700,
+        "y" : 199
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "sc-eac",
+      "order" : 9,
+      "relationships" : [ {
+        "id" : "39",
+        "vertices" : [ {
+          "x" : 800,
+          "y" : 1399
+        } ]
+      }, {
+        "id" : "40"
+      }, {
+        "id" : "42"
+      }, {
+        "id" : "43"
+      }, {
+        "id" : "45",
+        "vertices" : [ {
+          "x" : 1550,
+          "y" : 1399
+        }, {
+          "x" : 1550,
+          "y" : 1699
+        }, {
+          "x" : 1421,
+          "y" : 2299
+        } ]
+      }, {
+        "id" : "46"
+      }, {
+        "id" : "79"
+      }, {
+        "id" : "80"
+      }, {
+        "id" : "81"
+      } ],
+      "softwareSystemId" : "17"
+    }, {
+      "automaticLayout" : {
+        "applied" : true,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "The system context diagram for Erponomics Management.",
+      "dimensions" : {
+        "height" : 2600,
+        "width" : 4400
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 2278,
+        "y" : 1499
+      }, {
+        "id" : "16",
+        "x" : 199,
+        "y" : 249
+      }, {
+        "id" : "17",
+        "x" : 3749,
+        "y" : 249
+      }, {
+        "id" : "18",
+        "x" : 1974,
+        "y" : 899
+      }, {
+        "id" : "19",
+        "x" : 1937,
+        "y" : 2099
+      }, {
+        "id" : "20",
+        "x" : 3049,
+        "y" : 199
+      }, {
+        "id" : "21",
+        "x" : 949,
+        "y" : 199
+      }, {
+        "id" : "22",
+        "x" : 1649,
+        "y" : 199
+      }, {
+        "id" : "23",
+        "x" : 2349,
+        "y" : 199
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "sc-emn",
+      "order" : 11,
+      "relationships" : [ {
+        "id" : "38"
+      }, {
+        "id" : "39"
+      }, {
+        "id" : "40"
+      }, {
+        "id" : "41",
+        "vertices" : [ {
+          "x" : 799,
+          "y" : 599
+        } ]
+      }, {
+        "id" : "42",
+        "vertices" : [ {
+          "x" : 3599,
+          "y" : 599
+        } ]
+      }, {
+        "id" : "43"
+      }, {
+        "id" : "44"
+      }, {
+        "id" : "45",
+        "vertices" : [ {
+          "x" : 3445,
+          "y" : 1199
+        }, {
+          "x" : 2878,
+          "y" : 1799
+        } ]
+      }, {
+        "id" : "46",
+        "vertices" : [ {
+          "x" : 2128,
+          "y" : 1499
+        }, {
+          "x" : 2128,
+          "y" : 1799
+        } ]
+      }, {
+        "id" : "59"
+      }, {
+        "id" : "60"
+      }, {
+        "id" : "61"
+      }, {
+        "id" : "62"
+      } ],
+      "softwareSystemId" : "18"
+    }, {
+      "automaticLayout" : {
+        "applied" : false,
+        "edgeSeparation" : 0,
+        "implementation" : "Graphviz",
+        "nodeSeparation" : 300,
+        "rankDirection" : "TopBottom",
+        "rankSeparation" : 300,
+        "vertices" : false
+      },
+      "description" : "The system context diagram for Erponomics Identity Provisioning.",
+      "elements" : [ {
+        "id" : "1",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "16",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "17",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "18",
+        "x" : 0,
+        "y" : 0
+      }, {
+        "id" : "19",
+        "x" : 0,
+        "y" : 0
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "sc-eip",
+      "order" : 13,
+      "relationships" : [ {
+        "id" : "38"
+      }, {
+        "id" : "39"
+      }, {
+        "id" : "40"
+      }, {
+        "id" : "41"
+      }, {
+        "id" : "42"
+      }, {
+        "id" : "43"
+      }, {
+        "id" : "44"
+      }, {
+        "id" : "45"
+      }, {
+        "id" : "46"
+      } ],
+      "softwareSystemId" : "19"
+    } ],
+    "systemLandscapeViews" : [ {
+      "description" : "The system landscape diagram for Erponomics.",
+      "dimensions" : {
+        "height" : 4030,
+        "width" : 2961
+      },
+      "elements" : [ {
+        "id" : "1",
+        "x" : 1615,
+        "y" : 1954
+      }, {
+        "id" : "16",
+        "x" : 1620,
+        "y" : 1294
+      }, {
+        "id" : "17",
+        "x" : 1625,
+        "y" : 2494
+      }, {
+        "id" : "18",
+        "x" : 945,
+        "y" : 1954
+      }, {
+        "id" : "19",
+        "x" : 2310,
+        "y" : 1959
+      }, {
+        "id" : "20",
+        "x" : 235,
+        "y" : 1180
+      }, {
+        "id" : "21",
+        "x" : 245,
+        "y" : 1660
+      }, {
+        "id" : "22",
+        "x" : 250,
+        "y" : 2120
+      }, {
+        "id" : "23",
+        "x" : 260,
+        "y" : 2625
+      }, {
+        "id" : "24",
+        "x" : 1034,
+        "y" : 3410
+      }, {
+        "id" : "25",
+        "x" : 1689,
+        "y" : 3415
+      }, {
+        "id" : "26",
+        "x" : 2329,
+        "y" : 3430
+      }, {
+        "id" : "27",
+        "x" : 980,
+        "y" : 630
+      }, {
+        "id" : "28",
+        "x" : 1605,
+        "y" : 625
+      }, {
+        "id" : "29",
+        "x" : 220,
+        "y" : 620
+      }, {
+        "id" : "30",
+        "x" : 2180,
+        "y" : 620
+      }, {
+        "id" : "31",
+        "x" : 1030,
+        "y" : 2940
+      }, {
+        "id" : "32",
+        "x" : 1654,
+        "y" : 2950
+      }, {
+        "id" : "33",
+        "x" : 2289,
+        "y" : 2940
+      }, {
+        "id" : "34",
+        "x" : 985,
+        "y" : 15
+      }, {
+        "id" : "35",
+        "x" : 1600,
+        "y" : 15
+      }, {
+        "id" : "36",
+        "x" : 195,
+        "y" : 5
+      }, {
+        "id" : "37",
+        "x" : 2205,
+        "y" : 25
+      } ],
+      "enterpriseBoundaryVisible" : true,
+      "key" : "Erponomics",
+      "order" : 1,
+      "relationships" : [ {
+        "id" : "38"
+      }, {
+        "id" : "39"
+      }, {
+        "id" : "40"
+      }, {
+        "id" : "41"
+      }, {
+        "id" : "42"
+      }, {
+        "id" : "43"
+      }, {
+        "id" : "44"
+      }, {
+        "id" : "45"
+      }, {
+        "id" : "46",
+        "vertices" : [ {
+          "x" : 1835,
+          "y" : 1844
+        } ]
+      }, {
+        "id" : "59"
+      }, {
+        "id" : "60"
+      }, {
+        "id" : "61"
+      }, {
+        "id" : "62"
+      }, {
+        "id" : "63"
+      }, {
+        "id" : "64"
+      }, {
+        "id" : "65"
+      }, {
+        "id" : "75"
+      }, {
+        "id" : "76"
+      }, {
+        "id" : "77"
+      }, {
+        "id" : "78"
+      }, {
+        "id" : "79"
+      }, {
+        "id" : "80"
+      }, {
+        "id" : "81"
+      }, {
+        "id" : "82"
+      }, {
+        "id" : "83"
+      }, {
+        "id" : "84"
+      }, {
+        "id" : "85"
+      } ]
+    } ]
+  }
+}
