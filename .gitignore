@@ -22,3 +22,9 @@ Cargo.lock
 
 # Structurizr
 **/.structurizr
+
+# Databases
+**/*.db*
+
+# Environment variables
+**/.env
