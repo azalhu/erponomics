@@ -1,2 +1,2 @@
 # erponomics
-Ergonomic ERP-agnostic platform.
+Ergonomic ERP-agnostic platform
