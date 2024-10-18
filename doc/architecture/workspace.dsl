@@ -130,21 +130,25 @@ workspace {
                 }
             }
         }
+
         # SC EAC
         eec = softwareSystem "${ERP_CONNECTIVITY_NAME}" {
             description "Manages Connectivity with ERP Connectors."
             tags "Integration System"
         }
+
         # SC EAC
         eac = softwareSystem "${APP_CONNECTIVITY_NAME}" {
             description "Manages Connectivity with App Connectors."
             tags "Integration System"
         }
+
         # SC EMN
         emn = softwareSystem "${MANAGEMENT_NAME}" {
             description "Manages ERP/User/App settings, licenses, permissions, features, templates, etc."
             tags "Integration System"
         }
+
         # SC EIP
         eip = softwareSystem "${IDENTITY_PROVISIONING_NAME}" {
             description "Manages Authentication/Authorization across Systems."
@@ -296,11 +300,6 @@ workspace {
         insp -> eac "Gets Production Orders and Components and Publishes Inspection Results" {
             tags "${SOFTWARE_SYSTEM_TAG}" "${APP_CONNECTIVITY_NAME}"
         }
-
-
-        # relationships between people and software systems
-
-
 
         # relationships to/from containers
         eac -> emf-gateway "Sends Queries and Commands" "GraphQL/HTTPS" {
