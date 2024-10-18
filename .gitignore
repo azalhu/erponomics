@@ -22,9 +22,13 @@ Cargo.lock
 
 # Structurizr
 **/.structurizr
+.adr-dir
 
 # Databases
 **/*.db*
 
 # Environment variables
 **/.env
+
+# macOS
+.DS_Store
