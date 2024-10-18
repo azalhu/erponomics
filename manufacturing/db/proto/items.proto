@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package items;
+package item;
 
 import "google/protobuf/timestamp.proto";
 
@@ -10,11 +10,13 @@ service Item {
 }
 
 message ItemRequest {
-  string code = 2;
+  string number = 1;
+  string name = 2;
 }
 
 message ItemResponse {
-  uint32 id = 1;
-  string code = 2;
-  google.protobuf.Timestamp created_at = 3;
+  string id = 1;
+  string number = 2;
+  string name = 3;
+  google.protobuf.Timestamp created_at = 4;
 }

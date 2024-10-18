@@ -6,10 +6,14 @@ members = ["admin", "db", "sync", "web"]
 version = "0.1.0"
 authors = ["azalhu"]
 edition = "2021"
-
-[workspace.dependencies]
-prost = "0.13.3"
-prost-types = "0.13.3"
-tokio = { version = "1.40.0", features = ["macros", "rt-multi-thread"] }
-tonic = "0.12.3"
-tonic-build = "0.12.3"
+prost = { version = "0.13.3", default-features = false, features = ["derive"] }
+prost-types = { version = "0.13.3", default-features = false, features = ["std"] }
+serde = { version = "1.0.210", default-features = false }
+tokio = { version = "1.40.0", default-features = false, features = ["rt-multi-thread"] }
+tonic = { version = "0.12.3", default-features = false, features = ["codegen", "prost", "transport"] }
+#prost = "0.13.3"
+#prost-types = "0.13.3"
+#serde = "1.0.210"
+#tokio = { version = "1.40.0", features = ["macros", "rt-multi-thread"] }
+#tonic = "0.12.3"
+#tonic-build = "0.12.3"
