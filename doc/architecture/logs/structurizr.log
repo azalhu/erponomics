@@ -1,0 +1,835 @@
+[INFO ] 2024-10-18 20:51:14.707 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-18 20:51:14.709 [main] ContextLoaderListener -   _____ _                   _              _          
+[INFO ] 2024-10-18 20:51:14.709 [main] ContextLoaderListener -  / ____| |                 | |            (_)         
+[INFO ] 2024-10-18 20:51:14.709 [main] ContextLoaderListener - | (___ | |_ _ __ _   _  ___| |_ _   _ _ __ _ _____ __ 
+[INFO ] 2024-10-18 20:51:14.709 [main] ContextLoaderListener -  \___ \| __| '__| | | |/ __| __| | | | '__| |_  / '__|
+[INFO ] 2024-10-18 20:51:14.710 [main] ContextLoaderListener -  ____) | |_| |  | |_| | (__| |_| |_| | |  | |/ /| |   
+[INFO ] 2024-10-18 20:51:14.710 [main] ContextLoaderListener - |_____/ \__|_|   \__,_|\___|\__|\__,_|_|  |_/___|_|   
+[INFO ] 2024-10-18 20:51:14.710 [main] ContextLoaderListener -                                                       
+[INFO ] 2024-10-18 20:51:14.710 [main] ContextLoaderListener - Structurizr on-premises installation
+[INFO ] 2024-10-18 20:51:14.711 [main] ContextLoaderListener -  - build: 2024.06.25 (2024-06-25T08:05:52Z)
+[INFO ] 2024-10-18 20:51:14.713 [main] ContextLoaderListener -  - structurizr-java: v2.1.4
+[INFO ] 2024-10-18 20:51:14.718 [main] ContextLoaderListener -  - structurizr-dsl: v2.1.4
+[INFO ] 2024-10-18 20:51:14.719 [main] ContextLoaderListener -  - structurizr-import: v2.1.4
+[INFO ] 2024-10-18 20:51:14.721 [main] ContextLoaderListener -  - structurizr-graphviz: v2.1.4
+[INFO ] 2024-10-18 20:51:14.722 [main] ContextLoaderListener - Data directory: /usr/local/structurizr (r: true; w: true; x: true)
+[INFO ] 2024-10-18 20:51:14.723 [main] ContextLoaderListener - URL: 
+[INFO ] 2024-10-18 20:51:14.724 [main] ContextLoaderListener - Memory: used=146MB; free=365MB; total=512MB; max=512MB
+[INFO ] 2024-10-18 20:51:14.725 [main] ContextLoaderListener - 
+[INFO ] 2024-10-18 20:51:14.725 [main] ContextLoaderListener - Internet connection: true
+[INFO ] 2024-10-18 20:51:14.725 [main] ContextLoaderListener - Authentication: file
+[INFO ] 2024-10-18 20:51:14.725 [main] ContextLoaderListener - API key: false
+[INFO ] 2024-10-18 20:51:14.726 [main] ContextLoaderListener - Session: local
+[INFO ] 2024-10-18 20:51:14.726 [main] ContextLoaderListener - Data storage: file
+[INFO ] 2024-10-18 20:51:14.726 [main] ContextLoaderListener - Caching: none
+[INFO ] 2024-10-18 20:51:14.726 [main] ContextLoaderListener - Workspace archiving: false
+[INFO ] 2024-10-18 20:51:14.727 [main] ContextLoaderListener - Workspace scope: relaxed
+[INFO ] 2024-10-18 20:51:14.727 [main] ContextLoaderListener - Search: lucene
+[INFO ] 2024-10-18 20:51:14.732 [main] ContextLoaderListener - Graphviz (dot): true
+[INFO ] 2024-10-18 20:51:14.732 [main] ContextLoaderListener - DSL editor: false
+[INFO ] 2024-10-18 20:51:14.732 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-18 20:51:14.732 [main] ContextLoaderListener - MIT License
+[INFO ] 2024-10-18 20:51:14.733 [main] ContextLoaderListener - 
+[INFO ] 2024-10-18 20:51:14.733 [main] ContextLoaderListener - Copyright (c) 2024 Structurizr Limited
+[INFO ] 2024-10-18 20:51:14.733 [main] ContextLoaderListener - 
+[INFO ] 2024-10-18 20:51:14.733 [main] ContextLoaderListener - Permission is hereby granted, free of charge, to any person obtaining a copy
+[INFO ] 2024-10-18 20:51:14.733 [main] ContextLoaderListener - of this software and associated documentation files (the "Software"), to deal
+[INFO ] 2024-10-18 20:51:14.734 [main] ContextLoaderListener - in the Software without restriction, including without limitation the rights
+[INFO ] 2024-10-18 20:51:14.734 [main] ContextLoaderListener - to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+[INFO ] 2024-10-18 20:51:14.734 [main] ContextLoaderListener - copies of the Software, and to permit persons to whom the Software is
+[INFO ] 2024-10-18 20:51:14.734 [main] ContextLoaderListener - furnished to do so, subject to the following conditions:
+[INFO ] 2024-10-18 20:51:14.734 [main] ContextLoaderListener - 
+[INFO ] 2024-10-18 20:51:14.735 [main] ContextLoaderListener - The above copyright notice and this permission notice shall be included in all
+[INFO ] 2024-10-18 20:51:14.735 [main] ContextLoaderListener - copies or substantial portions of the Software.
+[INFO ] 2024-10-18 20:51:14.735 [main] ContextLoaderListener - 
+[INFO ] 2024-10-18 20:51:14.735 [main] ContextLoaderListener - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+[INFO ] 2024-10-18 20:51:14.735 [main] ContextLoaderListener - IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+[INFO ] 2024-10-18 20:51:14.735 [main] ContextLoaderListener - FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+[INFO ] 2024-10-18 20:51:14.736 [main] ContextLoaderListener - AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+[INFO ] 2024-10-18 20:51:14.736 [main] ContextLoaderListener - LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+[INFO ] 2024-10-18 20:51:14.736 [main] ContextLoaderListener - OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+[INFO ] 2024-10-18 20:51:14.736 [main] ContextLoaderListener - SOFTWARE.
+[INFO ] 2024-10-18 20:51:14.736 [main] ContextLoaderListener - ***********************************************************************************
+[WARN ] 2024-10-18 20:51:50.362 [http-nio-8080-exec-1] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: "diagrams"]
+[INFO ] 2024-10-18 20:57:20.557 [http-nio-8080-exec-4] AuthenticationSuccessHandler - structurizr successfully authenticated
+[INFO ] 2024-10-19 08:13:38.824 [http-nio-8080-exec-7] AuthenticationSuccessHandler - structurizr successfully authenticated
+[WARN ] 2024-10-19 08:13:39.560 [http-nio-8080-exec-5] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 08:13:39.567 [http-nio-8080-exec-5] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 08:13:57.685 [http-nio-8080-exec-10] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 08:13:57.686 [http-nio-8080-exec-10] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 08:14:02.834 [http-nio-8080-exec-9] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 08:14:02.836 [http-nio-8080-exec-9] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 08:14:25.117 [http-nio-8080-exec-5] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 08:14:25.119 [http-nio-8080-exec-5] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[INFO ] 2024-10-19 11:07:28.053 [http-nio-8080-exec-10] AuthenticationSuccessHandler - structurizr successfully authenticated
+[WARN ] 2024-10-19 11:07:28.111 [http-nio-8080-exec-10] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 11:07:28.113 [http-nio-8080-exec-10] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 11:07:30.978 [http-nio-8080-exec-6] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 11:07:30.980 [http-nio-8080-exec-6] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 11:07:32.992 [http-nio-8080-exec-1] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 11:07:32.992 [http-nio-8080-exec-1] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 11:09:26.924 [http-nio-8080-exec-6] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 11:09:26.924 [http-nio-8080-exec-6] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 11:14:17.709 [http-nio-8080-exec-2] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 11:14:17.710 [http-nio-8080-exec-2] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 11:14:21.903 [http-nio-8080-exec-1] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 11:14:21.904 [http-nio-8080-exec-1] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 11:14:30.717 [http-nio-8080-exec-3] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 11:14:30.718 [http-nio-8080-exec-3] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 11:15:15.559 [http-nio-8080-exec-9] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 11:15:15.560 [http-nio-8080-exec-9] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 11:15:18.840 [http-nio-8080-exec-10] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 11:15:18.840 [http-nio-8080-exec-10] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 11:15:23.067 [http-nio-8080-exec-5] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 11:15:23.067 [http-nio-8080-exec-5] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 11:20:43.557 [http-nio-8080-exec-3] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 11:20:43.558 [http-nio-8080-exec-3] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 11:22:40.060 [http-nio-8080-exec-6] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 11:22:40.061 [http-nio-8080-exec-6] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 11:27:17.920 [http-nio-8080-exec-10] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 11:27:17.923 [http-nio-8080-exec-10] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 11:27:20.847 [http-nio-8080-exec-10] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 11:27:20.847 [http-nio-8080-exec-10] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 11:40:06.501 [http-nio-8080-exec-10] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 11:40:06.502 [http-nio-8080-exec-10] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:17:19.982 [http-nio-8080-exec-10] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:17:19.984 [http-nio-8080-exec-10] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:17:23.501 [http-nio-8080-exec-8] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:17:23.502 [http-nio-8080-exec-8] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:17:47.779 [http-nio-8080-exec-1] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:17:47.779 [http-nio-8080-exec-1] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:18:00.625 [http-nio-8080-exec-3] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:18:00.627 [http-nio-8080-exec-3] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:18:05.170 [http-nio-8080-exec-5] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:18:05.171 [http-nio-8080-exec-5] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:18:12.933 [http-nio-8080-exec-8] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:18:12.934 [http-nio-8080-exec-8] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:18:31.063 [http-nio-8080-exec-4] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:18:31.063 [http-nio-8080-exec-4] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:18:32.708 [http-nio-8080-exec-4] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:18:32.709 [http-nio-8080-exec-4] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:18:37.879 [http-nio-8080-exec-3] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:18:37.880 [http-nio-8080-exec-3] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:19:31.334 [http-nio-8080-exec-7] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:19:31.335 [http-nio-8080-exec-7] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:19:33.339 [http-nio-8080-exec-4] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:19:33.340 [http-nio-8080-exec-4] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:19:40.078 [http-nio-8080-exec-8] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:19:40.079 [http-nio-8080-exec-8] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:19:47.040 [http-nio-8080-exec-7] PageNotFound - No mapping for GET /apple-touch-icon.png
+[WARN ] 2024-10-19 12:19:47.040 [http-nio-8080-exec-10] PageNotFound - No mapping for GET /apple-touch-icon-precomposed.png
+[WARN ] 2024-10-19 12:19:47.041 [http-nio-8080-exec-10] PageNotFound - No endpoint GET /apple-touch-icon-precomposed.png.
+[WARN ] 2024-10-19 12:19:47.041 [http-nio-8080-exec-7] PageNotFound - No endpoint GET /apple-touch-icon.png.
+[WARN ] 2024-10-19 12:19:56.276 [http-nio-8080-exec-2] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:19:56.277 [http-nio-8080-exec-2] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:20:14.337 [http-nio-8080-exec-7] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:20:14.338 [http-nio-8080-exec-7] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:26:14.616 [http-nio-8080-exec-3] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:26:14.618 [http-nio-8080-exec-3] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:26:33.271 [http-nio-8080-exec-5] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:26:33.272 [http-nio-8080-exec-5] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:29:48.246 [http-nio-8080-exec-3] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:29:48.247 [http-nio-8080-exec-3] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:34:14.929 [http-nio-8080-exec-3] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:34:14.931 [http-nio-8080-exec-3] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:34:24.627 [http-nio-8080-exec-10] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:34:24.627 [http-nio-8080-exec-10] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:44:34.039 [http-nio-8080-exec-7] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:44:34.042 [http-nio-8080-exec-7] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:45:06.469 [http-nio-8080-exec-9] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:45:06.473 [http-nio-8080-exec-9] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[ERROR] 2024-10-19 12:54:57.738 [http-nio-8080-exec-10] ApiController - com.structurizr.onpremises.web.api.HttpUnauthorizedException: Incorrect API key
+[ERROR] 2024-10-19 12:55:08.525 [http-nio-8080-exec-6] ApiController - com.structurizr.onpremises.web.api.HttpUnauthorizedException: Incorrect API key
+[WARN ] 2024-10-19 12:55:27.371 [http-nio-8080-exec-7] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:55:27.373 [http-nio-8080-exec-7] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:55:33.067 [http-nio-8080-exec-4] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:55:33.068 [http-nio-8080-exec-4] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[INFO ] 2024-10-19 12:56:19.759 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 12:56:19.759 [Thread-1] Configuration -  Stopping Structurizr
+[INFO ] 2024-10-19 12:56:19.759 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 12:56:22.065 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 12:56:22.067 [main] ContextLoaderListener -   _____ _                   _              _          
+[INFO ] 2024-10-19 12:56:22.067 [main] ContextLoaderListener -  / ____| |                 | |            (_)         
+[INFO ] 2024-10-19 12:56:22.067 [main] ContextLoaderListener - | (___ | |_ _ __ _   _  ___| |_ _   _ _ __ _ _____ __ 
+[INFO ] 2024-10-19 12:56:22.067 [main] ContextLoaderListener -  \___ \| __| '__| | | |/ __| __| | | | '__| |_  / '__|
+[INFO ] 2024-10-19 12:56:22.067 [main] ContextLoaderListener -  ____) | |_| |  | |_| | (__| |_| |_| | |  | |/ /| |   
+[INFO ] 2024-10-19 12:56:22.068 [main] ContextLoaderListener - |_____/ \__|_|   \__,_|\___|\__|\__,_|_|  |_/___|_|   
+[INFO ] 2024-10-19 12:56:22.068 [main] ContextLoaderListener -                                                       
+[INFO ] 2024-10-19 12:56:22.068 [main] ContextLoaderListener - Structurizr on-premises installation
+[INFO ] 2024-10-19 12:56:22.069 [main] ContextLoaderListener -  - build: 2024.06.25 (2024-06-25T08:05:52Z)
+[INFO ] 2024-10-19 12:56:22.071 [main] ContextLoaderListener -  - structurizr-java: v2.1.4
+[INFO ] 2024-10-19 12:56:22.076 [main] ContextLoaderListener -  - structurizr-dsl: v2.1.4
+[INFO ] 2024-10-19 12:56:22.077 [main] ContextLoaderListener -  - structurizr-import: v2.1.4
+[INFO ] 2024-10-19 12:56:22.079 [main] ContextLoaderListener -  - structurizr-graphviz: v2.1.4
+[INFO ] 2024-10-19 12:56:22.081 [main] ContextLoaderListener - Data directory: /usr/local/structurizr (r: true; w: true; x: true)
+[INFO ] 2024-10-19 12:56:22.081 [main] ContextLoaderListener - URL: 
+[INFO ] 2024-10-19 12:56:22.083 [main] ContextLoaderListener - Memory: used=157MB; free=354MB; total=512MB; max=512MB
+[INFO ] 2024-10-19 12:56:22.083 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 12:56:22.083 [main] ContextLoaderListener - Internet connection: true
+[INFO ] 2024-10-19 12:56:22.083 [main] ContextLoaderListener - Authentication: file
+[INFO ] 2024-10-19 12:56:22.083 [main] ContextLoaderListener - API key: false
+[INFO ] 2024-10-19 12:56:22.084 [main] ContextLoaderListener - Session: local
+[INFO ] 2024-10-19 12:56:22.084 [main] ContextLoaderListener - Data storage: file
+[INFO ] 2024-10-19 12:56:22.084 [main] ContextLoaderListener - Caching: none
+[INFO ] 2024-10-19 12:56:22.084 [main] ContextLoaderListener - Workspace archiving: false
+[INFO ] 2024-10-19 12:56:22.084 [main] ContextLoaderListener - Workspace scope: relaxed
+[INFO ] 2024-10-19 12:56:22.085 [main] ContextLoaderListener - Search: lucene
+[INFO ] 2024-10-19 12:56:22.090 [main] ContextLoaderListener - Graphviz (dot): true
+[INFO ] 2024-10-19 12:56:22.091 [main] ContextLoaderListener - DSL editor: false
+[INFO ] 2024-10-19 12:56:22.091 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 12:56:22.091 [main] ContextLoaderListener - MIT License
+[INFO ] 2024-10-19 12:56:22.091 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 12:56:22.091 [main] ContextLoaderListener - Copyright (c) 2024 Structurizr Limited
+[INFO ] 2024-10-19 12:56:22.091 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 12:56:22.092 [main] ContextLoaderListener - Permission is hereby granted, free of charge, to any person obtaining a copy
+[INFO ] 2024-10-19 12:56:22.092 [main] ContextLoaderListener - of this software and associated documentation files (the "Software"), to deal
+[INFO ] 2024-10-19 12:56:22.092 [main] ContextLoaderListener - in the Software without restriction, including without limitation the rights
+[INFO ] 2024-10-19 12:56:22.092 [main] ContextLoaderListener - to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+[INFO ] 2024-10-19 12:56:22.092 [main] ContextLoaderListener - copies of the Software, and to permit persons to whom the Software is
+[INFO ] 2024-10-19 12:56:22.092 [main] ContextLoaderListener - furnished to do so, subject to the following conditions:
+[INFO ] 2024-10-19 12:56:22.092 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 12:56:22.092 [main] ContextLoaderListener - The above copyright notice and this permission notice shall be included in all
+[INFO ] 2024-10-19 12:56:22.093 [main] ContextLoaderListener - copies or substantial portions of the Software.
+[INFO ] 2024-10-19 12:56:22.093 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 12:56:22.093 [main] ContextLoaderListener - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+[INFO ] 2024-10-19 12:56:22.093 [main] ContextLoaderListener - IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+[INFO ] 2024-10-19 12:56:22.093 [main] ContextLoaderListener - FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+[INFO ] 2024-10-19 12:56:22.093 [main] ContextLoaderListener - AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+[INFO ] 2024-10-19 12:56:22.093 [main] ContextLoaderListener - LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+[INFO ] 2024-10-19 12:56:22.094 [main] ContextLoaderListener - OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+[INFO ] 2024-10-19 12:56:22.094 [main] ContextLoaderListener - SOFTWARE.
+[INFO ] 2024-10-19 12:56:22.094 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 12:56:29.181 [http-nio-8080-exec-6] AuthenticationSuccessHandler - structurizr successfully authenticated
+[WARN ] 2024-10-19 12:56:29.227 [http-nio-8080-exec-1] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:56:29.235 [http-nio-8080-exec-1] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[INFO ] 2024-10-19 12:56:37.319 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 12:56:37.319 [Thread-1] Configuration -  Stopping Structurizr
+[INFO ] 2024-10-19 12:56:37.319 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 12:56:53.729 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 12:56:53.731 [main] ContextLoaderListener -   _____ _                   _              _          
+[INFO ] 2024-10-19 12:56:53.731 [main] ContextLoaderListener -  / ____| |                 | |            (_)         
+[INFO ] 2024-10-19 12:56:53.731 [main] ContextLoaderListener - | (___ | |_ _ __ _   _  ___| |_ _   _ _ __ _ _____ __ 
+[INFO ] 2024-10-19 12:56:53.731 [main] ContextLoaderListener -  \___ \| __| '__| | | |/ __| __| | | | '__| |_  / '__|
+[INFO ] 2024-10-19 12:56:53.732 [main] ContextLoaderListener -  ____) | |_| |  | |_| | (__| |_| |_| | |  | |/ /| |   
+[INFO ] 2024-10-19 12:56:53.732 [main] ContextLoaderListener - |_____/ \__|_|   \__,_|\___|\__|\__,_|_|  |_/___|_|   
+[INFO ] 2024-10-19 12:56:53.732 [main] ContextLoaderListener -                                                       
+[INFO ] 2024-10-19 12:56:53.732 [main] ContextLoaderListener - Structurizr on-premises installation
+[INFO ] 2024-10-19 12:56:53.733 [main] ContextLoaderListener -  - build: 2024.06.25 (2024-06-25T08:05:52Z)
+[INFO ] 2024-10-19 12:56:53.735 [main] ContextLoaderListener -  - structurizr-java: v2.1.4
+[INFO ] 2024-10-19 12:56:53.740 [main] ContextLoaderListener -  - structurizr-dsl: v2.1.4
+[INFO ] 2024-10-19 12:56:53.741 [main] ContextLoaderListener -  - structurizr-import: v2.1.4
+[INFO ] 2024-10-19 12:56:53.743 [main] ContextLoaderListener -  - structurizr-graphviz: v2.1.4
+[INFO ] 2024-10-19 12:56:53.744 [main] ContextLoaderListener - Data directory: /usr/local/structurizr (r: true; w: true; x: true)
+[INFO ] 2024-10-19 12:56:53.744 [main] ContextLoaderListener - URL: 
+[INFO ] 2024-10-19 12:56:53.746 [main] ContextLoaderListener - Memory: used=104MB; free=407MB; total=512MB; max=512MB
+[INFO ] 2024-10-19 12:56:53.746 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 12:56:53.746 [main] ContextLoaderListener - Internet connection: true
+[INFO ] 2024-10-19 12:56:53.747 [main] ContextLoaderListener - Authentication: file
+[INFO ] 2024-10-19 12:56:53.747 [main] ContextLoaderListener - API key: false
+[INFO ] 2024-10-19 12:56:53.747 [main] ContextLoaderListener - Session: local
+[INFO ] 2024-10-19 12:56:53.747 [main] ContextLoaderListener - Data storage: file
+[INFO ] 2024-10-19 12:56:53.748 [main] ContextLoaderListener - Caching: none
+[INFO ] 2024-10-19 12:56:53.748 [main] ContextLoaderListener - Workspace archiving: false
+[INFO ] 2024-10-19 12:56:53.748 [main] ContextLoaderListener - Workspace scope: relaxed
+[INFO ] 2024-10-19 12:56:53.748 [main] ContextLoaderListener - Search: lucene
+[INFO ] 2024-10-19 12:56:53.752 [main] ContextLoaderListener - Graphviz (dot): true
+[INFO ] 2024-10-19 12:56:53.753 [main] ContextLoaderListener - DSL editor: false
+[INFO ] 2024-10-19 12:56:53.753 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 12:56:53.753 [main] ContextLoaderListener - MIT License
+[INFO ] 2024-10-19 12:56:53.753 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 12:56:53.754 [main] ContextLoaderListener - Copyright (c) 2024 Structurizr Limited
+[INFO ] 2024-10-19 12:56:53.754 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 12:56:53.754 [main] ContextLoaderListener - Permission is hereby granted, free of charge, to any person obtaining a copy
+[INFO ] 2024-10-19 12:56:53.754 [main] ContextLoaderListener - of this software and associated documentation files (the "Software"), to deal
+[INFO ] 2024-10-19 12:56:53.754 [main] ContextLoaderListener - in the Software without restriction, including without limitation the rights
+[INFO ] 2024-10-19 12:56:53.755 [main] ContextLoaderListener - to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+[INFO ] 2024-10-19 12:56:53.755 [main] ContextLoaderListener - copies of the Software, and to permit persons to whom the Software is
+[INFO ] 2024-10-19 12:56:53.755 [main] ContextLoaderListener - furnished to do so, subject to the following conditions:
+[INFO ] 2024-10-19 12:56:53.755 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 12:56:53.755 [main] ContextLoaderListener - The above copyright notice and this permission notice shall be included in all
+[INFO ] 2024-10-19 12:56:53.756 [main] ContextLoaderListener - copies or substantial portions of the Software.
+[INFO ] 2024-10-19 12:56:53.756 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 12:56:53.756 [main] ContextLoaderListener - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+[INFO ] 2024-10-19 12:56:53.756 [main] ContextLoaderListener - IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+[INFO ] 2024-10-19 12:56:53.756 [main] ContextLoaderListener - FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+[INFO ] 2024-10-19 12:56:53.757 [main] ContextLoaderListener - AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+[INFO ] 2024-10-19 12:56:53.757 [main] ContextLoaderListener - LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+[INFO ] 2024-10-19 12:56:53.757 [main] ContextLoaderListener - OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+[INFO ] 2024-10-19 12:56:53.757 [main] ContextLoaderListener - SOFTWARE.
+[INFO ] 2024-10-19 12:56:53.757 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 12:57:12.705 [http-nio-8080-exec-6] AuthenticationSuccessHandler - structurizr successfully authenticated
+[WARN ] 2024-10-19 12:57:14.881 [http-nio-8080-exec-7] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:57:14.884 [http-nio-8080-exec-7] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 12:57:55.006 [http-nio-8080-exec-2] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 12:57:55.007 [http-nio-8080-exec-2] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[INFO ] 2024-10-19 13:03:38.126 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 13:03:38.126 [Thread-1] Configuration -  Stopping Structurizr
+[INFO ] 2024-10-19 13:03:38.127 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 13:03:40.388 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 13:03:40.390 [main] ContextLoaderListener -   _____ _                   _              _          
+[INFO ] 2024-10-19 13:03:40.390 [main] ContextLoaderListener -  / ____| |                 | |            (_)         
+[INFO ] 2024-10-19 13:03:40.391 [main] ContextLoaderListener - | (___ | |_ _ __ _   _  ___| |_ _   _ _ __ _ _____ __ 
+[INFO ] 2024-10-19 13:03:40.391 [main] ContextLoaderListener -  \___ \| __| '__| | | |/ __| __| | | | '__| |_  / '__|
+[INFO ] 2024-10-19 13:03:40.391 [main] ContextLoaderListener -  ____) | |_| |  | |_| | (__| |_| |_| | |  | |/ /| |   
+[INFO ] 2024-10-19 13:03:40.391 [main] ContextLoaderListener - |_____/ \__|_|   \__,_|\___|\__|\__,_|_|  |_/___|_|   
+[INFO ] 2024-10-19 13:03:40.391 [main] ContextLoaderListener -                                                       
+[INFO ] 2024-10-19 13:03:40.391 [main] ContextLoaderListener - Structurizr on-premises installation
+[INFO ] 2024-10-19 13:03:40.392 [main] ContextLoaderListener -  - build: 2024.06.25 (2024-06-25T08:05:52Z)
+[INFO ] 2024-10-19 13:03:40.394 [main] ContextLoaderListener -  - structurizr-java: v2.1.4
+[INFO ] 2024-10-19 13:03:40.399 [main] ContextLoaderListener -  - structurizr-dsl: v2.1.4
+[INFO ] 2024-10-19 13:03:40.399 [main] ContextLoaderListener -  - structurizr-import: v2.1.4
+[INFO ] 2024-10-19 13:03:40.402 [main] ContextLoaderListener -  - structurizr-graphviz: v2.1.4
+[INFO ] 2024-10-19 13:03:40.403 [main] ContextLoaderListener - Data directory: /usr/local/structurizr (r: true; w: true; x: true)
+[INFO ] 2024-10-19 13:03:40.403 [main] ContextLoaderListener - URL: 
+[INFO ] 2024-10-19 13:03:40.405 [main] ContextLoaderListener - Memory: used=157MB; free=354MB; total=512MB; max=512MB
+[INFO ] 2024-10-19 13:03:40.405 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:03:40.405 [main] ContextLoaderListener - Internet connection: true
+[INFO ] 2024-10-19 13:03:40.405 [main] ContextLoaderListener - Authentication: file
+[INFO ] 2024-10-19 13:03:40.406 [main] ContextLoaderListener - API key: false
+[INFO ] 2024-10-19 13:03:40.406 [main] ContextLoaderListener - Session: local
+[INFO ] 2024-10-19 13:03:40.406 [main] ContextLoaderListener - Data storage: file
+[INFO ] 2024-10-19 13:03:40.406 [main] ContextLoaderListener - Caching: none
+[INFO ] 2024-10-19 13:03:40.406 [main] ContextLoaderListener - Workspace archiving: false
+[INFO ] 2024-10-19 13:03:40.407 [main] ContextLoaderListener - Workspace scope: relaxed
+[INFO ] 2024-10-19 13:03:40.407 [main] ContextLoaderListener - Search: lucene
+[INFO ] 2024-10-19 13:03:40.411 [main] ContextLoaderListener - Graphviz (dot): true
+[INFO ] 2024-10-19 13:03:40.411 [main] ContextLoaderListener - DSL editor: false
+[INFO ] 2024-10-19 13:03:40.411 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 13:03:40.411 [main] ContextLoaderListener - MIT License
+[INFO ] 2024-10-19 13:03:40.411 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:03:40.412 [main] ContextLoaderListener - Copyright (c) 2024 Structurizr Limited
+[INFO ] 2024-10-19 13:03:40.412 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:03:40.412 [main] ContextLoaderListener - Permission is hereby granted, free of charge, to any person obtaining a copy
+[INFO ] 2024-10-19 13:03:40.412 [main] ContextLoaderListener - of this software and associated documentation files (the "Software"), to deal
+[INFO ] 2024-10-19 13:03:40.412 [main] ContextLoaderListener - in the Software without restriction, including without limitation the rights
+[INFO ] 2024-10-19 13:03:40.412 [main] ContextLoaderListener - to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+[INFO ] 2024-10-19 13:03:40.412 [main] ContextLoaderListener - copies of the Software, and to permit persons to whom the Software is
+[INFO ] 2024-10-19 13:03:40.413 [main] ContextLoaderListener - furnished to do so, subject to the following conditions:
+[INFO ] 2024-10-19 13:03:40.413 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:03:40.413 [main] ContextLoaderListener - The above copyright notice and this permission notice shall be included in all
+[INFO ] 2024-10-19 13:03:40.413 [main] ContextLoaderListener - copies or substantial portions of the Software.
+[INFO ] 2024-10-19 13:03:40.413 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:03:40.413 [main] ContextLoaderListener - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+[INFO ] 2024-10-19 13:03:40.414 [main] ContextLoaderListener - IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+[INFO ] 2024-10-19 13:03:40.414 [main] ContextLoaderListener - FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+[INFO ] 2024-10-19 13:03:40.414 [main] ContextLoaderListener - AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+[INFO ] 2024-10-19 13:03:40.414 [main] ContextLoaderListener - LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+[INFO ] 2024-10-19 13:03:40.414 [main] ContextLoaderListener - OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+[INFO ] 2024-10-19 13:03:40.414 [main] ContextLoaderListener - SOFTWARE.
+[INFO ] 2024-10-19 13:03:40.415 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 13:03:47.996 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 13:03:47.996 [Thread-1] Configuration -  Stopping Structurizr
+[INFO ] 2024-10-19 13:03:47.996 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 13:03:50.202 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 13:03:50.204 [main] ContextLoaderListener -   _____ _                   _              _          
+[INFO ] 2024-10-19 13:03:50.204 [main] ContextLoaderListener -  / ____| |                 | |            (_)         
+[INFO ] 2024-10-19 13:03:50.204 [main] ContextLoaderListener - | (___ | |_ _ __ _   _  ___| |_ _   _ _ __ _ _____ __ 
+[INFO ] 2024-10-19 13:03:50.204 [main] ContextLoaderListener -  \___ \| __| '__| | | |/ __| __| | | | '__| |_  / '__|
+[INFO ] 2024-10-19 13:03:50.204 [main] ContextLoaderListener -  ____) | |_| |  | |_| | (__| |_| |_| | |  | |/ /| |   
+[INFO ] 2024-10-19 13:03:50.204 [main] ContextLoaderListener - |_____/ \__|_|   \__,_|\___|\__|\__,_|_|  |_/___|_|   
+[INFO ] 2024-10-19 13:03:50.205 [main] ContextLoaderListener -                                                       
+[INFO ] 2024-10-19 13:03:50.205 [main] ContextLoaderListener - Structurizr on-premises installation
+[INFO ] 2024-10-19 13:03:50.206 [main] ContextLoaderListener -  - build: 2024.06.25 (2024-06-25T08:05:52Z)
+[INFO ] 2024-10-19 13:03:50.208 [main] ContextLoaderListener -  - structurizr-java: v2.1.4
+[INFO ] 2024-10-19 13:03:50.213 [main] ContextLoaderListener -  - structurizr-dsl: v2.1.4
+[INFO ] 2024-10-19 13:03:50.214 [main] ContextLoaderListener -  - structurizr-import: v2.1.4
+[INFO ] 2024-10-19 13:03:50.216 [main] ContextLoaderListener -  - structurizr-graphviz: v2.1.4
+[INFO ] 2024-10-19 13:03:50.218 [main] ContextLoaderListener - Data directory: /usr/local/structurizr (r: true; w: true; x: true)
+[INFO ] 2024-10-19 13:03:50.218 [main] ContextLoaderListener - URL: 
+[INFO ] 2024-10-19 13:03:50.220 [main] ContextLoaderListener - Memory: used=256MB; free=255MB; total=512MB; max=512MB
+[INFO ] 2024-10-19 13:03:50.220 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:03:50.220 [main] ContextLoaderListener - Internet connection: true
+[INFO ] 2024-10-19 13:03:50.220 [main] ContextLoaderListener - Authentication: file
+[INFO ] 2024-10-19 13:03:50.220 [main] ContextLoaderListener - API key: false
+[INFO ] 2024-10-19 13:03:50.221 [main] ContextLoaderListener - Session: local
+[INFO ] 2024-10-19 13:03:50.221 [main] ContextLoaderListener - Data storage: file
+[INFO ] 2024-10-19 13:03:50.221 [main] ContextLoaderListener - Caching: none
+[INFO ] 2024-10-19 13:03:50.221 [main] ContextLoaderListener - Workspace archiving: false
+[INFO ] 2024-10-19 13:03:50.221 [main] ContextLoaderListener - Workspace scope: relaxed
+[INFO ] 2024-10-19 13:03:50.222 [main] ContextLoaderListener - Search: lucene
+[INFO ] 2024-10-19 13:03:50.227 [main] ContextLoaderListener - Graphviz (dot): true
+[INFO ] 2024-10-19 13:03:50.227 [main] ContextLoaderListener - DSL editor: false
+[INFO ] 2024-10-19 13:03:50.227 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 13:03:50.227 [main] ContextLoaderListener - MIT License
+[INFO ] 2024-10-19 13:03:50.228 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:03:50.228 [main] ContextLoaderListener - Copyright (c) 2024 Structurizr Limited
+[INFO ] 2024-10-19 13:03:50.228 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:03:50.228 [main] ContextLoaderListener - Permission is hereby granted, free of charge, to any person obtaining a copy
+[INFO ] 2024-10-19 13:03:50.228 [main] ContextLoaderListener - of this software and associated documentation files (the "Software"), to deal
+[INFO ] 2024-10-19 13:03:50.228 [main] ContextLoaderListener - in the Software without restriction, including without limitation the rights
+[INFO ] 2024-10-19 13:03:50.228 [main] ContextLoaderListener - to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+[INFO ] 2024-10-19 13:03:50.229 [main] ContextLoaderListener - copies of the Software, and to permit persons to whom the Software is
+[INFO ] 2024-10-19 13:03:50.229 [main] ContextLoaderListener - furnished to do so, subject to the following conditions:
+[INFO ] 2024-10-19 13:03:50.229 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:03:50.229 [main] ContextLoaderListener - The above copyright notice and this permission notice shall be included in all
+[INFO ] 2024-10-19 13:03:50.229 [main] ContextLoaderListener - copies or substantial portions of the Software.
+[INFO ] 2024-10-19 13:03:50.229 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:03:50.230 [main] ContextLoaderListener - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+[INFO ] 2024-10-19 13:03:50.230 [main] ContextLoaderListener - IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+[INFO ] 2024-10-19 13:03:50.230 [main] ContextLoaderListener - FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+[INFO ] 2024-10-19 13:03:50.230 [main] ContextLoaderListener - AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+[INFO ] 2024-10-19 13:03:50.230 [main] ContextLoaderListener - LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+[INFO ] 2024-10-19 13:03:50.230 [main] ContextLoaderListener - OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+[INFO ] 2024-10-19 13:03:50.231 [main] ContextLoaderListener - SOFTWARE.
+[INFO ] 2024-10-19 13:03:50.231 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 13:06:25.375 [http-nio-8080-exec-5] AuthenticationSuccessHandler - structurizr successfully authenticated
+[WARN ] 2024-10-19 13:06:27.522 [http-nio-8080-exec-9] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:06:27.525 [http-nio-8080-exec-9] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[INFO ] 2024-10-19 13:09:14.459 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 13:09:14.459 [Thread-1] Configuration -  Stopping Structurizr
+[INFO ] 2024-10-19 13:09:14.460 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 13:09:16.624 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 13:09:16.626 [main] ContextLoaderListener -   _____ _                   _              _          
+[INFO ] 2024-10-19 13:09:16.627 [main] ContextLoaderListener -  / ____| |                 | |            (_)         
+[INFO ] 2024-10-19 13:09:16.627 [main] ContextLoaderListener - | (___ | |_ _ __ _   _  ___| |_ _   _ _ __ _ _____ __ 
+[INFO ] 2024-10-19 13:09:16.627 [main] ContextLoaderListener -  \___ \| __| '__| | | |/ __| __| | | | '__| |_  / '__|
+[INFO ] 2024-10-19 13:09:16.627 [main] ContextLoaderListener -  ____) | |_| |  | |_| | (__| |_| |_| | |  | |/ /| |   
+[INFO ] 2024-10-19 13:09:16.627 [main] ContextLoaderListener - |_____/ \__|_|   \__,_|\___|\__|\__,_|_|  |_/___|_|   
+[INFO ] 2024-10-19 13:09:16.627 [main] ContextLoaderListener -                                                       
+[INFO ] 2024-10-19 13:09:16.628 [main] ContextLoaderListener - Structurizr on-premises installation
+[INFO ] 2024-10-19 13:09:16.628 [main] ContextLoaderListener -  - build: 2024.06.25 (2024-06-25T08:05:52Z)
+[INFO ] 2024-10-19 13:09:16.631 [main] ContextLoaderListener -  - structurizr-java: v2.1.4
+[INFO ] 2024-10-19 13:09:16.635 [main] ContextLoaderListener -  - structurizr-dsl: v2.1.4
+[INFO ] 2024-10-19 13:09:16.636 [main] ContextLoaderListener -  - structurizr-import: v2.1.4
+[INFO ] 2024-10-19 13:09:16.638 [main] ContextLoaderListener -  - structurizr-graphviz: v2.1.4
+[INFO ] 2024-10-19 13:09:16.640 [main] ContextLoaderListener - Data directory: /usr/local/structurizr (r: true; w: true; x: true)
+[INFO ] 2024-10-19 13:09:16.640 [main] ContextLoaderListener - URL: 
+[INFO ] 2024-10-19 13:09:16.641 [main] ContextLoaderListener - Memory: used=252MB; free=259MB; total=512MB; max=512MB
+[INFO ] 2024-10-19 13:09:16.641 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:09:16.642 [main] ContextLoaderListener - Internet connection: true
+[INFO ] 2024-10-19 13:09:16.642 [main] ContextLoaderListener - Authentication: file
+[INFO ] 2024-10-19 13:09:16.642 [main] ContextLoaderListener - API key: false
+[INFO ] 2024-10-19 13:09:16.642 [main] ContextLoaderListener - Session: local
+[INFO ] 2024-10-19 13:09:16.643 [main] ContextLoaderListener - Data storage: file
+[INFO ] 2024-10-19 13:09:16.643 [main] ContextLoaderListener - Caching: none
+[INFO ] 2024-10-19 13:09:16.643 [main] ContextLoaderListener - Workspace archiving: false
+[INFO ] 2024-10-19 13:09:16.643 [main] ContextLoaderListener - Workspace scope: relaxed
+[INFO ] 2024-10-19 13:09:16.643 [main] ContextLoaderListener - Search: lucene
+[INFO ] 2024-10-19 13:09:16.648 [main] ContextLoaderListener - Graphviz (dot): true
+[INFO ] 2024-10-19 13:09:16.649 [main] ContextLoaderListener - DSL editor: false
+[INFO ] 2024-10-19 13:09:16.649 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 13:09:16.649 [main] ContextLoaderListener - MIT License
+[INFO ] 2024-10-19 13:09:16.649 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:09:16.650 [main] ContextLoaderListener - Copyright (c) 2024 Structurizr Limited
+[INFO ] 2024-10-19 13:09:16.650 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:09:16.650 [main] ContextLoaderListener - Permission is hereby granted, free of charge, to any person obtaining a copy
+[INFO ] 2024-10-19 13:09:16.650 [main] ContextLoaderListener - of this software and associated documentation files (the "Software"), to deal
+[INFO ] 2024-10-19 13:09:16.650 [main] ContextLoaderListener - in the Software without restriction, including without limitation the rights
+[INFO ] 2024-10-19 13:09:16.650 [main] ContextLoaderListener - to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+[INFO ] 2024-10-19 13:09:16.651 [main] ContextLoaderListener - copies of the Software, and to permit persons to whom the Software is
+[INFO ] 2024-10-19 13:09:16.651 [main] ContextLoaderListener - furnished to do so, subject to the following conditions:
+[INFO ] 2024-10-19 13:09:16.651 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:09:16.651 [main] ContextLoaderListener - The above copyright notice and this permission notice shall be included in all
+[INFO ] 2024-10-19 13:09:16.651 [main] ContextLoaderListener - copies or substantial portions of the Software.
+[INFO ] 2024-10-19 13:09:16.651 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:09:16.652 [main] ContextLoaderListener - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+[INFO ] 2024-10-19 13:09:16.652 [main] ContextLoaderListener - IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+[INFO ] 2024-10-19 13:09:16.652 [main] ContextLoaderListener - FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+[INFO ] 2024-10-19 13:09:16.652 [main] ContextLoaderListener - AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+[INFO ] 2024-10-19 13:09:16.652 [main] ContextLoaderListener - LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+[INFO ] 2024-10-19 13:09:16.652 [main] ContextLoaderListener - OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+[INFO ] 2024-10-19 13:09:16.653 [main] ContextLoaderListener - SOFTWARE.
+[INFO ] 2024-10-19 13:09:16.653 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 13:09:57.351 [http-nio-8080-exec-1] AuthenticationSuccessHandler - structurizr successfully authenticated
+[WARN ] 2024-10-19 13:10:00.364 [http-nio-8080-exec-1] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:10:00.368 [http-nio-8080-exec-1] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:10:06.534 [http-nio-8080-exec-5] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:10:06.535 [http-nio-8080-exec-5] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:14:23.242 [http-nio-8080-exec-7] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:14:23.245 [http-nio-8080-exec-7] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:14:42.476 [http-nio-8080-exec-6] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:14:42.478 [http-nio-8080-exec-6] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:15:38.421 [http-nio-8080-exec-3] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:15:38.423 [http-nio-8080-exec-3] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:16:29.478 [http-nio-8080-exec-1] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:16:29.479 [http-nio-8080-exec-1] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:16:38.797 [http-nio-8080-exec-2] PageNotFound - No mapping for GET /api/workspace/2/branch/structurizr
+[WARN ] 2024-10-19 13:16:38.797 [http-nio-8080-exec-2] PageNotFound - No endpoint GET /api/workspace/2/branch/structurizr.
+[WARN ] 2024-10-19 13:21:02.317 [http-nio-8080-exec-1] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:21:02.319 [http-nio-8080-exec-1] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:21:36.041 [http-nio-8080-exec-5] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:21:36.042 [http-nio-8080-exec-5] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:25:07.248 [http-nio-8080-exec-1] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:25:07.249 [http-nio-8080-exec-1] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[INFO ] 2024-10-19 13:25:15.380 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 13:25:15.380 [Thread-1] Configuration -  Stopping Structurizr
+[INFO ] 2024-10-19 13:25:15.380 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 13:25:17.707 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 13:25:17.709 [main] ContextLoaderListener -   _____ _                   _              _          
+[INFO ] 2024-10-19 13:25:17.709 [main] ContextLoaderListener -  / ____| |                 | |            (_)         
+[INFO ] 2024-10-19 13:25:17.709 [main] ContextLoaderListener - | (___ | |_ _ __ _   _  ___| |_ _   _ _ __ _ _____ __ 
+[INFO ] 2024-10-19 13:25:17.709 [main] ContextLoaderListener -  \___ \| __| '__| | | |/ __| __| | | | '__| |_  / '__|
+[INFO ] 2024-10-19 13:25:17.709 [main] ContextLoaderListener -  ____) | |_| |  | |_| | (__| |_| |_| | |  | |/ /| |   
+[INFO ] 2024-10-19 13:25:17.709 [main] ContextLoaderListener - |_____/ \__|_|   \__,_|\___|\__|\__,_|_|  |_/___|_|   
+[INFO ] 2024-10-19 13:25:17.710 [main] ContextLoaderListener -                                                       
+[INFO ] 2024-10-19 13:25:17.710 [main] ContextLoaderListener - Structurizr on-premises installation
+[INFO ] 2024-10-19 13:25:17.711 [main] ContextLoaderListener -  - build: 2024.06.25 (2024-06-25T08:05:52Z)
+[INFO ] 2024-10-19 13:25:17.713 [main] ContextLoaderListener -  - structurizr-java: v2.1.4
+[INFO ] 2024-10-19 13:25:17.718 [main] ContextLoaderListener -  - structurizr-dsl: v2.1.4
+[INFO ] 2024-10-19 13:25:17.718 [main] ContextLoaderListener -  - structurizr-import: v2.1.4
+[INFO ] 2024-10-19 13:25:17.720 [main] ContextLoaderListener -  - structurizr-graphviz: v2.1.4
+[INFO ] 2024-10-19 13:25:17.722 [main] ContextLoaderListener - Data directory: /usr/local/structurizr (r: true; w: true; x: true)
+[INFO ] 2024-10-19 13:25:17.722 [main] ContextLoaderListener - URL: 
+[INFO ] 2024-10-19 13:25:17.724 [main] ContextLoaderListener - Memory: used=243MB; free=268MB; total=512MB; max=512MB
+[INFO ] 2024-10-19 13:25:17.724 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:25:17.724 [main] ContextLoaderListener - Internet connection: true
+[INFO ] 2024-10-19 13:25:17.724 [main] ContextLoaderListener - Authentication: file
+[INFO ] 2024-10-19 13:25:17.725 [main] ContextLoaderListener - API key: false
+[INFO ] 2024-10-19 13:25:17.725 [main] ContextLoaderListener - Session: local
+[INFO ] 2024-10-19 13:25:17.725 [main] ContextLoaderListener - Data storage: file
+[INFO ] 2024-10-19 13:25:17.725 [main] ContextLoaderListener - Caching: none
+[INFO ] 2024-10-19 13:25:17.726 [main] ContextLoaderListener - Workspace archiving: false
+[INFO ] 2024-10-19 13:25:17.726 [main] ContextLoaderListener - Workspace scope: relaxed
+[INFO ] 2024-10-19 13:25:17.726 [main] ContextLoaderListener - Search: lucene
+[INFO ] 2024-10-19 13:25:17.732 [main] ContextLoaderListener - Graphviz (dot): true
+[INFO ] 2024-10-19 13:25:17.732 [main] ContextLoaderListener - DSL editor: false
+[INFO ] 2024-10-19 13:25:17.733 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 13:25:17.733 [main] ContextLoaderListener - MIT License
+[INFO ] 2024-10-19 13:25:17.733 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:25:17.733 [main] ContextLoaderListener - Copyright (c) 2024 Structurizr Limited
+[INFO ] 2024-10-19 13:25:17.733 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:25:17.733 [main] ContextLoaderListener - Permission is hereby granted, free of charge, to any person obtaining a copy
+[INFO ] 2024-10-19 13:25:17.734 [main] ContextLoaderListener - of this software and associated documentation files (the "Software"), to deal
+[INFO ] 2024-10-19 13:25:17.734 [main] ContextLoaderListener - in the Software without restriction, including without limitation the rights
+[INFO ] 2024-10-19 13:25:17.734 [main] ContextLoaderListener - to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+[INFO ] 2024-10-19 13:25:17.734 [main] ContextLoaderListener - copies of the Software, and to permit persons to whom the Software is
+[INFO ] 2024-10-19 13:25:17.734 [main] ContextLoaderListener - furnished to do so, subject to the following conditions:
+[INFO ] 2024-10-19 13:25:17.734 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:25:17.735 [main] ContextLoaderListener - The above copyright notice and this permission notice shall be included in all
+[INFO ] 2024-10-19 13:25:17.735 [main] ContextLoaderListener - copies or substantial portions of the Software.
+[INFO ] 2024-10-19 13:25:17.735 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 13:25:17.735 [main] ContextLoaderListener - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+[INFO ] 2024-10-19 13:25:17.735 [main] ContextLoaderListener - IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+[INFO ] 2024-10-19 13:25:17.735 [main] ContextLoaderListener - FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+[INFO ] 2024-10-19 13:25:17.735 [main] ContextLoaderListener - AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+[INFO ] 2024-10-19 13:25:17.736 [main] ContextLoaderListener - LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+[INFO ] 2024-10-19 13:25:17.736 [main] ContextLoaderListener - OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+[INFO ] 2024-10-19 13:25:17.736 [main] ContextLoaderListener - SOFTWARE.
+[INFO ] 2024-10-19 13:25:17.736 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 13:25:44.906 [http-nio-8080-exec-6] AuthenticationSuccessHandler - structurizr successfully authenticated
+[WARN ] 2024-10-19 13:25:47.212 [http-nio-8080-exec-2] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:25:47.216 [http-nio-8080-exec-2] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:32:19.292 [http-nio-8080-exec-10] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:32:19.292 [http-nio-8080-exec-10] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:32:23.716 [http-nio-8080-exec-5] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:32:23.720 [http-nio-8080-exec-5] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:32:43.569 [http-nio-8080-exec-9] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:32:43.571 [http-nio-8080-exec-9] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:32:49.130 [http-nio-8080-exec-5] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:32:49.133 [http-nio-8080-exec-5] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:37:51.024 [http-nio-8080-exec-4] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:37:51.025 [http-nio-8080-exec-4] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:37:57.006 [http-nio-8080-exec-6] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:37:57.007 [http-nio-8080-exec-6] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:39:00.629 [http-nio-8080-exec-6] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:39:00.631 [http-nio-8080-exec-6] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 13:39:18.666 [http-nio-8080-exec-3] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 13:39:18.668 [http-nio-8080-exec-3] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[INFO ] 2024-10-19 15:22:26.143 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 15:22:26.146 [Thread-1] Configuration -  Stopping Structurizr
+[INFO ] 2024-10-19 15:22:26.147 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 15:29:14.673 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 15:29:14.675 [main] ContextLoaderListener -   _____ _                   _              _          
+[INFO ] 2024-10-19 15:29:14.675 [main] ContextLoaderListener -  / ____| |                 | |            (_)         
+[INFO ] 2024-10-19 15:29:14.676 [main] ContextLoaderListener - | (___ | |_ _ __ _   _  ___| |_ _   _ _ __ _ _____ __ 
+[INFO ] 2024-10-19 15:29:14.676 [main] ContextLoaderListener -  \___ \| __| '__| | | |/ __| __| | | | '__| |_  / '__|
+[INFO ] 2024-10-19 15:29:14.676 [main] ContextLoaderListener -  ____) | |_| |  | |_| | (__| |_| |_| | |  | |/ /| |   
+[INFO ] 2024-10-19 15:29:14.676 [main] ContextLoaderListener - |_____/ \__|_|   \__,_|\___|\__|\__,_|_|  |_/___|_|   
+[INFO ] 2024-10-19 15:29:14.676 [main] ContextLoaderListener -                                                       
+[INFO ] 2024-10-19 15:29:14.677 [main] ContextLoaderListener - Structurizr on-premises installation
+[INFO ] 2024-10-19 15:29:14.678 [main] ContextLoaderListener -  - build: 2024.03.03 (2024-03-03T10:07:18Z)
+[INFO ] 2024-10-19 15:29:14.680 [main] ContextLoaderListener -  - structurizr-java: v2.1.1
+[INFO ] 2024-10-19 15:29:14.685 [main] ContextLoaderListener -  - structurizr-dsl: v2.1.1
+[INFO ] 2024-10-19 15:29:14.685 [main] ContextLoaderListener -  - structurizr-import: v2.1.1
+[INFO ] 2024-10-19 15:29:14.688 [main] ContextLoaderListener -  - structurizr-graphviz: v2.1.1
+[INFO ] 2024-10-19 15:29:14.689 [main] ContextLoaderListener - Data directory: /usr/local/structurizr (r: true; w: true; x: true)
+[INFO ] 2024-10-19 15:29:14.689 [main] ContextLoaderListener - URL: 
+[INFO ] 2024-10-19 15:29:14.691 [main] ContextLoaderListener - Memory: used=150MB; free=361MB; total=512MB; max=512MB
+[INFO ] 2024-10-19 15:29:14.691 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 15:29:14.691 [main] ContextLoaderListener - Internet connection: true
+[INFO ] 2024-10-19 15:29:14.692 [main] ContextLoaderListener - Authentication: file
+[INFO ] 2024-10-19 15:29:14.692 [main] ContextLoaderListener - API key: false
+[INFO ] 2024-10-19 15:29:14.692 [main] ContextLoaderListener - Session: local
+[INFO ] 2024-10-19 15:29:14.692 [main] ContextLoaderListener - Data storage: file
+[INFO ] 2024-10-19 15:29:14.692 [main] ContextLoaderListener - Caching: none
+[INFO ] 2024-10-19 15:29:14.693 [main] ContextLoaderListener - Workspace archiving: false
+[INFO ] 2024-10-19 15:29:14.693 [main] ContextLoaderListener - Workspace scope: relaxed
+[INFO ] 2024-10-19 15:29:14.693 [main] ContextLoaderListener - Search: lucene
+[INFO ] 2024-10-19 15:29:14.698 [main] ContextLoaderListener - Graphviz (dot): true
+[INFO ] 2024-10-19 15:29:14.698 [main] ContextLoaderListener - DSL editor: false
+[INFO ] 2024-10-19 15:29:14.698 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 15:29:14.698 [main] ContextLoaderListener - MIT License
+[INFO ] 2024-10-19 15:29:14.698 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 15:29:14.698 [main] ContextLoaderListener - Copyright (c) 2024 Structurizr Limited
+[INFO ] 2024-10-19 15:29:14.699 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 15:29:14.699 [main] ContextLoaderListener - Permission is hereby granted, free of charge, to any person obtaining a copy
+[INFO ] 2024-10-19 15:29:14.699 [main] ContextLoaderListener - of this software and associated documentation files (the "Software"), to deal
+[INFO ] 2024-10-19 15:29:14.699 [main] ContextLoaderListener - in the Software without restriction, including without limitation the rights
+[INFO ] 2024-10-19 15:29:14.699 [main] ContextLoaderListener - to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+[INFO ] 2024-10-19 15:29:14.699 [main] ContextLoaderListener - copies of the Software, and to permit persons to whom the Software is
+[INFO ] 2024-10-19 15:29:14.700 [main] ContextLoaderListener - furnished to do so, subject to the following conditions:
+[INFO ] 2024-10-19 15:29:14.700 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 15:29:14.700 [main] ContextLoaderListener - The above copyright notice and this permission notice shall be included in all
+[INFO ] 2024-10-19 15:29:14.700 [main] ContextLoaderListener - copies or substantial portions of the Software.
+[INFO ] 2024-10-19 15:29:14.700 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 15:29:14.700 [main] ContextLoaderListener - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+[INFO ] 2024-10-19 15:29:14.701 [main] ContextLoaderListener - IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+[INFO ] 2024-10-19 15:29:14.701 [main] ContextLoaderListener - FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+[INFO ] 2024-10-19 15:29:14.701 [main] ContextLoaderListener - AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+[INFO ] 2024-10-19 15:29:14.701 [main] ContextLoaderListener - LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+[INFO ] 2024-10-19 15:29:14.701 [main] ContextLoaderListener - OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+[INFO ] 2024-10-19 15:29:14.701 [main] ContextLoaderListener - SOFTWARE.
+[INFO ] 2024-10-19 15:29:14.702 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 15:29:27.553 [http-nio-8080-exec-6] AuthenticationSuccessHandler - structurizr successfully authenticated
+[WARN ] 2024-10-19 15:29:27.810 [http-nio-8080-exec-1] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 15:29:27.819 [http-nio-8080-exec-1] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[WARN ] 2024-10-19 15:29:47.531 [http-nio-8080-exec-8] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 15:29:47.536 [http-nio-8080-exec-8] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[INFO ] 2024-10-19 15:30:26.635 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 15:30:26.635 [Thread-1] Configuration -  Stopping Structurizr
+[INFO ] 2024-10-19 15:30:26.636 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 15:31:11.484 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 15:31:11.486 [main] ContextLoaderListener -   _____ _                   _              _          
+[INFO ] 2024-10-19 15:31:11.486 [main] ContextLoaderListener -  / ____| |                 | |            (_)         
+[INFO ] 2024-10-19 15:31:11.486 [main] ContextLoaderListener - | (___ | |_ _ __ _   _  ___| |_ _   _ _ __ _ _____ __ 
+[INFO ] 2024-10-19 15:31:11.487 [main] ContextLoaderListener -  \___ \| __| '__| | | |/ __| __| | | | '__| |_  / '__|
+[INFO ] 2024-10-19 15:31:11.487 [main] ContextLoaderListener -  ____) | |_| |  | |_| | (__| |_| |_| | |  | |/ /| |   
+[INFO ] 2024-10-19 15:31:11.487 [main] ContextLoaderListener - |_____/ \__|_|   \__,_|\___|\__|\__,_|_|  |_/___|_|   
+[INFO ] 2024-10-19 15:31:11.487 [main] ContextLoaderListener -                                                       
+[INFO ] 2024-10-19 15:31:11.487 [main] ContextLoaderListener - Structurizr on-premises installation
+[INFO ] 2024-10-19 15:31:11.488 [main] ContextLoaderListener -  - build: 2024.06.25 (2024-06-25T08:05:52Z)
+[INFO ] 2024-10-19 15:31:11.490 [main] ContextLoaderListener -  - structurizr-java: v2.1.4
+[INFO ] 2024-10-19 15:31:11.495 [main] ContextLoaderListener -  - structurizr-dsl: v2.1.4
+[INFO ] 2024-10-19 15:31:11.495 [main] ContextLoaderListener -  - structurizr-import: v2.1.4
+[INFO ] 2024-10-19 15:31:11.497 [main] ContextLoaderListener -  - structurizr-graphviz: v2.1.4
+[INFO ] 2024-10-19 15:31:11.499 [main] ContextLoaderListener - Data directory: /usr/local/structurizr (r: true; w: true; x: true)
+[INFO ] 2024-10-19 15:31:11.499 [main] ContextLoaderListener - URL: 
+[INFO ] 2024-10-19 15:31:11.501 [main] ContextLoaderListener - Memory: used=105MB; free=406MB; total=512MB; max=512MB
+[INFO ] 2024-10-19 15:31:11.501 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 15:31:11.501 [main] ContextLoaderListener - Internet connection: true
+[INFO ] 2024-10-19 15:31:11.502 [main] ContextLoaderListener - Authentication: file
+[INFO ] 2024-10-19 15:31:11.502 [main] ContextLoaderListener - API key: false
+[INFO ] 2024-10-19 15:31:11.502 [main] ContextLoaderListener - Session: local
+[INFO ] 2024-10-19 15:31:11.503 [main] ContextLoaderListener - Data storage: file
+[INFO ] 2024-10-19 15:31:11.503 [main] ContextLoaderListener - Caching: none
+[INFO ] 2024-10-19 15:31:11.503 [main] ContextLoaderListener - Workspace archiving: false
+[INFO ] 2024-10-19 15:31:11.503 [main] ContextLoaderListener - Workspace scope: relaxed
+[INFO ] 2024-10-19 15:31:11.504 [main] ContextLoaderListener - Search: lucene
+[INFO ] 2024-10-19 15:31:11.509 [main] ContextLoaderListener - Graphviz (dot): true
+[INFO ] 2024-10-19 15:31:11.509 [main] ContextLoaderListener - DSL editor: false
+[INFO ] 2024-10-19 15:31:11.509 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 15:31:11.509 [main] ContextLoaderListener - MIT License
+[INFO ] 2024-10-19 15:31:11.509 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 15:31:11.510 [main] ContextLoaderListener - Copyright (c) 2024 Structurizr Limited
+[INFO ] 2024-10-19 15:31:11.510 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 15:31:11.510 [main] ContextLoaderListener - Permission is hereby granted, free of charge, to any person obtaining a copy
+[INFO ] 2024-10-19 15:31:11.510 [main] ContextLoaderListener - of this software and associated documentation files (the "Software"), to deal
+[INFO ] 2024-10-19 15:31:11.510 [main] ContextLoaderListener - in the Software without restriction, including without limitation the rights
+[INFO ] 2024-10-19 15:31:11.510 [main] ContextLoaderListener - to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+[INFO ] 2024-10-19 15:31:11.511 [main] ContextLoaderListener - copies of the Software, and to permit persons to whom the Software is
+[INFO ] 2024-10-19 15:31:11.511 [main] ContextLoaderListener - furnished to do so, subject to the following conditions:
+[INFO ] 2024-10-19 15:31:11.511 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 15:31:11.511 [main] ContextLoaderListener - The above copyright notice and this permission notice shall be included in all
+[INFO ] 2024-10-19 15:31:11.511 [main] ContextLoaderListener - copies or substantial portions of the Software.
+[INFO ] 2024-10-19 15:31:11.512 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 15:31:11.515 [main] ContextLoaderListener - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+[INFO ] 2024-10-19 15:31:11.516 [main] ContextLoaderListener - IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+[INFO ] 2024-10-19 15:31:11.516 [main] ContextLoaderListener - FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+[INFO ] 2024-10-19 15:31:11.516 [main] ContextLoaderListener - AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+[INFO ] 2024-10-19 15:31:11.516 [main] ContextLoaderListener - LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+[INFO ] 2024-10-19 15:31:11.516 [main] ContextLoaderListener - OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+[INFO ] 2024-10-19 15:31:11.517 [main] ContextLoaderListener - SOFTWARE.
+[INFO ] 2024-10-19 15:31:11.517 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 15:33:20.607 [http-nio-8080-exec-10] AuthenticationSuccessHandler - structurizr successfully authenticated
+[WARN ] 2024-10-19 15:33:20.806 [http-nio-8080-exec-5] PageNotFound - No mapping for GET /api/workspace/1/branch/structurizr
+[WARN ] 2024-10-19 15:33:20.813 [http-nio-8080-exec-5] PageNotFound - No endpoint GET /api/workspace/1/branch/structurizr.
+[INFO ] 2024-10-19 16:32:13.957 [http-nio-8080-exec-2] AuthenticationSuccessHandler - structurizr successfully authenticated
+[ERROR] 2024-10-19 17:49:33.562 [http-nio-8080-exec-6] ApiController - com.structurizr.onpremises.component.workspace.WorkspaceComponentException: Could not get workspace 2
+[INFO ] 2024-10-19 17:52:49.501 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 17:52:49.502 [Thread-1] Configuration -  Stopping Structurizr
+[INFO ] 2024-10-19 17:52:49.502 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 17:52:51.718 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 17:52:51.720 [main] ContextLoaderListener -   _____ _                   _              _          
+[INFO ] 2024-10-19 17:52:51.721 [main] ContextLoaderListener -  / ____| |                 | |            (_)         
+[INFO ] 2024-10-19 17:52:51.721 [main] ContextLoaderListener - | (___ | |_ _ __ _   _  ___| |_ _   _ _ __ _ _____ __ 
+[INFO ] 2024-10-19 17:52:51.721 [main] ContextLoaderListener -  \___ \| __| '__| | | |/ __| __| | | | '__| |_  / '__|
+[INFO ] 2024-10-19 17:52:51.721 [main] ContextLoaderListener -  ____) | |_| |  | |_| | (__| |_| |_| | |  | |/ /| |   
+[INFO ] 2024-10-19 17:52:51.721 [main] ContextLoaderListener - |_____/ \__|_|   \__,_|\___|\__|\__,_|_|  |_/___|_|   
+[INFO ] 2024-10-19 17:52:51.721 [main] ContextLoaderListener -                                                       
+[INFO ] 2024-10-19 17:52:51.722 [main] ContextLoaderListener - Structurizr on-premises installation
+[INFO ] 2024-10-19 17:52:51.722 [main] ContextLoaderListener -  - build: 2024.06.25 (2024-06-25T08:05:52Z)
+[INFO ] 2024-10-19 17:52:51.725 [main] ContextLoaderListener -  - structurizr-java: v2.1.4
+[INFO ] 2024-10-19 17:52:51.730 [main] ContextLoaderListener -  - structurizr-dsl: v2.1.4
+[INFO ] 2024-10-19 17:52:51.730 [main] ContextLoaderListener -  - structurizr-import: v2.1.4
+[INFO ] 2024-10-19 17:52:51.732 [main] ContextLoaderListener -  - structurizr-graphviz: v2.1.4
+[INFO ] 2024-10-19 17:52:51.734 [main] ContextLoaderListener - Data directory: /usr/local/structurizr (r: true; w: true; x: true)
+[INFO ] 2024-10-19 17:52:51.734 [main] ContextLoaderListener - URL: 
+[INFO ] 2024-10-19 17:52:51.736 [main] ContextLoaderListener - Memory: used=249MB; free=262MB; total=512MB; max=512MB
+[INFO ] 2024-10-19 17:52:51.736 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 17:52:51.736 [main] ContextLoaderListener - Internet connection: true
+[INFO ] 2024-10-19 17:52:51.736 [main] ContextLoaderListener - Authentication: file
+[INFO ] 2024-10-19 17:52:51.736 [main] ContextLoaderListener - API key: false
+[INFO ] 2024-10-19 17:52:51.737 [main] ContextLoaderListener - Session: local
+[INFO ] 2024-10-19 17:52:51.737 [main] ContextLoaderListener - Data storage: file
+[INFO ] 2024-10-19 17:52:51.737 [main] ContextLoaderListener - Caching: none
+[INFO ] 2024-10-19 17:52:51.737 [main] ContextLoaderListener - Workspace archiving: false
+[INFO ] 2024-10-19 17:52:51.737 [main] ContextLoaderListener - Workspace scope: relaxed
+[INFO ] 2024-10-19 17:52:51.738 [main] ContextLoaderListener - Search: lucene
+[INFO ] 2024-10-19 17:52:51.743 [main] ContextLoaderListener - Graphviz (dot): true
+[INFO ] 2024-10-19 17:52:51.743 [main] ContextLoaderListener - DSL editor: false
+[INFO ] 2024-10-19 17:52:51.744 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 17:52:51.744 [main] ContextLoaderListener - MIT License
+[INFO ] 2024-10-19 17:52:51.744 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 17:52:51.744 [main] ContextLoaderListener - Copyright (c) 2024 Structurizr Limited
+[INFO ] 2024-10-19 17:52:51.744 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 17:52:51.745 [main] ContextLoaderListener - Permission is hereby granted, free of charge, to any person obtaining a copy
+[INFO ] 2024-10-19 17:52:51.745 [main] ContextLoaderListener - of this software and associated documentation files (the "Software"), to deal
+[INFO ] 2024-10-19 17:52:51.745 [main] ContextLoaderListener - in the Software without restriction, including without limitation the rights
+[INFO ] 2024-10-19 17:52:51.745 [main] ContextLoaderListener - to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+[INFO ] 2024-10-19 17:52:51.745 [main] ContextLoaderListener - copies of the Software, and to permit persons to whom the Software is
+[INFO ] 2024-10-19 17:52:51.745 [main] ContextLoaderListener - furnished to do so, subject to the following conditions:
+[INFO ] 2024-10-19 17:52:51.745 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 17:52:51.746 [main] ContextLoaderListener - The above copyright notice and this permission notice shall be included in all
+[INFO ] 2024-10-19 17:52:51.746 [main] ContextLoaderListener - copies or substantial portions of the Software.
+[INFO ] 2024-10-19 17:52:51.746 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 17:52:51.746 [main] ContextLoaderListener - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+[INFO ] 2024-10-19 17:52:51.746 [main] ContextLoaderListener - IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+[INFO ] 2024-10-19 17:52:51.746 [main] ContextLoaderListener - FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+[INFO ] 2024-10-19 17:52:51.747 [main] ContextLoaderListener - AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+[INFO ] 2024-10-19 17:52:51.747 [main] ContextLoaderListener - LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+[INFO ] 2024-10-19 17:52:51.747 [main] ContextLoaderListener - OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+[INFO ] 2024-10-19 17:52:51.747 [main] ContextLoaderListener - SOFTWARE.
+[INFO ] 2024-10-19 17:52:51.747 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 17:52:58.085 [http-nio-8080-exec-6] AuthenticationSuccessHandler - structurizr successfully authenticated
+[WARN ] 2024-10-19 18:40:39.996 [http-nio-8080-exec-5] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: "diagrams"]
+[ERROR] 2024-10-19 18:43:39.661 [http-nio-8080-exec-3] ApiController - com.structurizr.onpremises.component.workspace.WorkspaceComponentException: The workspace could not be saved because the workspace was locked by structurizr at Sat 19 Oct 2024 18:43 UTC.
+[ERROR] 2024-10-19 18:44:02.491 [http-nio-8080-exec-7] ApiController - com.structurizr.onpremises.component.workspace.WorkspaceComponentException: The workspace could not be saved because the workspace was locked by structurizr at Sat 19 Oct 2024 18:43 UTC.
+[INFO ] 2024-10-19 18:44:19.774 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 18:44:19.775 [Thread-1] Configuration -  Stopping Structurizr
+[INFO ] 2024-10-19 18:44:19.775 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 18:44:21.982 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 18:44:21.984 [main] ContextLoaderListener -   _____ _                   _              _          
+[INFO ] 2024-10-19 18:44:21.984 [main] ContextLoaderListener -  / ____| |                 | |            (_)         
+[INFO ] 2024-10-19 18:44:21.985 [main] ContextLoaderListener - | (___ | |_ _ __ _   _  ___| |_ _   _ _ __ _ _____ __ 
+[INFO ] 2024-10-19 18:44:21.985 [main] ContextLoaderListener -  \___ \| __| '__| | | |/ __| __| | | | '__| |_  / '__|
+[INFO ] 2024-10-19 18:44:21.985 [main] ContextLoaderListener -  ____) | |_| |  | |_| | (__| |_| |_| | |  | |/ /| |   
+[INFO ] 2024-10-19 18:44:21.985 [main] ContextLoaderListener - |_____/ \__|_|   \__,_|\___|\__|\__,_|_|  |_/___|_|   
+[INFO ] 2024-10-19 18:44:21.985 [main] ContextLoaderListener -                                                       
+[INFO ] 2024-10-19 18:44:21.985 [main] ContextLoaderListener - Structurizr on-premises installation
+[INFO ] 2024-10-19 18:44:21.986 [main] ContextLoaderListener -  - build: 2024.06.25 (2024-06-25T08:05:52Z)
+[INFO ] 2024-10-19 18:44:21.989 [main] ContextLoaderListener -  - structurizr-java: v2.1.4
+[INFO ] 2024-10-19 18:44:21.993 [main] ContextLoaderListener -  - structurizr-dsl: v2.1.4
+[INFO ] 2024-10-19 18:44:21.994 [main] ContextLoaderListener -  - structurizr-import: v2.1.4
+[INFO ] 2024-10-19 18:44:21.996 [main] ContextLoaderListener -  - structurizr-graphviz: v2.1.4
+[INFO ] 2024-10-19 18:44:21.998 [main] ContextLoaderListener - Data directory: /usr/local/structurizr (r: true; w: true; x: true)
+[INFO ] 2024-10-19 18:44:21.998 [main] ContextLoaderListener - URL: 
+[INFO ] 2024-10-19 18:44:22.000 [main] ContextLoaderListener - Memory: used=261MB; free=250MB; total=512MB; max=512MB
+[INFO ] 2024-10-19 18:44:22.000 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 18:44:22.000 [main] ContextLoaderListener - Internet connection: true
+[INFO ] 2024-10-19 18:44:22.000 [main] ContextLoaderListener - Authentication: file
+[INFO ] 2024-10-19 18:44:22.001 [main] ContextLoaderListener - API key: false
+[INFO ] 2024-10-19 18:44:22.001 [main] ContextLoaderListener - Session: local
+[INFO ] 2024-10-19 18:44:22.001 [main] ContextLoaderListener - Data storage: file
+[INFO ] 2024-10-19 18:44:22.001 [main] ContextLoaderListener - Caching: none
+[INFO ] 2024-10-19 18:44:22.001 [main] ContextLoaderListener - Workspace archiving: false
+[INFO ] 2024-10-19 18:44:22.002 [main] ContextLoaderListener - Workspace scope: relaxed
+[INFO ] 2024-10-19 18:44:22.002 [main] ContextLoaderListener - Search: lucene
+[INFO ] 2024-10-19 18:44:22.007 [main] ContextLoaderListener - Graphviz (dot): true
+[INFO ] 2024-10-19 18:44:22.008 [main] ContextLoaderListener - DSL editor: false
+[INFO ] 2024-10-19 18:44:22.008 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 18:44:22.008 [main] ContextLoaderListener - MIT License
+[INFO ] 2024-10-19 18:44:22.008 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 18:44:22.008 [main] ContextLoaderListener - Copyright (c) 2024 Structurizr Limited
+[INFO ] 2024-10-19 18:44:22.008 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 18:44:22.009 [main] ContextLoaderListener - Permission is hereby granted, free of charge, to any person obtaining a copy
+[INFO ] 2024-10-19 18:44:22.009 [main] ContextLoaderListener - of this software and associated documentation files (the "Software"), to deal
+[INFO ] 2024-10-19 18:44:22.009 [main] ContextLoaderListener - in the Software without restriction, including without limitation the rights
+[INFO ] 2024-10-19 18:44:22.009 [main] ContextLoaderListener - to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+[INFO ] 2024-10-19 18:44:22.009 [main] ContextLoaderListener - copies of the Software, and to permit persons to whom the Software is
+[INFO ] 2024-10-19 18:44:22.009 [main] ContextLoaderListener - furnished to do so, subject to the following conditions:
+[INFO ] 2024-10-19 18:44:22.010 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 18:44:22.010 [main] ContextLoaderListener - The above copyright notice and this permission notice shall be included in all
+[INFO ] 2024-10-19 18:44:22.010 [main] ContextLoaderListener - copies or substantial portions of the Software.
+[INFO ] 2024-10-19 18:44:22.010 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 18:44:22.010 [main] ContextLoaderListener - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+[INFO ] 2024-10-19 18:44:22.010 [main] ContextLoaderListener - IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+[INFO ] 2024-10-19 18:44:22.010 [main] ContextLoaderListener - FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+[INFO ] 2024-10-19 18:44:22.011 [main] ContextLoaderListener - AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+[INFO ] 2024-10-19 18:44:22.011 [main] ContextLoaderListener - LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+[INFO ] 2024-10-19 18:44:22.011 [main] ContextLoaderListener - OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+[INFO ] 2024-10-19 18:44:22.011 [main] ContextLoaderListener - SOFTWARE.
+[INFO ] 2024-10-19 18:44:22.011 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 18:44:27.030 [http-nio-8080-exec-9] AuthenticationSuccessHandler - structurizr successfully authenticated
+[ERROR] 2024-10-19 18:44:34.847 [http-nio-8080-exec-2] ApiController - com.structurizr.onpremises.component.workspace.WorkspaceComponentException: The workspace could not be saved because the workspace was locked by structurizr at Sat 19 Oct 2024 18:43 UTC.
+[WARN ] 2024-10-19 18:46:52.272 [http-nio-8080-exec-10] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' is not supported]
+[WARN ] 2024-10-19 18:46:52.273 [http-nio-8080-exec-10] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'DELETE' is not supported]
+[INFO ] 2024-10-19 18:48:11.041 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 18:48:11.041 [Thread-1] Configuration -  Stopping Structurizr
+[INFO ] 2024-10-19 18:48:11.042 [Thread-1] Configuration - ********************************************************
+[INFO ] 2024-10-19 18:48:13.160 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 18:48:13.162 [main] ContextLoaderListener -   _____ _                   _              _          
+[INFO ] 2024-10-19 18:48:13.162 [main] ContextLoaderListener -  / ____| |                 | |            (_)         
+[INFO ] 2024-10-19 18:48:13.162 [main] ContextLoaderListener - | (___ | |_ _ __ _   _  ___| |_ _   _ _ __ _ _____ __ 
+[INFO ] 2024-10-19 18:48:13.162 [main] ContextLoaderListener -  \___ \| __| '__| | | |/ __| __| | | | '__| |_  / '__|
+[INFO ] 2024-10-19 18:48:13.162 [main] ContextLoaderListener -  ____) | |_| |  | |_| | (__| |_| |_| | |  | |/ /| |   
+[INFO ] 2024-10-19 18:48:13.163 [main] ContextLoaderListener - |_____/ \__|_|   \__,_|\___|\__|\__,_|_|  |_/___|_|   
+[INFO ] 2024-10-19 18:48:13.163 [main] ContextLoaderListener -                                                       
+[INFO ] 2024-10-19 18:48:13.163 [main] ContextLoaderListener - Structurizr on-premises installation
+[INFO ] 2024-10-19 18:48:13.164 [main] ContextLoaderListener -  - build: 2024.06.25 (2024-06-25T08:05:52Z)
+[INFO ] 2024-10-19 18:48:13.166 [main] ContextLoaderListener -  - structurizr-java: v2.1.4
+[INFO ] 2024-10-19 18:48:13.170 [main] ContextLoaderListener -  - structurizr-dsl: v2.1.4
+[INFO ] 2024-10-19 18:48:13.171 [main] ContextLoaderListener -  - structurizr-import: v2.1.4
+[INFO ] 2024-10-19 18:48:13.173 [main] ContextLoaderListener -  - structurizr-graphviz: v2.1.4
+[INFO ] 2024-10-19 18:48:13.174 [main] ContextLoaderListener - Data directory: /usr/local/structurizr (r: true; w: true; x: true)
+[INFO ] 2024-10-19 18:48:13.175 [main] ContextLoaderListener - URL: 
+[INFO ] 2024-10-19 18:48:13.176 [main] ContextLoaderListener - Memory: used=259MB; free=252MB; total=512MB; max=512MB
+[INFO ] 2024-10-19 18:48:13.176 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 18:48:13.176 [main] ContextLoaderListener - Internet connection: true
+[INFO ] 2024-10-19 18:48:13.177 [main] ContextLoaderListener - Authentication: file
+[INFO ] 2024-10-19 18:48:13.177 [main] ContextLoaderListener - API key: false
+[INFO ] 2024-10-19 18:48:13.177 [main] ContextLoaderListener - Session: local
+[INFO ] 2024-10-19 18:48:13.177 [main] ContextLoaderListener - Data storage: file
+[INFO ] 2024-10-19 18:48:13.177 [main] ContextLoaderListener - Caching: none
+[INFO ] 2024-10-19 18:48:13.178 [main] ContextLoaderListener - Workspace archiving: false
+[INFO ] 2024-10-19 18:48:13.178 [main] ContextLoaderListener - Workspace scope: relaxed
+[INFO ] 2024-10-19 18:48:13.178 [main] ContextLoaderListener - Search: lucene
+[INFO ] 2024-10-19 18:48:13.182 [main] ContextLoaderListener - Graphviz (dot): true
+[INFO ] 2024-10-19 18:48:13.182 [main] ContextLoaderListener - DSL editor: false
+[INFO ] 2024-10-19 18:48:13.183 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 18:48:13.183 [main] ContextLoaderListener - MIT License
+[INFO ] 2024-10-19 18:48:13.183 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 18:48:13.183 [main] ContextLoaderListener - Copyright (c) 2024 Structurizr Limited
+[INFO ] 2024-10-19 18:48:13.183 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 18:48:13.183 [main] ContextLoaderListener - Permission is hereby granted, free of charge, to any person obtaining a copy
+[INFO ] 2024-10-19 18:48:13.184 [main] ContextLoaderListener - of this software and associated documentation files (the "Software"), to deal
+[INFO ] 2024-10-19 18:48:13.184 [main] ContextLoaderListener - in the Software without restriction, including without limitation the rights
+[INFO ] 2024-10-19 18:48:13.184 [main] ContextLoaderListener - to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+[INFO ] 2024-10-19 18:48:13.184 [main] ContextLoaderListener - copies of the Software, and to permit persons to whom the Software is
+[INFO ] 2024-10-19 18:48:13.184 [main] ContextLoaderListener - furnished to do so, subject to the following conditions:
+[INFO ] 2024-10-19 18:48:13.184 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 18:48:13.184 [main] ContextLoaderListener - The above copyright notice and this permission notice shall be included in all
+[INFO ] 2024-10-19 18:48:13.185 [main] ContextLoaderListener - copies or substantial portions of the Software.
+[INFO ] 2024-10-19 18:48:13.185 [main] ContextLoaderListener - 
+[INFO ] 2024-10-19 18:48:13.185 [main] ContextLoaderListener - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+[INFO ] 2024-10-19 18:48:13.185 [main] ContextLoaderListener - IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+[INFO ] 2024-10-19 18:48:13.185 [main] ContextLoaderListener - FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+[INFO ] 2024-10-19 18:48:13.186 [main] ContextLoaderListener - AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+[INFO ] 2024-10-19 18:48:13.186 [main] ContextLoaderListener - LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+[INFO ] 2024-10-19 18:48:13.186 [main] ContextLoaderListener - OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+[INFO ] 2024-10-19 18:48:13.186 [main] ContextLoaderListener - SOFTWARE.
+[INFO ] 2024-10-19 18:48:13.186 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-10-19 18:49:17.579 [http-nio-8080-exec-3] AuthenticationSuccessHandler - structurizr successfully authenticated
+[ERROR] 2024-10-19 19:31:35.593 [http-nio-8080-exec-6] ApiController - com.structurizr.onpremises.component.workspace.WorkspaceComponentException: The workspace could not be saved because the workspace was locked by structurizr at Sat 19 Oct 2024 19:30 UTC.
+[INFO ] 2024-10-19 20:41:23.142 [http-nio-8080-exec-1] AuthenticationSuccessHandler - structurizr successfully authenticated
+[INFO ] 2024-10-20 12:29:08.818 [http-nio-8080-exec-4] AuthenticationSuccessHandler - structurizr successfully authenticated
+[ERROR] 2024-10-20 12:33:19.491 [http-nio-8080-exec-7] ApiController - com.structurizr.onpremises.component.workspace.WorkspaceComponentException: The workspace could not be saved because the workspace was locked by structurizr at Sun 20 Oct 2024 12:33 UTC.
+[ERROR] 2024-10-20 12:33:35.059 [http-nio-8080-exec-9] ApiController - com.structurizr.onpremises.component.workspace.WorkspaceComponentException: The workspace could not be saved because the workspace was locked by structurizr at Sun 20 Oct 2024 12:33 UTC.
+[ERROR] 2024-10-20 12:38:38.835 [http-nio-8080-exec-4] ApiController - com.structurizr.onpremises.component.workspace.WorkspaceComponentException: The workspace could not be saved because the workspace was locked by structurizr at Sun 20 Oct 2024 12:38 UTC.
+[INFO ] 2024-10-20 13:54:09.320 [http-nio-8080-exec-8] AuthenticationSuccessHandler - structurizr successfully authenticated
+[ERROR] 2024-10-20 13:54:44.771 [http-nio-8080-exec-7] InspectionsController - java.lang.NullPointerException: Cannot invoke "com.structurizr.documentation.Documentation.getSections()" because the return value of "com.structurizr.documentation.Documentable.getDocumentation()" is null
+[ERROR] 2024-10-20 13:55:48.017 [http-nio-8080-exec-2] InspectionsController - java.lang.NullPointerException: Cannot invoke "com.structurizr.documentation.Documentation.getSections()" because the return value of "com.structurizr.documentation.Documentable.getDocumentation()" is null
+[ERROR] 2024-10-20 13:57:34.741 [http-nio-8080-exec-3] FileSystemWorkspaceDao - java.lang.NumberFormatException: For input string: ""
+[ERROR] 2024-10-20 13:57:34.756 [http-nio-8080-exec-9] FileSystemWorkspaceDao - java.lang.NumberFormatException: For input string: ""
+[ERROR] 2024-10-20 13:57:37.521 [http-nio-8080-exec-5] FileSystemWorkspaceDao - java.lang.NumberFormatException: For input string: ""
+[ERROR] 2024-10-20 13:57:37.548 [http-nio-8080-exec-10] FileSystemWorkspaceDao - java.lang.NumberFormatException: For input string: ""
+[ERROR] 2024-10-20 13:57:37.548 [http-nio-8080-exec-10] ApiController - com.structurizr.onpremises.web.api.HttpUnauthorizedException: Incorrect API key
