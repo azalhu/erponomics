@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package db.item;
+
+import "create_item_request.proto";
+import "create_item_response.proto";
+import "get_item_request.proto";
+import "get_item_response.proto";
+
+service ItemService {
+  rpc CreateItem(db.item.CreateItemRequest) returns (db.item.CreateItemResponse);
+  rpc GetItem(db.item.GetItemRequest) returns (db.item.GetItemResponse);
+}

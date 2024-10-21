@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package db.item;
+
+import "item_id.proto";
+
+message GetItemRequest {
+  db.item.ItemID id = 1;
+}
