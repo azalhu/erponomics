@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package db.item;
+
+import "item.proto";
+
+message GetItemResponse {
+  db.item.Item item = 1;
+}
