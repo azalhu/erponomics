@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package erponomics.manufacturing.domain.item.sync;
+
+import "result.proto";
+import "id.proto";
+
+message ItemSyncResult {
+  erponomics.manufacturing.domain.sync.Result sync_result = 1;
+  erponomics.manufacturing.domain.primary_type.ID id = 2;
+}

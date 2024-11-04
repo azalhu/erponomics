@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package erponomics.manufacturing.domain.item.repository;
+
+import "id.proto";
+
+message DeleteItemRequest {
+  erponomics.manufacturing.domain.primary_type.ID id = 1;
+}

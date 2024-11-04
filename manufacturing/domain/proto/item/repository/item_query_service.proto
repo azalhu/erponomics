@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package erponomics.manufacturing.domain.item.repository;
+
+import "get_item_request.proto";
+import "get_item_response.proto";
+
+service ItemQueryService {
+  rpc GetItem(erponomics.manufacturing.domain.item.repository.GetItemRequest) returns (erponomics.manufacturing.domain.item.repository.GetItemResponse);
+}
