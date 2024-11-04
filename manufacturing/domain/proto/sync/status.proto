@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package erponomics.manufacturing.domain.sync;
+
+enum Status {
+  Planned = 0;
+  InProgress = 1;
+  Completed = 2;
+  Rejected = 3;
+}

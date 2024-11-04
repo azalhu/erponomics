@@ -3,24 +3,12 @@ workspace extends ../system-catalog.dsl {
     description "Manages Data and Domain Requirements"
 
     model {
-        !element emf {
-            # Database
-            group "DB" {
-                emf-db = container "DB" {
-                    description "Stores Data."
-                    technology "SQLite"
-                    tags "Database"
-                }
-                emf-db-api = container "DB API" {
-                    description "Web API for accessing Manufacturing DB."
-                    technology "gRPC + Rust + sqlx"
-                    tags "Web API"
-                    -> emf-db "Sends SQL Queries" {
-                        tags "Container"
-                    }
-                }
-            }
+        properties {
+            "structurizr.groupSeparator" "/"
+        }
 
+        # Manufacturing
+        !element emf {
             # Sync
             group "Sync" {
                 emf-sync-db = container "Sync DB" {
@@ -65,39 +53,59 @@ workspace extends ../system-catalog.dsl {
                 }
             }
 
-            # Domain API
-            emf-domain-api = container "Domain API" {
-                description "Web API for upholding Enterprise Business Rules of Manufacturing."
-                technology "GraphQL API + Rust" 
-                tags "Web API"
-                -> emf-db-api "Queries/Stores Data" {
-                    tags "Container"
+            # Domain
+            group "Domain" {
+                # Database
+                group "DB" {
+                    emf-db = container "DB" {
+                        description "Stores Data."
+                        technology "SQLite"
+                        tags "Database"
+                    }
+                    emf-db-api = container "DB API" {
+                        description "Web API for accessing Manufacturing DB."
+                        technology "gRPC + Rust + sqlx"
+                        tags "Web API"
+                        -> emf-db "Sends SQL Queries" {
+                            tags "Container"
+                        }
+                    }
                 }
-                -> emf-sync-api "Sends Sync Requests/Results" {
-                    tags "Container"
-                }
-            }
 
-            # Query API#
-            emf-query-api = container "Query API" {
-                description "Web API for querying data from Manufacturing."
-                technology "GraphQL API + Rust" 
-                tags "Web API"
-                -> emf-db-api "Queries Data" {
-                    tags "Container"
+                # Domain API
+                emf-domain-api = container "Domain API" {
+                    description "Web API for upholding Enterprise Business Rules of Manufacturing."
+                    technology "GraphQL API + Rust" 
+                    tags "Web API"
+                    -> emf-db-api "Queries/Stores Data" {
+                        tags "Container"
+                    }
+                    -> emf-sync-api "Sends Sync Requests/Results" {
+                        tags "Container"
+                    }
                 }
-            }
 
-            # Gateway
-            emf-gateway-api = container "Gateway" {
-                description "Gateway for interacting with Manufacturing."
-                technology "GraphQL API + Rust" 
-                tags "Gateway"
-                -> emf-domain-api "Forwards Commands" "GraphQL + HTTP/2" {
-                    tags "Container"
+                # Query API
+                emf-query-api = container "Query API" {
+                    description "Web API for querying data from Manufacturing."
+                    technology "GraphQL API + Rust" 
+                    tags "Web API"
+                    -> emf-db-api "Queries Data" {
+                        tags "Container"
+                    }
                 }
-                -> emf-query-api "Forwards Queries" "GraphQL + HTTP/2" {
-                    tags "Container"
+
+                # Gateway
+                emf-gateway-api = container "Gateway" {
+                    description "Gateway for interacting with Manufacturing."
+                    technology "GraphQL API + Rust" 
+                    tags "Gateway"
+                    -> emf-domain-api "Forwards Commands" "GraphQL + HTTP/2" {
+                        tags "Container"
+                    }
+                    -> emf-query-api "Forwards Queries" "GraphQL + HTTP/2" {
+                        tags "Container"
+                    }
                 }
             }
 

@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package erponomics.manufacturing.domain.item.query;
+
+import "item.proto";
+
+message GetItemRequest {
+  erponomics.manufacturing.domain.item.Item item = 1;
+}
