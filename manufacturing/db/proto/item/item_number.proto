@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-package db.item;
-
-message ItemNumber {
-  string value = 1;
-}

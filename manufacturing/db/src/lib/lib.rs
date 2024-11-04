@@ -1,6 +1,7 @@
-pub mod config;
-pub mod domain;
-pub mod features;
-pub mod inbound;
-pub mod outbound;
-pub mod utils;
+#![warn(clippy::all, clippy::pedantic, clippy::nursery)]
+pub use sqlx::sqlite::Connection;
+use sqlx::{sqlite::Error as SqliteError, Error as SqlxError};
+
+pub mod grpc;
+mod item;
+pub mod sqlx;

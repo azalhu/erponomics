@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package erponomics.manufacturing.domain.item.repository;
+
+import "google/protobuf/empty.proto";
+import "create_item_request.proto";
+import "delete_item_request.proto";
+import "get_item_request.proto";
+import "get_item_response.proto";
+
+service ItemService {
+  rpc CreateItem(erponomics.manufacturing.domain.item.repository.CreateItemRequest) returns (google.protobuf.Empty);
+  rpc GetItem(erponomics.manufacturing.domain.item.repository.GetItemRequest) returns (erponomics.manufacturing.domain.item.repository.GetItemResponse);
+  rpc DeleteItem(erponomics.manufacturing.domain.item.repository.DeleteItemRequest) returns (google.protobuf.Empty);
+}
