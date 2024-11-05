@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = ["admin", "db", "domain", "sync", "web"]
+members = ["admin", "db", "domain", "query", "sync", "web"]
 
 [workspace.package]
 version = "0.1.0"
