@@ -13,11 +13,7 @@ impl Create for Client {
     async fn create(&self, req: create::Request) -> Result<(), create::Error> {
         let req: Request<proto::CreateItemRequest> = req.into();
 
-        self.item_service_client
-            .deref()
-            .clone()
-            .create_item(req)
-            .await?;
+        self.service.deref().clone().create_item(req).await?;
 
         Ok(())
     }

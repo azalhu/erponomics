@@ -28,7 +28,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             "delete_item_request.proto",
             "get_item_request.proto",
             "get_item_response.proto",
-            "item_service.proto",
             "item_command_service.proto",
             "item_query_service.proto",
         ],

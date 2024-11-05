@@ -13,11 +13,7 @@ impl Delete for Client {
     async fn delete(&self, req: delete::Request) -> Result<(), delete::Error> {
         let req: Request<proto::DeleteItemRequest> = req.into();
 
-        self.item_service_client
-            .deref()
-            .clone()
-            .delete_item(req)
-            .await?;
+        self.service.deref().clone().delete_item(req).await?;
 
         Ok(())
     }
