@@ -2,7 +2,10 @@ use std::sync::Arc;
 
 use manufacturing::{
     item::repository::{Create, Delete, Get},
-    proto::item::repository::{self as proto, item_service_server::ItemService},
+    proto::item::repository::{
+        self as proto, item_command_service_server::ItemCommandService,
+        item_query_service_server::ItemQueryService,
+    },
 };
 use tonic::{Request, Response, Status};
 
@@ -18,7 +21,7 @@ where
 }
 
 #[tonic::async_trait]
-impl<IR> ItemService for GrpcService<IR>
+impl<IR> ItemCommandService for GrpcService<IR>
 where
     IR: Create + Get + Delete,
 {
@@ -36,6 +39,26 @@ where
         Ok(Response::new(()))
     }
 
+    async fn delete_item(
+        &self,
+        request: Request<proto::DeleteItemRequest>,
+    ) -> Result<Response<()>, Status> {
+        let request = request.try_into().map_err(Status::from)?;
+
+        self.item_repository
+            .delete(request)
+            .await
+            .map_err(Status::from)?;
+
+        Ok(Response::new(()))
+    }
+}
+
+#[tonic::async_trait]
+impl<IR> ItemQueryService for GrpcService<IR>
+where
+    IR: Create + Get + Delete,
+{
     async fn get_item(
         &self,
         request: Request<proto::GetItemRequest>,
@@ -49,20 +72,6 @@ where
             .map_err(Status::from)?;
 
         Ok(response.into())
-    }
-
-    async fn delete_item(
-        &self,
-        request: Request<proto::DeleteItemRequest>,
-    ) -> Result<Response<()>, Status> {
-        let request = request.try_into().map_err(Status::from)?;
-
-        self.item_repository
-            .delete(request)
-            .await
-            .map_err(Status::from)?;
-
-        Ok(Response::new(()))
     }
 }
 
