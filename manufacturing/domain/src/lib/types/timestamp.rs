@@ -1,4 +1,9 @@
-use chrono::{DateTime, Utc};
+use std::str::FromStr;
+
+use chrono::{DateTime, ParseError, Utc};
+use derive_more::derive::From;
+
+use crate::ThisError;
 
 use super::Timestamp;
 
@@ -17,6 +22,57 @@ impl Timestamp {
     pub const fn value(&self) -> &DateTime<Utc> {
         &self.0
     }
+}
+
+impl TryFrom<String> for Timestamp {
+    type Error = Error;
+
+    fn try_from(value: String) -> Result<Self, Self::Error> {
+        let value = value.trim();
+        if value.is_empty() {
+            return Err(EmptyError.into());
+        }
+
+        DateTime::from_str(value).map_or_else(
+            |err| {
+                Err(InvalidFormatError {
+                    raw: value.to_string(),
+                    inner_error: err,
+                }
+                .into())
+            },
+            |value| Ok(Self::new(value)),
+        )
+    }
+}
+
+impl TryFrom<Option<String>> for Timestamp {
+    type Error = Error;
+
+    fn try_from(value: Option<String>) -> Result<Self, Self::Error> {
+        value.map_or_else(|| Err(EmptyError.into()), TryInto::try_into)
+    }
+}
+
+#[derive(Debug, ThisError)]
+pub enum Error {
+    #[error(transparent)]
+    Empty(#[from] EmptyError),
+    #[error(transparent)]
+    InvalidFormat(#[from] InvalidFormatError),
+    #[error(transparent)]
+    Unknown(#[from] anyhow::Error),
+}
+
+#[derive(Clone, Debug, ThisError, From)]
+#[error("timestamp cannot be empty")]
+pub struct EmptyError;
+
+#[derive(Clone, Debug, ThisError, From)]
+#[error("timestamp format is invalid: expected DateTime<Utc>, got {raw}, inner: {inner_error}")]
+pub struct InvalidFormatError {
+    raw: String,
+    inner_error: ParseError,
 }
 
 #[cfg(test)]

@@ -1,27 +1,17 @@
-use std::str::FromStr;
-
 use derive_more::derive::From;
 
 use crate::{Name, ThisError};
 
-impl FromStr for Name {
-    type Err = Error;
+impl TryFrom<String> for Name {
+    type Error = Error;
 
-    fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let trimmed = s.trim();
+    fn try_from(value: String) -> Result<Self, Self::Error> {
+        let trimmed = value.trim();
         if trimmed.is_empty() {
             Err(EmptyError.into())
         } else {
             Ok(Self(trimmed.to_string()))
         }
-    }
-}
-
-impl TryFrom<&str> for Name {
-    type Error = Error;
-
-    fn try_from(value: &str) -> Result<Self, Self::Error> {
-        Self::from_str(value)
     }
 }
 

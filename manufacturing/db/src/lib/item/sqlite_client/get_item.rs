@@ -1,15 +1,11 @@
-use std::str::FromStr;
-
 use anyhow::anyhow;
-use chrono::DateTime;
 use manufacturing::{
     item::repository::{
         get::{Error, Request, Response},
         Get,
     },
-    Code, Description, Id, Item, Name,
+    Code, Description, Id, Item, Name, Timestamp,
 };
-use ulid::Ulid;
 
 use crate::{sqlx::sqlite::Connection, SqlxError};
 
@@ -21,7 +17,7 @@ where
 {
     async fn get(&self, req: Request) -> Result<Response, Error> {
         let item = self.fetch_item(req.id()).await?;
-        Ok(Response::new(item))
+        Ok(Response::from(item))
     }
 }
 
@@ -48,11 +44,11 @@ where
                     ),
                 })?;
 
-        let id = Id::from(Ulid::from_str(&res.id).unwrap());
-        let code = Code::from(res.code.to_string());
-        let name = Name::from(res.name.to_string());
-        let description = Description::from(res.description.to_string());
-        let created_at = DateTime::from_str(&res.created_at).unwrap().into();
+        let id = Id::try_from(res.id)?;
+        let code = Code::try_from(res.code)?;
+        let name = Name::try_from(res.name)?;
+        let description = Description::try_from(res.description)?;
+        let created_at = Timestamp::try_from(res.created_at)?;
 
         let item = Item::from((id, code, name, description, created_at));
 

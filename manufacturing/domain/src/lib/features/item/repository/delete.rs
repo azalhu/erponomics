@@ -6,7 +6,6 @@ use crate::Item;
 use crate::{item, Id, ThisError};
 
 pub mod error;
-pub mod request;
 
 /// The fields required by the domain to delete an [Item].
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, From, Getters, Dissolve)]

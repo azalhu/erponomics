@@ -1,27 +1,17 @@
-use std::str::FromStr;
-
 use derive_more::derive::From;
 
 use crate::{Description, ThisError};
 
-impl FromStr for Description {
-    type Err = Error;
+impl TryFrom<String> for Description {
+    type Error = Error;
 
-    fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let trimmed = s.trim();
+    fn try_from(value: String) -> Result<Self, Self::Error> {
+        let trimmed = value.trim();
         if trimmed.is_empty() {
             Err(EmptyError.into())
         } else {
             Ok(Self(trimmed.to_string()))
         }
-    }
-}
-
-impl TryFrom<&str> for Description {
-    type Error = Error;
-
-    fn try_from(value: &str) -> Result<Self, Self::Error> {
-        Self::from_str(value)
     }
 }
 
@@ -44,7 +34,7 @@ mod tests {
     #[test]
     fn description_is_convertible_from_string_reference() {
         let description_string = String::from("hello");
-        let description = Description::from_str(&description_string).unwrap();
+        let description = Description::try_from(description_string.clone()).unwrap();
         assert_eq!(description_string, description.0);
     }
 }

@@ -1,4 +1,4 @@
-use std::{convert::TryInto, str::FromStr};
+use std::convert::TryInto;
 
 use anyhow::anyhow;
 use tonic::{Code, Status};
@@ -28,7 +28,7 @@ impl TryFrom<proto::Name> for Name {
     type Error = Error;
 
     fn try_from(value: proto::Name) -> Result<Self, Self::Error> {
-        Self::from_str(&value.value)
+        Self::try_from(value.value)
     }
 }
 

@@ -1,5 +1,7 @@
 use tonic::{IntoRequest, Request};
 
+use crate::Id;
+
 use super::{get, proto};
 
 impl From<get::Request> for Request<proto::GetItemRequest> {
@@ -17,8 +19,8 @@ impl TryFrom<Request<proto::GetItemRequest>> for get::Request {
     type Error = get::Error;
 
     fn try_from(value: Request<proto::GetItemRequest>) -> Result<Self, Self::Error> {
-        let id = value.into_inner().id.try_into()?;
+        let id: Id = value.into_inner().id.try_into()?;
 
-        Ok(Self::new(id))
+        Ok(Self::from(id))
     }
 }
