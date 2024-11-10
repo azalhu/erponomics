@@ -3,7 +3,7 @@ use derive_more::derive::From;
 
 use crate::{item, Code, Item, ThisError};
 
-pub mod request;
+pub mod error;
 
 /// The fields required by the domain to create an [Item].
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, From, Getters, Dissolve)]

@@ -4,8 +4,6 @@ use derive_more::derive::From;
 use crate::{item, Id, Item, ThisError};
 
 pub mod error;
-pub mod request;
-pub mod response;
 
 /// The fields required by the domain to get an [Item].
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, From, Getters, Dissolve)]

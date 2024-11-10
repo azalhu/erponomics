@@ -1,5 +1,7 @@
 use tonic::{IntoRequest, Request};
 
+use crate::Id;
+
 use super::{delete, proto};
 
 impl From<delete::Request> for Request<proto::DeleteItemRequest> {
@@ -17,8 +19,8 @@ impl TryFrom<Request<proto::DeleteItemRequest>> for delete::Request {
     type Error = delete::Error;
 
     fn try_from(value: Request<proto::DeleteItemRequest>) -> Result<Self, Self::Error> {
-        let id = value.into_inner().id.try_into()?;
+        let id: Id = value.into_inner().id.try_into()?;
 
-        Ok(Self::new(id))
+        Ok(Self::from(id))
     }
 }

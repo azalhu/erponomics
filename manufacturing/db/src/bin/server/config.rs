@@ -2,9 +2,9 @@ use std::env;
 
 use anyhow::Context;
 
-const DATABASE_URL_KEY: &str = "MAN_DB_URL";
+const SERVER_PORT_KEY: &str = "ERP_MNF_DB_SERVER_PORT";
 
-const SERVER_PORT_KEY: &str = "MAN_DB_SERVER_PORT";
+const DATABASE_URL_KEY: &str = "ERP_MNF_DB_URL";
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Config {

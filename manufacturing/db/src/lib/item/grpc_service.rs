@@ -77,8 +77,6 @@ where
 
 #[cfg(test)]
 mod tests {
-    use std::str::FromStr;
-
     use manufacturing::{
         item::repository::{create, delete, get},
         Code, Description, Id, Item, Name, Timestamp,
@@ -110,12 +108,12 @@ mod tests {
     async fn create_item_returns_ok_response() -> anyhow::Result<()> {
         let item_grpc_service = GrpcService::new(Arc::new(ItemRepositoryMock {}));
         let id = Id::default();
-        let code = Code::from_str("Hello")?;
-        let name = Name::from_str("Hello")?;
-        let description = Description::from_str("Hello")?;
+        let code = Code::try_from("Hello".to_string())?;
+        let name = Name::try_from("Hello".to_string())?;
+        let description = Description::try_from("Hello".to_string())?;
         let timestamp = Timestamp::now();
         let item = Item::from((id, code, name, description, timestamp));
-        let create_item_req = create::Request::new(item).into();
+        let create_item_req = create::Request::from(item).into();
 
         item_grpc_service.create_item(create_item_req).await?;
 
