@@ -1,14 +1,12 @@
-use std::str::FromStr;
-
 use derive_more::derive::From;
 
 use crate::{Code, ThisError};
 
-impl FromStr for Code {
-    type Err = Error;
+impl TryFrom<String> for Code {
+    type Error = Error;
 
-    fn from_str(s: &str) -> Result<Self, Self::Err> {
-        let trimmed = s.trim();
+    fn try_from(value: String) -> Result<Self, Self::Error> {
+        let trimmed = value.trim();
         if trimmed.is_empty() {
             Err(EmptyError.into())
         } else {
@@ -17,18 +15,12 @@ impl FromStr for Code {
     }
 }
 
-impl TryFrom<&str> for Code {
-    type Error = Error;
-
-    fn try_from(value: &str) -> Result<Self, Self::Error> {
-        Self::from_str(value)
-    }
-}
-
 #[derive(Debug, ThisError)]
 pub enum Error {
     #[error(transparent)]
     Empty(#[from] EmptyError),
+    #[error(transparent)]
+    Duplicate(#[from] DuplicateError),
     #[error(transparent)]
     Unknown(#[from] anyhow::Error),
 }
@@ -37,6 +29,10 @@ pub enum Error {
 #[error("code cannot be empty")]
 pub struct EmptyError;
 
+#[derive(Clone, Debug, ThisError, From)]
+#[error("code already exists")]
+pub struct DuplicateError(pub Code);
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -44,7 +40,7 @@ mod tests {
     #[test]
     fn code_is_convertible_from_string_reference() {
         let code_string = String::from("hello");
-        let code = Code::from_str(&code_string).unwrap();
+        let code = Code::try_from(code_string.clone()).unwrap();
         assert_eq!(code_string, code.0);
     }
 }

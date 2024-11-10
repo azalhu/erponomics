@@ -2,8 +2,8 @@ syntax = "proto3";
 
 package erponomics.manufacturing.domain.item.query;
 
-import "item.proto";
+import "id.proto";
 
 message GetItemRequest {
-  erponomics.manufacturing.domain.item.Item item = 1;
+  erponomics.manufacturing.domain.primary_type.ID id = 1;
 }

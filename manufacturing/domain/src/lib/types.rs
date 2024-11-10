@@ -13,13 +13,13 @@ pub mod timestamp;
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Display, From)]
 pub struct Id(Ulid);
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Display, From)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Display)]
 pub struct Code(String);
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Display, From)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Display)]
 pub struct Name(String);
 
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Display, From)]
+#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Display)]
 pub struct Description(String);
 
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Display, From, Dissolve)]

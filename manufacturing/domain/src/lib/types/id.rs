@@ -1,4 +1,4 @@
-use std::{convert::TryInto, str::FromStr};
+use std::convert::TryInto;
 
 use derive_more::derive::From;
 use ulid::{DecodeError, Ulid};
@@ -18,14 +18,19 @@ impl Default for Id {
     }
 }
 
-impl FromStr for Id {
-    type Err = Error;
+impl TryFrom<String> for Id {
+    type Error = Error;
 
-    fn from_str(s: &str) -> Result<Self, Self::Err> {
-        Ulid::try_from(s).map_or_else(
+    fn try_from(value: String) -> Result<Self, Self::Error> {
+        let value = value.trim();
+        if value.is_empty() {
+            return Err(EmptyError.into());
+        }
+
+        Ulid::from_string(value).map_or_else(
             |err| {
                 Err(InvalidFormatError {
-                    raw: s.to_string(),
+                    raw: value.to_string(),
                     inner_error: err,
                 }
                 .into())
@@ -35,18 +40,10 @@ impl FromStr for Id {
     }
 }
 
-impl TryFrom<&str> for Id {
+impl TryFrom<Option<String>> for Id {
     type Error = Error;
 
-    fn try_from(value: &str) -> Result<Self, Self::Error> {
-        Self::from_str(value)
-    }
-}
-
-impl TryFrom<Option<&str>> for Id {
-    type Error = Error;
-
-    fn try_from(value: Option<&str>) -> Result<Self, Self::Error> {
+    fn try_from(value: Option<String>) -> Result<Self, Self::Error> {
         value.map_or_else(|| Err(EmptyError.into()), TryInto::try_into)
     }
 }
@@ -55,6 +52,8 @@ impl TryFrom<Option<&str>> for Id {
 pub enum Error {
     #[error(transparent)]
     Empty(#[from] EmptyError),
+    #[error(transparent)]
+    NotFound(#[from] NotFoundError),
     #[error(transparent)]
     InvalidFormat(#[from] InvalidFormatError),
     #[error(transparent)]
@@ -71,6 +70,10 @@ pub struct InvalidFormatError {
     raw: String,
     inner_error: DecodeError,
 }
+
+#[derive(Clone, Debug, ThisError, From)]
+#[error("id not found")]
+pub struct NotFoundError;
 
 #[cfg(test)]
 mod tests {

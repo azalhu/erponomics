@@ -1,3 +1,4 @@
+#![warn(clippy::all, clippy::pedantic, clippy::nursery)]
 mod config;
 mod grpc;
 mod sqlite;

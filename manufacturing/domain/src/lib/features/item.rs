@@ -1,14 +1,18 @@
 use derive_more::derive::From;
 
-use crate::{code, description, id, name, Code, Description, Id, Item, Name, ThisError, Timestamp};
+use crate::{
+    code, description, id, name, timestamp, Code, Description, Id, Item, Name, ThisError, Timestamp,
+};
 
+pub mod command;
 pub mod grpc;
+pub mod query;
 pub mod repository;
+pub mod sync;
 
 impl Item {
     #[must_use]
-    // TODO pub(crate)
-    pub fn new(code: Code, name: Name, description: Description) -> Self {
+    pub(crate) fn new(code: Code, name: Name, description: Description) -> Self {
         Self {
             id: Id::default(),
             code,
@@ -31,6 +35,8 @@ pub enum Error {
     Name(#[from] name::Error),
     #[error(transparent)]
     Description(#[from] description::Error),
+    #[error(transparent)]
+    Timestamp(#[from] timestamp::Error),
     #[error(transparent)]
     Unknown(#[from] anyhow::Error),
 }

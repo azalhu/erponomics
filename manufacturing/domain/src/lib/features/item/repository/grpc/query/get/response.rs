@@ -1,5 +1,7 @@
 use tonic::Response;
 
+use crate::Item;
+
 use super::{get, proto};
 
 impl From<get::Response> for Response<proto::GetItemResponse> {
@@ -14,8 +16,8 @@ impl TryFrom<Response<proto::GetItemResponse>> for get::Response {
     type Error = get::Error;
 
     fn try_from(value: Response<proto::GetItemResponse>) -> Result<Self, Self::Error> {
-        let value = value.into_inner().item.try_into()?;
+        let value: Item = value.into_inner().item.try_into()?;
 
-        Ok(Self::new(value))
+        Ok(Self::from(value))
     }
 }

@@ -1,5 +1,4 @@
-use std::str::FromStr;
-
+#![warn(clippy::all, clippy::pedantic, clippy::nursery)]
 use manufacturing::{
     item::repository::{create, delete, get},
     proto::item::repository::{
@@ -17,9 +16,9 @@ async fn it_creates_new_item() -> Result<(), Box<dyn std::error::Error>> {
     let mut query_client = ItemQueryServiceClient::connect("http://localhost:8084").await?;
 
     let id = Id::default();
-    let code = Code::from_str("P10000")?;
-    let name = Name::from_str("Pedal")?;
-    let description = Description::from_str("Pedal for bicycle")?;
+    let code = Code::try_from("P10000".to_string())?;
+    let name = Name::try_from("Pedal".to_string())?;
+    let description = Description::try_from("Pedal for bicycle".to_string())?;
     let created_at = Timestamp::now();
     let item = Item::from((
         id.clone(),
@@ -28,12 +27,12 @@ async fn it_creates_new_item() -> Result<(), Box<dyn std::error::Error>> {
         description.clone(),
         created_at.clone(),
     ));
-    let request = create::Request::new(item);
+    let request = create::Request::from(item);
     let request: Request<CreateItemRequest> = request.into();
 
     command_client.create_item(request).await?;
 
-    let request = get::Request::new(id.clone());
+    let request = get::Request::from(id.clone());
     let request: Request<GetItemRequest> = request.into();
 
     let response = query_client.get_item(request).await?;
@@ -45,12 +44,12 @@ async fn it_creates_new_item() -> Result<(), Box<dyn std::error::Error>> {
     assert_eq!(name, item.name().clone());
     assert_eq!(created_at, item.created_at().clone());
 
-    let request = delete::Request::new(id.clone());
+    let request = delete::Request::from(id.clone());
     let request: Request<DeleteItemRequest> = request.into();
 
     command_client.delete_item(request).await?;
 
-    let request = get::Request::new(id.clone());
+    let request = get::Request::from(id.clone());
     let request: Request<GetItemRequest> = request.into();
 
     let response = query_client.get_item(request).await.unwrap_err();
