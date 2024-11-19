@@ -1,7 +1,0 @@
-syntax = "proto3";
-
-package erponomics.manufacturing.domain.primary_type;
-
-message Name {
-  string value = 1;
-}
