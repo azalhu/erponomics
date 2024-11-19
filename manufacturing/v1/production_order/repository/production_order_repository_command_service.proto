@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+package erponomics.manufacturing.v1.production_order.repository;
+
+import "erponomics/manufacturing/v1/production_order.proto";
+import "google/api/client.proto";
+import "google/api/http.proto";
+import "google/protobuf/empty.proto";
+
+service ProductionOrderCommandService {
+  // Creates a new production order.
+  rpc CreateProductionOrder(CreateProductionOrderRequest)
+    returns (ProductionOrder) {
+    option (google.api.http) = {
+      post: "/v1/productionOrders"
+      body: "production_order"
+    };
+    option (google.api.method_signature) =
+      "production_order,production_order_id";
+  }
+
+  // Updates the given production order.
+  rpc UpdateProductionOrder(UpdateProductionOrderRequest)
+    returns (ProductionOrder) {
+    option (google.api.http) = {
+      patch: "/v1/{production_order.name=productionOrders/*}"
+      body: "production_order"
+    };
+    option (google.api.method_signature) = "production_order";
+  }
+
+  // Deletes the given production order.
+  // This is only possible, if there are no transaction posted against the
+  // production order.
+  rpc DeleteProductionOrder(DeleteProductionOrderRequest)
+    returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/v1/{name=productionOrders/*}"
+    };
+    option (google.api.method_signature) = "name";
+  }
+
+  message CreateProductionOrderRequest {
+    // The ID to use for the production order, which will become the final
+    // component of the production order's resource name.
+    //
+    // This value should be 4-63 characters, and valid characters
+    // are /[a-z][0-9]-/.
+    // Format: ^[a-z]([a-z0-9-]{2-61}[a-z0-9])?$
+    string production_order_id = 1 [(google.api.field_behavior) = REQUIRED];
+ 
+    // The production order to create.
+    ProductionOrder production_order = 2 [
+      (google.api.field_behavior) = REQUIRED
+      ];
+  }
+
+  message UpdateProductionOrderRequest {
+    // The production order to update.
+    //
+    // The production order's `name` field is used to identify the
+    // production order to update.
+    // Format: productionOrders/{production_order}
+    ProductionOrder production_order = 1 [
+      (google.api.field_behavior) = REQUIRED
+      ];
+  }
+
+  message DeleteProductionOrderRequest {
+    // The name of the production order to delete.
+    // Format: productionOrders/{production_order}
+    string name = 1 [
+      (google.api.field_behavior) = REQUIRED,
+      (google.api.resource_reference) = {
+        type: "manufacturing.erponomics.com/ProductionOrder"
+      }];
+  }
+}

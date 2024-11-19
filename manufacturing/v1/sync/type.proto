@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package erponomics.manufacturing.domain.sync;
+package erponomics.manufacturing.v1.sync;
 
 enum Type {
   Create = 0;

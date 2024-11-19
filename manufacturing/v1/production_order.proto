@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package "erponomics.manufacturing.v1";
+
+import "google/protobuf/timestamp.proto";
+
+message ProductionOrder {
+  option (google.api.resource) = {
+    type: "manufacturing.erponomics.com/ProductionOrder"
+    pattern: "productionOrders/{production_order}"
+    singular: "productionOrder"
+    plural: "productionOrders"
+  };
+
+  // The resource name of the production order.
+  // Format: productionOrders/{production_order}
+  string name = 1 [(google.api.field_behavior) = IDENTIFIER];
+
+  // The ID of the production order.
+  string id = 2 [(google.api.field_behavior) = OPTIONAL];
+
+  // The code of the production order.
+  string code = 3 [(google.api.field_behavior) = REQUIRED];
+
+  // The display name of the production order.
+  string display_name = 4 [(google.api.field_behavior) = REQUIRED];
+
+  // The description of the production order.
+  string description = 5 [(google.api.field_behavior) = REQUIRED];
+
+  // Possible states in which a production order may be.
+  enum Status {
+    // Default value. This value is unused.
+    STATUS_UNSPECIFIED = 0;
+
+    // The production order is ready for release.
+    PLANNED = 1;
+
+    // The production order can be executed.
+    RELEASED = 2;
+
+    // The production order's operations have all been completed.
+    COMPLETED = 3;
+
+    // The production order is finished.
+    FINISHED = 4;
+
+    // The production order has been cancelled.
+    CANCELLED = 5;
+  }
+
+  // The state of the production order.
+  Status status = 6 [(google.api.field_behavior) = OUTPUT_ONLY];
+
+  // The etag for this production order.
+  // If this is provided on update or delete, it must match the server's etag.
+  string etag = 90 [(google.api.field_behavior) = OPTIONAL];
+
+  // The timestamp of production order creation.
+  google.protobuf.Timestamp create_time = 91 [
+    (google.api.field_behavior) = OUTPUT_ONLY
+    ];
+
+  // The timestamp of production order update.
+  google.protobuf.Timestamp update_time = 92 [
+    (google.api.field_behavior) = OUTPUT_ONLY
+    ];
+}

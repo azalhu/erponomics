@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package erponomics.manufacturing.v1.sync;
+
+import "erponomics/manufacturing/v1/sync/type.proto";
+
+message Command {
+  string sync_id = 1;
+  Type sync_type = 2;
+}
