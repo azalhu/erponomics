@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use manufacturing::{
     item::repository::{Create, Delete, Get},
-    proto::item::repository::{
+    proto::item::{
         self as proto, item_command_service_server::ItemCommandService,
         item_query_service_server::ItemQueryService,
     },

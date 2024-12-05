@@ -1,0 +1,95 @@
+syntax = "proto3";
+
+package erponomics.manufacturing.v1.production_order;
+
+import "google/api/field_behavior.proto";
+import "google/api/field_info.proto";
+import "google/api/resource.proto";
+import "google/protobuf/timestamp.proto";
+
+message ProductionOrder {
+  option (google.api.resource) = {
+    type: "manufacturing.erponomics.com/ProductionOrder"
+    pattern: "productionOrders/{production_order}"
+    singular: "productionOrder"
+    plural: "productionOrders"
+  };
+
+  // The resource name of the production order.
+  // Format: productionOrders/{production_order}
+  string name = 1 [(google.api.field_behavior) = IDENTIFIER];
+
+  // The display name of the production order.
+  string display_name = 2 [(google.api.field_behavior) = OPTIONAL];
+
+  // The title of the production order.
+  string title = 3 [(google.api.field_behavior) = OPTIONAL];
+
+  // The description of the production order.
+  string description = 4 [(google.api.field_behavior) = OPTIONAL];
+
+  // Possible states in which a production order may be.
+  enum State {
+    // Default value. This value is unused.
+    STATUS_UNSPECIFIED = 0;
+
+    // The production order is being created.
+    CREATING = 1;
+
+    // The production order is being updated.
+    UPDATING = 2;
+
+    // The production order is being deleted.
+    DELETING = 3;
+
+    // The production order is being released.
+    RELEASING = 4;
+
+    // The production order is being completed.
+    COMPLETING = 5;
+
+    // The production order is being finished.
+    FINISHING = 6;
+
+    // The production order is being cancelled.
+    CANCELLING = 7;
+
+    // The production order is ready for release.
+    PLANNED = 10;
+
+    // The production order can be executed.
+    RELEASED = 11;
+
+    // The production order's operations have all been completed.
+    COMPLETED = 12;
+
+    // The production order is finished.
+    FINISHED = 13;
+
+    // The production order has been cancelled.
+    CANCELLED = 14;
+  }
+
+  // The state of the production order.
+  State state = 80 [(google.api.field_behavior) = OUTPUT_ONLY];
+
+  // The etag for this production order.
+  // If this is provided on update or delete, it must match the server's etag.
+  string etag = 81 [(google.api.field_behavior) = OPTIONAL];
+
+  // The system-assigned unique identifier of the production order.
+  string uid = 90 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (google.api.field_info).format = UUID4
+    ];
+
+  // The timestamp of production order creation.
+  google.protobuf.Timestamp create_time = 91 [
+    (google.api.field_behavior) = OUTPUT_ONLY
+    ];
+
+  // The timestamp of production order update.
+  google.protobuf.Timestamp update_time = 92 [
+    (google.api.field_behavior) = OUTPUT_ONLY
+    ];
+}

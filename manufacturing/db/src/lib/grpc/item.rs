@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use manufacturing::proto::item::repository::{
+use manufacturing::proto::item::{
     item_command_service_server::ItemCommandServiceServer,
     item_query_service_server::ItemQueryServiceServer,
 };

@@ -1,0 +1,92 @@
+syntax = "proto3";
+
+package erponomics.manufacturing.v1.item;
+
+import "item.proto";
+import "google/api/annotations.proto";
+import "google/api/client.proto";
+import "google/api/field_behavior.proto";
+import "google/api/resource.proto";
+import "google/longrunning/operations.proto";
+import "google/protobuf/field_mask.proto";
+
+service ItemCommandService {
+  rpc CreateItem(CreateItemRequest) returns (google.longrunning.Operation) {
+    option (google.api.http) = {
+      post: "/v1/items"
+      body: "item"
+    };
+    option (google.api.method_signature) = "item";
+    option (google.longrunning.operation_info) = {
+      response_type: "Item"
+      metadata_type: "OperationMetadata"
+    };
+  }
+
+  rpc UpdateItem(UpdateItemRequest) returns (google.longrunning.Operation) {
+    option (google.api.http) = {
+      patch: "/v1/{item.name=items/*}"
+      body: "item"
+    };
+    option (google.api.method_signature) = "item,update_mask";
+    option (google.longrunning.operation_info) = {
+      response_type: "Item"
+      metadata_type: "OperationMetadata"
+    };
+  }
+
+  rpc DeleteItem(DeleteItemRequest) returns (google.longrunning.Operation) {
+    option (google.api.http) = {
+      delete: "/v1/{name=items/*}"
+    };
+    option (google.api.method_signature) = "name";
+    option (google.longrunning.operation_info) = {
+      response_type: "google.protobuf.Empty"
+      metadata_type: "OperationMetadata"
+    };
+  }
+}
+
+message CreateItemRequest {
+  // The ID to use for the item, which will become the final component of
+  // the item's resource name.
+  //
+  // This value should be 4-63 characters, and valid characters
+  // are /[a-z][0-9]-/.
+  // Format: ^[a-z]([a-z0-9-]{2-61}[a-z0-9])?$
+  optional string item_id = 1 [(google.api.field_behavior) = OPTIONAL];
+
+  // The item to create.
+  Item item = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+message UpdateItemRequest {
+  // The item to update.
+  //
+  // The item's `name` field is used to identify the item to update.
+  // Format: items/{item}
+  Item item = 1 [(google.api.field_behavior) = REQUIRED];
+
+  // The list of fields to update.
+  google.protobuf.FieldMask update_mask = 2 [
+    (google.api.field_behavior) = OPTIONAL
+    ];
+
+  // The etag of the item.
+  // It must match the server's etag.
+  string etag = 80 [(google.api.field_behavior) = REQUIRED];
+}
+
+message DeleteItemRequest {
+  // The name of the item to delete.
+  // Format: items/{item}
+  string name = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (google.api.resource_reference) = {
+      type: "manufacturing.erponomics.com/Item"
+    }];
+
+  // The etag of the item.
+  // It must match the server's etag.
+  string etag = 80 [(google.api.field_behavior) = REQUIRED];
+}
