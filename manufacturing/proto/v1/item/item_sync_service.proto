@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package erponomics.manufacturing.v1.item;
+
+import "item.proto";
+import "google/api/annotations.proto";
+import "google/api/client.proto";
+import "google/api/field_behavior.proto";
+import "google/api/resource.proto";
+import "google/protobuf/empty.proto";
+
+service ItemSyncService {
+  rpc ImportItems(ImportItemsRequest) returns (google.longrunning.Operation) {
+    option (google.api.http) = {
+      post: "/v1/items:import"
+      body: "*"
+    };
+    option (google.longrunning.operation_info) = {
+      response_type: "ImportItemsResponse"
+      metadata_type: "ImportItemsMetadata"
+    };
+  }
+
+  rpc ExportItems(ExportItemsRequest) returns (google.longrunning.Operation) {
+    option (google.api.http) = {
+      post: "/v1/items:export"
+      body: "*"
+    };
+    option (google.longrunning.operation_info) = {
+      response_type: "ExportItemsResponse"
+      metadata_type: "ExportItemsMetadata"
+    };
+  }
+}
+
+message ImportItemsRequest {
+  oneof source {
+    ErpSource erp_source = 1;
+  }
+}
+
+message ExportItemsRequest {
+  oneof destination {
+    ErpDestination erp_destination = 1;
+  }
+}
