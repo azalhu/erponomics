@@ -10,8 +10,9 @@ use crate::{
     proto::{
         self,
         item::{
-            item_command_service_server::ItemCommandService, CreateItemRequest, DeleteItemRequest,
-            UpdateItemRequest,
+            item_command_service_server::ItemCommandService,
+            item_query_service_server::ItemQueryService, CreateItemRequest, DeleteItemRequest,
+            GetItemRequest, ListItemsRequest, ListItemsResponse, UpdateItemRequest,
         },
     },
     Item,
@@ -19,11 +20,11 @@ use crate::{
 
 use super::{
     command::{self, Create, Delete, Update},
-    query::{Get, List},
+    query::{self, Get, List},
 };
 
-#[derive(Debug)]
-pub struct Service<ICS: Create + Update + Delete, IQS: Get + List> {
+#[derive(Debug, Clone)]
+pub struct Service<ICS: Create + Update + Delete + Clone, IQS: Get + List + Clone> {
     item_command_service: Arc<ICS>,
     item_query_service: Arc<IQS>,
 }
@@ -70,8 +71,8 @@ impl From<Status> for Error {
 
 impl<ICS, IQS> Service<ICS, IQS>
 where
-    ICS: Create + Update + Delete,
-    IQS: Get + List,
+    ICS: Create + Update + Delete + Clone,
+    IQS: Get + List + Clone,
 {
     pub const fn new(item_command_service: Arc<ICS>, item_query_service: Arc<IQS>) -> Self {
         Self {
@@ -86,8 +87,8 @@ where
 #[tonic::async_trait]
 impl<ICS, IQS> ItemCommandService for Service<ICS, IQS>
 where
-    ICS: Create + Update + Delete,
-    IQS: Get + List,
+    ICS: Create + Update + Delete + Clone,
+    IQS: Get + List + Clone,
 {
     async fn create_item(
         &self,
@@ -173,5 +174,65 @@ impl TryFrom<Request<DeleteItemRequest>> for command::DeleteRequest {
     fn try_from(value: Request<DeleteItemRequest>) -> Result<Self, Self::Error> {
         let value = value.into_inner();
         Ok(Self::new(value.name, value.etag))
+    }
+}
+
+// MARK: Query
+
+#[tonic::async_trait]
+impl<ICS, IQS> ItemQueryService for Service<ICS, IQS>
+where
+    ICS: Create + Update + Delete + Clone,
+    IQS: Get + List + Clone,
+{
+    async fn get_item(
+        &self,
+        request: Request<GetItemRequest>,
+    ) -> Result<Response<proto::item::Item>, Status> {
+        let request = request.try_into().map_err(Status::from)?;
+
+        self.item_query_service
+            .get(request)
+            .await
+            .map_err(Status::from)?;
+
+        todo!()
+    }
+
+    async fn list_items(
+        &self,
+        request: Request<ListItemsRequest>,
+    ) -> Result<Response<ListItemsResponse>, Status> {
+        let request = request.try_into().map_err(Status::from)?;
+
+        self.item_query_service
+            .list(request)
+            .await
+            .map_err(Status::from)?;
+
+        todo!()
+    }
+}
+
+impl TryFrom<Request<GetItemRequest>> for query::GetRequest {
+    type Error = Error;
+
+    fn try_from(value: Request<GetItemRequest>) -> Result<Self, Self::Error> {
+        let value = value.into_inner();
+        Ok(Self::new(value.name))
+    }
+}
+
+impl TryFrom<Request<ListItemsRequest>> for query::ListRequest {
+    type Error = Error;
+
+    fn try_from(value: Request<ListItemsRequest>) -> Result<Self, Self::Error> {
+        let value = value.into_inner();
+        Ok(Self::new(
+            value.page_size,
+            value.page_token,
+            value.order_by,
+            value.filter,
+        ))
     }
 }

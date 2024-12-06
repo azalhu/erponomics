@@ -5,7 +5,10 @@ use manufacturing::item::command::Service as ItemCommandService;
 use manufacturing::item::grpc::Service as ItemGrpcService;
 use manufacturing::item::query::Service as ItemQueryService;
 use manufacturing::item::repository::ItemRepository;
-use manufacturing::proto::item::item_command_service_server::ItemCommandServiceServer;
+use manufacturing::proto::item::{
+    item_command_service_server::ItemCommandServiceServer,
+    item_query_service_server::ItemQueryServiceServer,
+};
 use tonic::transport::Server as TonicServer;
 
 use crate::config::Config;
@@ -33,7 +36,8 @@ pub async fn serve() -> anyhow::Result<()> {
 
     TonicServer::builder()
         .add_service(reflection_service)
-        .add_service(ItemCommandServiceServer::new(item_grpc_service))
+        .add_service(ItemCommandServiceServer::new(item_grpc_service.clone()))
+        .add_service(ItemQueryServiceServer::new(item_grpc_service))
         .serve(addr)
         .await?;
 

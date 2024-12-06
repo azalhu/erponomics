@@ -75,14 +75,14 @@ impl ListResponse {
 
 // MARK: Service
 
-#[derive(Debug)]
-pub struct Service<IR: repository::Get + repository::List> {
+#[derive(Debug, Clone)]
+pub struct Service<IR: repository::Get + repository::List + Clone> {
     item_repository: Arc<IR>,
 }
 
 impl<IR> Service<IR>
 where
-    IR: repository::Get + repository::List,
+    IR: repository::Get + repository::List + Clone,
 {
     pub const fn new(item_repository: Arc<IR>) -> Self {
         Self { item_repository }
@@ -91,7 +91,7 @@ where
 
 impl<IR> Get for Service<IR>
 where
-    IR: repository::Get + repository::List,
+    IR: repository::Get + repository::List + Clone,
 {
     async fn get(&self, _request: GetRequest) -> Result<Item, Error> {
         todo!()
@@ -104,7 +104,7 @@ where
 
 impl<IR> List for Service<IR>
 where
-    IR: repository::Get + repository::List,
+    IR: repository::Get + repository::List + Clone,
 {
     async fn list(&self, _request: ListRequest) -> Result<ListResponse, Error> {
         todo!()

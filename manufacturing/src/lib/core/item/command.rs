@@ -149,16 +149,16 @@ impl UnblockRequest {
 
 // MARK: Service
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Service<
-    IR: repository::Create + repository::Update + repository::Get + repository::Delete,
+    IR: repository::Create + repository::Update + repository::Get + repository::Delete + Clone,
 > {
     item_repository: Arc<IR>,
 }
 
 impl<IR> Service<IR>
 where
-    IR: repository::Get + repository::Create + repository::Update + repository::Delete,
+    IR: repository::Get + repository::Create + repository::Update + repository::Delete + Clone,
 {
     pub const fn new(item_repository: Arc<IR>) -> Self {
         Self { item_repository }
@@ -245,7 +245,7 @@ where
 
 impl<IR> Create for Service<IR>
 where
-    IR: repository::Create + repository::Update + repository::Get + repository::Delete,
+    IR: repository::Create + repository::Update + repository::Get + repository::Delete + Clone,
 {
     async fn create(&self, request: CreateRequest) -> Result<(), Error> {
         let item = self.validate_create_request(request).await?;
@@ -260,7 +260,7 @@ where
 
 impl<IR> Update for Service<IR>
 where
-    IR: repository::Create + repository::Update + repository::Get + repository::Delete,
+    IR: repository::Create + repository::Update + repository::Get + repository::Delete + Clone,
 {
     async fn update(&self, request: UpdateRequest) -> Result<(), Error> {
         let item = self.validate_update_request(request).await?;
@@ -275,7 +275,7 @@ where
 
 impl<IR> Delete for Service<IR>
 where
-    IR: repository::Create + repository::Update + repository::Get + repository::Delete,
+    IR: repository::Create + repository::Update + repository::Get + repository::Delete + Clone,
 {
     async fn delete(&self, request: DeleteRequest) -> Result<(), Error> {
         let item = self.validate_delete_request(request).await?;
@@ -290,7 +290,7 @@ where
 
 impl<IR> Annihilate for Service<IR>
 where
-    IR: repository::Create + repository::Update + repository::Get + repository::Delete,
+    IR: repository::Create + repository::Update + repository::Get + repository::Delete + Clone,
 {
     async fn annihilate(&self, request: AnnihilateRequest) -> Result<(), Error> {
         let item = self.validate_annihilate_request(request).await?;
@@ -305,7 +305,7 @@ where
 
 impl<IR> Block for Service<IR>
 where
-    IR: repository::Get + repository::Create + repository::Update + repository::Delete,
+    IR: repository::Get + repository::Create + repository::Update + repository::Delete + Clone,
 {
     async fn block(&self, request: BlockRequest) -> Result<(), Error> {
         let item = self.validate_block_request(request).await?;
@@ -320,7 +320,7 @@ where
 
 impl<IR> Unblock for Service<IR>
 where
-    IR: repository::Get + repository::Create + repository::Update + repository::Delete,
+    IR: repository::Get + repository::Create + repository::Update + repository::Delete + Clone,
 {
     async fn unblock(&self, request: UnblockRequest) -> Result<(), Error> {
         let item = self.validate_unblock_request(request).await?;

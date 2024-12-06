@@ -3,7 +3,7 @@ use std::str::FromStr;
 use anyhow::Context;
 use sqlx::{sqlite::SqliteConnectOptions, SqlitePool};
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Connection {
     pool: SqlitePool,
 }

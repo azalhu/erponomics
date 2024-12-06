@@ -252,13 +252,14 @@ impl From<DeleteError> for item::Error {
 
 // MARK: Service
 
+#[derive(Debug, Clone)]
 pub struct ItemRepository<DB: SqliteConnection> {
     db: Arc<DB>,
 }
 
 impl<DB> ItemRepository<DB>
 where
-    DB: SqliteConnection,
+    DB: SqliteConnection + Clone,
 {
     #[must_use]
     pub const fn new(db: Arc<DB>) -> Self {
@@ -316,7 +317,7 @@ where
 
 impl<DB> Get for ItemRepository<DB>
 where
-    DB: SqliteConnection,
+    DB: SqliteConnection + Clone,
 {
     async fn get(&self, request: GetRequest) -> Result<Item, GetError> {
         let item = self.fetch_item(&request.id).await?;
@@ -326,7 +327,7 @@ where
 
 impl<DB> List for ItemRepository<DB>
 where
-    DB: SqliteConnection,
+    DB: SqliteConnection + Clone,
 {
     async fn list(&self, _request: ListRequest) -> Result<ListResponse, ListError> {
         todo!()
@@ -335,7 +336,7 @@ where
 
 impl<DB> Create for ItemRepository<DB>
 where
-    DB: SqliteConnection,
+    DB: SqliteConnection + Clone,
 {
     async fn create(&self, _request: CreateRequest) -> Result<(), CreateError> {
         todo!()
@@ -344,7 +345,7 @@ where
 
 impl<DB> Update for ItemRepository<DB>
 where
-    DB: SqliteConnection,
+    DB: SqliteConnection + Clone,
 {
     async fn update(&self, _request: UpdateRequest) -> Result<(), UpdateError> {
         todo!()
@@ -353,7 +354,7 @@ where
 
 impl<DB> Delete for ItemRepository<DB>
 where
-    DB: SqliteConnection,
+    DB: SqliteConnection + Clone,
 {
     async fn delete(&self, _request: DeleteRequest) -> Result<(), DeleteError> {
         todo!()
