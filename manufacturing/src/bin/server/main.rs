@@ -8,5 +8,6 @@ async fn main() -> anyhow::Result<()> {
 
     grpc::serve().await?;
 
+    #[allow(clippy::expect_used)]
     Ok(())
 }

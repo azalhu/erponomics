@@ -1,0 +1,138 @@
+syntax = "proto3";
+
+package erponomics.manufacturing.v1.production_order.repository;
+
+import "erponomics/manufacturing/v1/production_order/production_order.proto";
+import "google/api/annotations.proto";
+import "google/api/client.proto";
+import "google/api/field_behavior.proto";
+import "google/api/resource.proto";
+import "google/protobuf/empty.proto";
+
+service ProductionOrderRepositoryService {
+  rpc GetRepositoryProductionOrder(GetRepositoryProductionOrderRequest)
+    returns (ProductionOrder) {
+    option (google.api.http) = {
+      get: "/v1/{name=productionOrders/*}"
+    };
+    option (google.api.method_signature) = "name";
+  }
+
+  rpc ListRepositoryProductionOrders(ListRepositoryProductionOrdersRequest)
+    returns (ListRepositoryProductionOrdersResponse) {
+    option (google.api.http) = {
+      get: "/v1/productionOrders"
+    };
+  }
+
+  // Creates a new production order.
+  rpc CreateRepositoryProductionOrder(CreateRepositoryProductionOrderRequest)
+    returns (ProductionOrder) {
+    option (google.api.http) = {
+      post: "/v1/productionOrders"
+      body: "production_order"
+    };
+    option (google.api.method_signature) =
+      "production_order,production_order_id";
+  }
+
+  // Updates the given production order.
+  rpc UpdateRepositoryProductionOrder(UpdateRepositoryProductionOrderRequest)
+    returns (ProductionOrder) {
+    option (google.api.http) = {
+      patch: "/v1/{production_order.name=productionOrders/*}"
+      body: "production_order"
+    };
+    option (google.api.method_signature) = "production_order";
+  }
+
+  // Deletes the given production order.
+  // This is only possible, if there are no transaction posted against the
+  // production order.
+  rpc DeleteRepositoryProductionOrder(DeleteRepositoryProductionOrderRequest)
+    returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/v1/{name=productionOrders/*}"
+    };
+    option (google.api.method_signature) = "name";
+  }
+}
+
+message GetRepositoryProductionOrderRequest {
+  // The name of the production order to retrieve.
+  // Format: productionOrders/{production_order}
+  string name = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (google.api.resource_reference) = {
+      type: "manufacturing.erponomics.com/ProductionOrder"
+    }];
+}
+
+message ListRepositoryProductionOrdersRequest {
+  // The maximum number of production orders to return. The service may
+  // return fewer than this value.
+  int32 page_size = 1 [(google.api.field_behavior) = REQUIRED];
+
+  // A page token, received from a previous `ListProductionOrders` call.
+  // Provide this to retrieve the subsequent page.
+  //
+  // When paginating, all other parameters provided to `ListProductionOrders`
+  // must match the call that provided the page token.
+  string page_token = 2 [(google.api.field_behavior) = OPTIONAL];
+
+  // A comma-separated list of fields to order by.
+  // The default sorting order is ascending. Add `desc` after a field, to
+  // sort it by descending order.
+  string order_by = 3 [(google.api.field_behavior) = OPTIONAL];
+
+  // A filter.
+  string filter = 4 [(google.api.field_behavior) = OPTIONAL];
+}
+
+message ListRepositoryProductionOrdersResponse {
+  // The production orders.
+  repeated ProductionOrder production_orders = 1;
+
+  // A token, which can be sent as `page_token` to retrieve the next page.
+  // If this field is omitted, there are no subsequent pages.
+  string next_page_token = 2;
+
+  // The total number of production orders after filtering.
+  int32 total_size = 3;
+}
+
+message CreateRepositoryProductionOrderRequest {
+  // The ID to use for the production order, which will become the final
+  // component of the production order's resource name.
+  //
+  // This value should be 4-63 characters, and valid characters
+  // are /[a-z][0-9]-/.
+  // Format: ^[a-z]([a-z0-9-]{2-61}[a-z0-9])?$
+  string production_order_id = 1 [(google.api.field_behavior) = REQUIRED];
+
+  // The production order to create.
+  ProductionOrder production_order = 2 [
+    (google.api.field_behavior) = REQUIRED
+    ];
+}
+
+message UpdateRepositoryProductionOrderRequest {
+  // The production order to update.
+  //
+  // The production order's `name` field is used to identify the
+  // production order to update.
+  // Format: productionOrders/{production_order}
+  ProductionOrder production_order = 1 [
+    (google.api.field_behavior) = REQUIRED
+    ];
+}
+
+message DeleteRepositoryProductionOrderRequest {
+  // The name of the production order to delete.
+  // Format: productionOrders/{production_order}
+  string name = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (google.api.resource_reference) = {
+      type: "manufacturing.erponomics.com/ProductionOrder"
+    }];
+}

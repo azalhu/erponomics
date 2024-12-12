@@ -1,0 +1,257 @@
+syntax = "proto3";
+
+package erponomics.manufacturing.v1;
+
+import "google/api/annotations.proto";
+import "google/api/client.proto";
+import "google/api/field_behavior.proto";
+import "google/api/field_info.proto";
+import "google/api/resource.proto";
+import "google/longrunning/operations.proto";
+import "google/protobuf/field_mask.proto";
+import "google/protobuf/timestamp.proto";
+
+option java_package = "com.erponomics.manufacturing.v1";
+option java_multiple_files = true;
+option java_outer_classname = "ItemProto";
+
+// This API represents a manufacturing item. It defines the following
+// resource model:
+//
+// - The API has a collection of [Item][erponomics.manufacturing.v1.Item]
+// resources, named `items/*`
+service ItemService {
+  // Gets an item. Returns NOT_FOUND if the item does not exist.
+  rpc GetItem(GetItemRequest) returns (Item) {
+    option (google.api.http) = {
+      get: "/v1/{name=items/*}"
+    };
+    option (google.api.method_signature) = "name";
+  }
+
+  // Lists items. The order is unspecified but deterministic. Newly
+  // created items will not necessarily be added to the end of this list.
+  rpc ListItems(ListItemsRequest) returns (ListItemsResponse) {
+    option (google.api.http) = {
+      get: "/v1/items"
+    };
+  }
+
+  // Creates an item.
+  rpc CreateItem(CreateItemRequest) returns (google.longrunning.Operation) {
+    option (google.api.http) = {
+      post: "/v1/items"
+      body: "item"
+    };
+    option (google.api.method_signature) = "item,item_id";
+    option (google.longrunning.operation_info) = {
+      response_type: "Item"
+      metadata_type: "CreateItemMetadata"
+    };
+  }
+
+  // Updates an item. Returns INVALID_ARGUMENT if the name of the item
+  // is non-empty and does not equal the existing name.
+  rpc UpdateItem(UpdateItemRequest) returns (google.longrunning.Operation) {
+    option (google.api.http) = {
+      patch: "/v1/{item.name=items/*}"
+      body: "item"
+    };
+    option (google.api.method_signature) = "item,update_mask";
+    option (google.longrunning.operation_info) = {
+      response_type: "Item"
+      metadata_type: "UpdateItemMetadata"
+    };
+  }
+
+  // Deletes an item. Returns NOT_FOUND if the item does not exist.
+  rpc DeleteItem(DeleteItemRequest) returns (google.longrunning.Operation) {
+    option (google.api.http) = {
+      delete: "/v1/{name=items/*}"
+    };
+    option (google.api.method_signature) = "name,etag";
+    option (google.longrunning.operation_info) = {
+      response_type: "google.protobuf.Empty"
+      metadata_type: "DeleteItemMetadata"
+    };
+  }
+}
+
+// An item used in manufacturing.
+message Item {
+  option (google.api.resource) = {
+    type: "manufacturing.erponomics.com/Item"
+    pattern: "items/{item}"
+    singular: "item"
+    plural: "items"
+  };
+
+  // The resource name of the item.
+  // Format: items/{item}
+  string name = 1 [(google.api.field_behavior) = IDENTIFIER];
+
+  // The display name of the item.
+  optional string display_name = 2 [(google.api.field_behavior) = OPTIONAL];
+
+  // The title of the item.
+  optional string title = 3 [(google.api.field_behavior) = OPTIONAL];
+
+  // The description of the item.
+  optional string description = 4 [(google.api.field_behavior) = OPTIONAL];
+
+  // Possible states in which an item may be.
+  enum State {
+    // Default value. This value is unused.
+    STATE_UNSPECIFIED = 0;
+
+    // The item is being created.
+    CREATING = 1;
+
+    // The item is being updated.
+    UPDATING = 2;
+
+    // The item is being deleted.
+    DELETING = 3;
+
+    // The item is being annihilated.
+    ANNIHILATING = 4;
+
+    // The item is being blocked.
+    BLOCKING = 5;
+
+    // The item is being unblocked.
+    UNBLOCKING = 6;
+
+    // The item is active.
+    ACTIVE = 10;
+
+    // The item is blocked.
+    BLOCKED = 11;
+  }
+
+  // The state of the item.
+  optional State state = 80 [(google.api.field_behavior) = OUTPUT_ONLY];
+
+  // The etag for this item.
+  // If this is provided on update or delete, it must match the server's etag.
+  optional string etag = 81 [(google.api.field_behavior) = OPTIONAL];
+
+  // The system-assigned unique identifier of the item.
+  optional string uid = 90 [
+    (google.api.field_behavior) = OUTPUT_ONLY,
+    (google.api.field_info).format = UUID4
+    ];
+
+  // The timestamp of item creation.
+  optional google.protobuf.Timestamp create_time = 91 [
+    (google.api.field_behavior) = OUTPUT_ONLY
+    ];
+
+  // The timestamp of item update.
+  optional google.protobuf.Timestamp update_time = 92 [
+    (google.api.field_behavior) = OUTPUT_ONLY
+    ];
+}
+
+// Request message for ItemService.GetItem.
+message GetItemRequest {
+  // The name of the item to retrieve.
+  // Format: items/{item}
+  string name = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (google.api.resource_reference) = {
+      type: "manufacturing.erponomics.com/Item"
+    }];
+}
+
+// Request message for ItemService.ListItems.
+message ListItemsRequest {
+  // The maximum number of items to return. The service may return fewer than
+  // this value.
+  // If unspecified, at most 50 items will be returned.
+  // The maximum value is 1000; values above 1000 will be coerced to 1000.
+  optional int32 page_size = 1 [(google.api.field_behavior) = OPTIONAL];
+
+  // A page token, received from a previous `ListItems` call.
+  // Provide this to retrieve the subsequent page.
+  //
+  // When paginating, all other parameters provided to `ListItems` must match
+  // the call that provided the page token.
+  optional string page_token = 2 [(google.api.field_behavior) = OPTIONAL];
+
+  // A comma-separated list of fields to order by.
+  // The default sorting order is ascending. Add `desc` after a field, to
+  // sort it by descending order.
+  optional string order_by = 3 [(google.api.field_behavior) = OPTIONAL];
+
+  // A filter.
+  optional string filter = 4 [(google.api.field_behavior) = OPTIONAL];
+}
+
+// Response message for ItemService.ListItems.
+message ListItemsResponse {
+  // The items.
+  repeated Item items = 1;
+
+  // A token, which can be sent as `page_token` to retrieve the next page.
+  // If this field is omitted, there are no subsequent pages.
+  optional string next_page_token = 2;
+
+  // The total number of items after filtering.
+  int32 total_size = 3;
+}
+
+// Request message for ItemService.CreateItem.
+message CreateItemRequest {
+  // The ID to use for the item, which will become the final component of
+  // the item's resource name.
+  //
+  // This value should be 4-63 characters, and valid characters
+  // are /[a-z][0-9]-/.
+  // Format: ^[a-z]([a-z0-9-]{2-61}[a-z0-9])?$
+  optional string item_id = 1 [(google.api.field_behavior) = OPTIONAL];
+
+  // The item to create.
+  Item item = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+// Metadata for ItemService.CreateItem.
+message CreateItemMetadata {
+}
+
+// Request message for ItemService.UpdateItem.
+message UpdateItemRequest {
+  // The item to update.
+  //
+  // The item's `name` field is used to identify the item to update.
+  // Format: items/{item}
+  Item item = 1 [(google.api.field_behavior) = REQUIRED];
+
+  // The list of fields to update.
+  google.protobuf.FieldMask update_mask = 2 [
+    (google.api.field_behavior) = OPTIONAL
+    ];
+}
+
+// Metadata for ItemService.UpdateItem.
+message UpdateItemMetadata {
+}
+
+// Request message for ItemService.DeleteItem.
+message DeleteItemRequest {
+  // The name of the item to delete.
+  // Format: items/{item}
+  string name = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (google.api.resource_reference) = {
+      type: "manufacturing.erponomics.com/Item"
+    }];
+
+    // The etag of the item.
+    // It must match the server's etag.
+    string etag = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+// Metadata for ItemService.DeleteItem.
+message DeleteItemMetadata {
+}

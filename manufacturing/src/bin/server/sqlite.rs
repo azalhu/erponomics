@@ -9,7 +9,6 @@ pub struct Connection {
 }
 
 impl Connection {
-    #[must_use]
     pub async fn new(path: &str) -> anyhow::Result<Self> {
         let connect_options = SqliteConnectOptions::from_str(path)
             .with_context(|| format!("invalid database path {path}"))?

@@ -833,3 +833,77 @@
 [ERROR] 2024-10-20 13:57:37.521 [http-nio-8080-exec-5] FileSystemWorkspaceDao - java.lang.NumberFormatException: For input string: ""
 [ERROR] 2024-10-20 13:57:37.548 [http-nio-8080-exec-10] FileSystemWorkspaceDao - java.lang.NumberFormatException: For input string: ""
 [ERROR] 2024-10-20 13:57:37.548 [http-nio-8080-exec-10] ApiController - com.structurizr.onpremises.web.api.HttpUnauthorizedException: Incorrect API key
+[INFO ] 2024-12-08 16:57:29.492 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-12-08 16:57:29.494 [main] ContextLoaderListener -   _____ _                   _              _          
+[INFO ] 2024-12-08 16:57:29.494 [main] ContextLoaderListener -  / ____| |                 | |            (_)         
+[INFO ] 2024-12-08 16:57:29.495 [main] ContextLoaderListener - | (___ | |_ _ __ _   _  ___| |_ _   _ _ __ _ _____ __ 
+[INFO ] 2024-12-08 16:57:29.495 [main] ContextLoaderListener -  \___ \| __| '__| | | |/ __| __| | | | '__| |_  / '__|
+[INFO ] 2024-12-08 16:57:29.495 [main] ContextLoaderListener -  ____) | |_| |  | |_| | (__| |_| |_| | |  | |/ /| |   
+[INFO ] 2024-12-08 16:57:29.495 [main] ContextLoaderListener - |_____/ \__|_|   \__,_|\___|\__|\__,_|_|  |_/___|_|   
+[INFO ] 2024-12-08 16:57:29.495 [main] ContextLoaderListener -                                                       
+[INFO ] 2024-12-08 16:57:29.495 [main] ContextLoaderListener - Structurizr on-premises installation
+[INFO ] 2024-12-08 16:57:29.496 [main] ContextLoaderListener -  - build: 2024.06.25 (2024-06-25T08:05:52Z)
+[INFO ] 2024-12-08 16:57:29.500 [main] ContextLoaderListener -  - structurizr-java: v2.1.4
+[INFO ] 2024-12-08 16:57:29.506 [main] ContextLoaderListener -  - structurizr-dsl: v2.1.4
+[INFO ] 2024-12-08 16:57:29.507 [main] ContextLoaderListener -  - structurizr-import: v2.1.4
+[INFO ] 2024-12-08 16:57:29.511 [main] ContextLoaderListener -  - structurizr-graphviz: v2.1.4
+[INFO ] 2024-12-08 16:57:29.512 [main] ContextLoaderListener - Data directory: /usr/local/structurizr (r: true; w: true; x: true)
+[INFO ] 2024-12-08 16:57:29.512 [main] ContextLoaderListener - URL: 
+[INFO ] 2024-12-08 16:57:29.514 [main] ContextLoaderListener - Memory: used=159MB; free=352MB; total=512MB; max=512MB
+[INFO ] 2024-12-08 16:57:29.515 [main] ContextLoaderListener - 
+[INFO ] 2024-12-08 16:57:29.515 [main] ContextLoaderListener - Internet connection: true
+[INFO ] 2024-12-08 16:57:29.515 [main] ContextLoaderListener - Authentication: file
+[INFO ] 2024-12-08 16:57:29.515 [main] ContextLoaderListener - API key: false
+[INFO ] 2024-12-08 16:57:29.516 [main] ContextLoaderListener - Session: local
+[INFO ] 2024-12-08 16:57:29.516 [main] ContextLoaderListener - Data storage: file
+[INFO ] 2024-12-08 16:57:29.516 [main] ContextLoaderListener - Caching: none
+[INFO ] 2024-12-08 16:57:29.516 [main] ContextLoaderListener - Workspace archiving: false
+[INFO ] 2024-12-08 16:57:29.516 [main] ContextLoaderListener - Workspace scope: relaxed
+[INFO ] 2024-12-08 16:57:29.517 [main] ContextLoaderListener - Search: lucene
+[INFO ] 2024-12-08 16:57:29.540 [main] ContextLoaderListener - Graphviz (dot): true
+[INFO ] 2024-12-08 16:57:29.541 [main] ContextLoaderListener - DSL editor: false
+[INFO ] 2024-12-08 16:57:29.541 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-12-08 16:57:29.541 [main] ContextLoaderListener - MIT License
+[INFO ] 2024-12-08 16:57:29.541 [main] ContextLoaderListener - 
+[INFO ] 2024-12-08 16:57:29.541 [main] ContextLoaderListener - Copyright (c) 2024 Structurizr Limited
+[INFO ] 2024-12-08 16:57:29.542 [main] ContextLoaderListener - 
+[INFO ] 2024-12-08 16:57:29.542 [main] ContextLoaderListener - Permission is hereby granted, free of charge, to any person obtaining a copy
+[INFO ] 2024-12-08 16:57:29.542 [main] ContextLoaderListener - of this software and associated documentation files (the "Software"), to deal
+[INFO ] 2024-12-08 16:57:29.542 [main] ContextLoaderListener - in the Software without restriction, including without limitation the rights
+[INFO ] 2024-12-08 16:57:29.542 [main] ContextLoaderListener - to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+[INFO ] 2024-12-08 16:57:29.542 [main] ContextLoaderListener - copies of the Software, and to permit persons to whom the Software is
+[INFO ] 2024-12-08 16:57:29.542 [main] ContextLoaderListener - furnished to do so, subject to the following conditions:
+[INFO ] 2024-12-08 16:57:29.543 [main] ContextLoaderListener - 
+[INFO ] 2024-12-08 16:57:29.543 [main] ContextLoaderListener - The above copyright notice and this permission notice shall be included in all
+[INFO ] 2024-12-08 16:57:29.543 [main] ContextLoaderListener - copies or substantial portions of the Software.
+[INFO ] 2024-12-08 16:57:29.543 [main] ContextLoaderListener - 
+[INFO ] 2024-12-08 16:57:29.543 [main] ContextLoaderListener - THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+[INFO ] 2024-12-08 16:57:29.543 [main] ContextLoaderListener - IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+[INFO ] 2024-12-08 16:57:29.543 [main] ContextLoaderListener - FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+[INFO ] 2024-12-08 16:57:29.543 [main] ContextLoaderListener - AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+[INFO ] 2024-12-08 16:57:29.544 [main] ContextLoaderListener - LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+[INFO ] 2024-12-08 16:57:29.544 [main] ContextLoaderListener - OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+[INFO ] 2024-12-08 16:57:29.544 [main] ContextLoaderListener - SOFTWARE.
+[INFO ] 2024-12-08 16:57:29.544 [main] ContextLoaderListener - ***********************************************************************************
+[INFO ] 2024-12-08 21:01:35.098 [http-nio-8080-exec-8] AuthenticationSuccessHandler - structurizr successfully authenticated
+[ERROR] 2024-12-08 21:03:13.520 [http-nio-8080-exec-1] ApiController - com.structurizr.onpremises.component.workspace.WorkspaceComponentException: The workspace could not be saved because the workspace was locked by structurizr at Sun 08 Dec 2024 21:01 UTC.
+[ERROR] 2024-12-08 21:26:16.768 [http-nio-8080-exec-10] ApiController - com.structurizr.onpremises.component.workspace.WorkspaceComponentException: The workspace could not be saved because the workspace was locked by structurizr at Sun 08 Dec 2024 21:25 UTC.
+[ERROR] 2024-12-08 22:25:09.920 [http-nio-8080-exec-10] ApiController - com.structurizr.onpremises.component.workspace.WorkspaceComponentException: The workspace could not be saved because the workspace was locked by structurizr at Sun 08 Dec 2024 22:24 UTC.
+[INFO ] 2024-12-10 17:50:55.038 [http-nio-8080-exec-10] AuthenticationSuccessHandler - structurizr successfully authenticated
+[ERROR] 2024-12-10 18:00:06.144 [http-nio-8080-exec-1] ApiController - com.structurizr.onpremises.component.workspace.WorkspaceComponentException: The workspace could not be saved because the workspace was locked by structurizr at Tue 10 Dec 2024 18:00 UTC.
+[ERROR] 2024-12-10 18:08:16.948 [http-nio-8080-exec-1] ApiController - com.structurizr.onpremises.component.workspace.WorkspaceComponentException: The workspace could not be saved because the workspace was locked by structurizr at Tue 10 Dec 2024 18:07 UTC.
+[INFO ] 2024-12-11 00:36:40.988 [http-nio-8080-exec-10] AuthenticationSuccessHandler - structurizr successfully authenticated
+[WARN ] 2024-12-11 17:52:53.080 [http-nio-8080-exec-5] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+[WARN ] 2024-12-11 17:52:53.087 [http-nio-8080-exec-5] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+[WARN ] 2024-12-11 17:52:54.256 [http-nio-8080-exec-10] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+[WARN ] 2024-12-11 17:52:54.256 [http-nio-8080-exec-8] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+[WARN ] 2024-12-11 17:52:54.259 [http-nio-8080-exec-10] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+[WARN ] 2024-12-11 17:52:54.259 [http-nio-8080-exec-8] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+[WARN ] 2024-12-11 17:52:55.882 [http-nio-8080-exec-9] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+[WARN ] 2024-12-11 17:52:55.884 [http-nio-8080-exec-9] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+[WARN ] 2024-12-11 17:53:12.700 [http-nio-8080-exec-6] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+[WARN ] 2024-12-11 17:53:12.701 [http-nio-8080-exec-6] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+[WARN ] 2024-12-11 17:53:14.312 [http-nio-8080-exec-7] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+[WARN ] 2024-12-11 17:53:14.313 [http-nio-8080-exec-7] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+[WARN ] 2024-12-11 17:53:16.312 [http-nio-8080-exec-10] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]
+[WARN ] 2024-12-11 17:53:16.313 [http-nio-8080-exec-10] DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'PUT' is not supported]

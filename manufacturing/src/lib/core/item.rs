@@ -5,27 +5,26 @@ use uuid::Uuid;
 use crate::{entity_tag, id, timestamp, EntityTag, Item, ItemState, ThisError, Timestamp};
 
 pub mod command;
-pub mod grpc;
 pub mod query;
 pub mod repository;
 pub mod sync;
 
 impl ItemState {
-    fn is_transitioning(&self) -> bool {
+    #[must_use]
+    const fn is_transitioning(&self) -> bool {
         matches!(
             self,
-            ItemState::Creating
-                | ItemState::Updating
-                | ItemState::Deleting
-                | ItemState::Annihilating
-                | ItemState::Blocking
-                | ItemState::Unblocking
+            Self::Creating
+                | Self::Updating
+                | Self::Deleting
+                | Self::Annihilating
+                | Self::Blocking
+                | Self::Unblocking
         )
     }
 }
 
 impl Item {
-    #[must_use]
     pub(crate) fn new(
         id: String,
         display_name: String,
@@ -47,18 +46,17 @@ impl Item {
         })
     }
 
-    #[must_use]
     pub(crate) fn update(
         self,
         display_name: Option<String>,
         title: Option<String>,
         description: Option<String>,
-    ) -> Result<Item, Error> {
+    ) -> Result<Self, Error> {
         if self.state.is_transitioning() {
             return Err(Error::Unknown(anyhow!("invalid state")));
         }
 
-        Ok(Item {
+        Ok(Self {
             id: self.id,
             display_name: display_name.unwrap_or(self.display_name),
             title: title.unwrap_or(self.title),
@@ -71,13 +69,12 @@ impl Item {
         })
     }
 
-    #[must_use]
-    pub(crate) fn delete(self) -> Result<Item, Error> {
+    pub(crate) fn delete(self) -> Result<Self, Error> {
         if self.state.is_transitioning() {
             return Err(Error::Unknown(anyhow!("invalid state")));
         }
 
-        Ok(Item {
+        Ok(Self {
             id: self.id,
             display_name: self.display_name,
             title: self.title,
@@ -90,9 +87,12 @@ impl Item {
         })
     }
 
-    #[must_use]
-    pub(crate) fn annihilate(self) -> Result<Item, Error> {
-        Ok(Item {
+    pub(crate) fn annihilate(self) -> Result<Self, Error> {
+        if self.state.is_transitioning() {
+            return Err(Error::Unknown(anyhow!("invalid state")));
+        }
+
+        Ok(Self {
             id: self.id,
             display_name: self.display_name,
             title: self.title,
@@ -105,13 +105,12 @@ impl Item {
         })
     }
 
-    #[must_use]
-    pub(crate) fn block(self) -> Result<Item, Error> {
+    pub(crate) fn block(self) -> Result<Self, Error> {
         if self.state.is_transitioning() || self.state == ItemState::Blocked {
             return Err(Error::Unknown(anyhow!("invalid state")));
         }
 
-        Ok(Item {
+        Ok(Self {
             id: self.id,
             display_name: self.display_name,
             title: self.title,
@@ -124,13 +123,12 @@ impl Item {
         })
     }
 
-    #[must_use]
-    pub(crate) fn unblock(self) -> Result<Item, Error> {
+    pub(crate) fn unblock(self) -> Result<Self, Error> {
         if self.state.is_transitioning() || self.state == ItemState::Active {
             return Err(Error::Unknown(anyhow!("invalid state")));
         }
 
-        Ok(Item {
+        Ok(Self {
             id: self.id,
             display_name: self.display_name,
             title: self.title,
@@ -143,8 +141,8 @@ impl Item {
         })
     }
 
-    #[must_use]
-    pub(crate) fn active(self) -> Result<Item, Error> {
+    #[allow(dead_code)]
+    pub(crate) fn active(self) -> Result<Self, Error> {
         if !matches!(
             self.state,
             ItemState::Creating | ItemState::Updating | ItemState::Unblocking,
@@ -152,7 +150,7 @@ impl Item {
             return Err(Error::Unknown(anyhow!("invalid state")));
         }
 
-        Ok(Item {
+        Ok(Self {
             id: self.id,
             display_name: self.display_name,
             title: self.title,
@@ -165,13 +163,13 @@ impl Item {
         })
     }
 
-    #[must_use]
-    pub(crate) fn blocked(self) -> Result<Item, Error> {
+    #[allow(dead_code)]
+    pub(crate) fn blocked(self) -> Result<Self, Error> {
         if self.state != ItemState::Blocking {
             return Err(Error::Unknown(anyhow!("invalid state")));
         }
 
-        Ok(Item {
+        Ok(Self {
             id: self.id,
             display_name: self.display_name,
             title: self.title,

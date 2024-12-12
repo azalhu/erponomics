@@ -4,11 +4,8 @@ use std::sync::Arc;
 use manufacturing::item::command::Service as ItemCommandService;
 use manufacturing::item::grpc::Service as ItemGrpcService;
 use manufacturing::item::query::Service as ItemQueryService;
-use manufacturing::item::repository::ItemRepository;
-use manufacturing::proto::item::{
-    item_command_service_server::ItemCommandServiceServer,
-    item_query_service_server::ItemQueryServiceServer,
-};
+use manufacturing::item::repository::Service as ItemRepositoryService;
+use manufacturing::proto::item_service_server::ItemServiceServer;
 use tonic::transport::Server as TonicServer;
 
 use crate::config::Config;
@@ -25,7 +22,7 @@ pub async fn serve() -> anyhow::Result<()> {
     let addr = SocketAddr::from((Ipv4Addr::LOCALHOST, config.server_port));
 
     let sqlite_connection = Arc::new(Connection::new(&config.database_url).await?);
-    let item_repository = Arc::new(ItemRepository::new(sqlite_connection));
+    let item_repository = Arc::new(ItemRepositoryService::new(sqlite_connection));
     let item_command_service = Arc::new(ItemCommandService::new(item_repository.clone()));
     let item_query_service = Arc::new(ItemQueryService::new(item_repository.clone()));
     let item_grpc_service = ItemGrpcService::new(item_command_service, item_query_service);
@@ -36,8 +33,7 @@ pub async fn serve() -> anyhow::Result<()> {
 
     TonicServer::builder()
         .add_service(reflection_service)
-        .add_service(ItemCommandServiceServer::new(item_grpc_service.clone()))
-        .add_service(ItemQueryServiceServer::new(item_grpc_service))
+        .add_service(ItemServiceServer::new(item_grpc_service))
         .serve(addr)
         .await?;
 

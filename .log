@@ -1,0 +1,100 @@
+----------
+2024-12-10
+----------
+
+23:12
+improved state conversion between `Item` and `proto::Item`
+
+23:25
+reflected over current situation
+
+23:26
+realised sidestep. started with looking into `prost::Name` implementations,
+but ended up implementing item state conversion to protobuf,
+after reading about `oneof` implementations as enum in `prost`
+
+23:28
+return to `prost::Name` implementation. needed for
+`google.longrunning.Operation` implementation
+
+23:39
+listened to the zookeeper's boy by mew. great number. kinda dreamy
+
+----------
+2024-12-11
+----------
+
+00:49
+implemented trait `prost::Name` on `proto::Item`, adding cargo-crate
+`prost-build` as a build dependency. by calling
+`prost_build::config::Config::enable_type_names(&mut self)`
+
+00:58
+thinking of preparing pizza. diavolo
+adding burger dressing + srirachi hot chili mayo to it
+hum hum hum. not exactly healthy, but hopefully very delish...
+
+01:18
+reflected over current situation
+
+01:19
+smoke break
+
+01:34
+warm oven for pizza
+check window
+regroup domain entities
+
+01:38
+regrouped domain entities
+getting very tired
+thinking about going to bed after eating pizza
+
+01:39
+note to self... create diary/developer log
+
+01:40
+very hungry. oven not ready yet
+waiting for it to heat up to 210 degrees celsius
+
+01:41
+oven ready. put pizza in
+
+01:46
+pizza in the oven
+waiting 10 minutes
+
+01:49
+entities should be stored in db along with operation metadata
+
+02:29
+pizza eaten
+prepare for sleep
+cocio
+goodnight
+
+18:37
+back from work...
+consider how to structure operation metadata
+
+18:54
+fix build issues first...
+
+18:56
+building + linting super toll!
+
+----------
+2014-12-12
+----------
+
+02:20
+lost contact with the world
+texted with brother
+agreed to do something together in the christmas vacation
+complained about support shit and shit personalities
+hands are open wounds
+pizza in oven
+play doki doki literature club......
+maybe sleep on couch
+maybe not
+goodnight

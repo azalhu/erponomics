@@ -1,13 +1,18 @@
 use std::{future::Future, sync::Arc};
 
-use anyhow::anyhow;
-use derive_getters::{Dissolve, Getters};
-use derive_more::derive::From;
+use anyhow::{anyhow, Context};
+use num_traits::ToPrimitive;
+use sqlx::{Executor, Sqlite, Transaction};
 
 use crate::{
-    entity_tag, id, item,
-    sqlx::{Error as SqlxError, SqliteConnection},
-    timestamp, Id, Item, ThisError, Timestamp,
+    id, item,
+    sqlx::{Error as SqlxError, SqliteConnection, SqliteError},
+    Id, Item, Timestamp,
+};
+
+use super::{
+    query::{ListRequest, ListResponse},
+    Error,
 };
 
 // MARK: Get
@@ -19,51 +24,7 @@ pub trait Get: Send + Sync + 'static {
     /// # Errors
     ///
     /// - MUST return [`get::Error::NotFound`] if an [`Item`] with the given [`Id`] does not exist.
-    fn get(&self, request: GetRequest) -> impl Future<Output = Result<Item, GetError>> + Send;
-}
-
-/// The fields required by the domain to get an [Item].
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, From, Getters, Dissolve)]
-pub struct GetRequest {
-    id: Id,
-}
-
-#[derive(Debug, ThisError)]
-pub enum GetError {
-    #[error("item with id not found")]
-    NotFound,
-    #[error(transparent)]
-    Invalid(#[from] item::Error),
-    #[error(transparent)]
-    Unknown(#[from] anyhow::Error),
-}
-
-impl From<GetError> for item::Error {
-    fn from(value: GetError) -> Self {
-        match value {
-            GetError::Unknown(err) => Self::Unknown(err),
-            GetError::Invalid(err) => err,
-            GetError::NotFound => Self::Id(id::NotFoundError.into()),
-        }
-    }
-}
-
-impl From<id::Error> for GetError {
-    fn from(value: id::Error) -> Self {
-        item::Error::Id(value).into()
-    }
-}
-
-impl From<entity_tag::Error> for GetError {
-    fn from(value: entity_tag::Error) -> Self {
-        item::Error::Etag(value).into()
-    }
-}
-
-impl From<timestamp::Error> for GetError {
-    fn from(value: timestamp::Error) -> Self {
-        item::Error::Timestamp(value).into()
-    }
+    fn get(&self, id: &Id) -> impl Future<Output = Result<Item, Error>> + Send;
 }
 
 // MARK: List
@@ -77,51 +38,8 @@ pub trait List: Send + Sync + 'static {
     /// - MUST return [`list::Error::NotFound`] if an [`Item`] with the given [`Id`] does not exist.
     fn list(
         &self,
-        request: ListRequest,
-    ) -> impl Future<Output = Result<ListResponse, ListError>> + Send;
-}
-
-/// The fields required by the domain to list [Item]s.
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, From, Getters, Dissolve)]
-pub struct ListRequest {
-    id: Id,
-}
-
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, From, Getters, Dissolve)]
-pub struct ListResponse {
-    item: Vec<Item>,
-}
-
-#[derive(Debug, ThisError)]
-pub enum ListError {
-    #[error("item with id not found")]
-    NotFound,
-    #[error(transparent)]
-    Invalid(#[from] item::Error),
-    #[error(transparent)]
-    Unknown(#[from] anyhow::Error),
-}
-
-impl From<ListError> for item::Error {
-    fn from(value: ListError) -> Self {
-        match value {
-            ListError::Unknown(err) => Self::Unknown(err),
-            ListError::Invalid(err) => err,
-            ListError::NotFound => Self::Id(id::NotFoundError.into()),
-        }
-    }
-}
-
-impl From<id::Error> for ListError {
-    fn from(value: id::Error) -> Self {
-        item::Error::Id(value).into()
-    }
-}
-
-impl From<timestamp::Error> for ListError {
-    fn from(value: timestamp::Error) -> Self {
-        item::Error::Timestamp(value).into()
-    }
+        request: &ListRequest,
+    ) -> impl Future<Output = Result<ListResponse, Error>> + Send;
 }
 
 // MARK: Create
@@ -133,36 +51,7 @@ pub trait Create: Send + Sync + 'static {
     /// # Errors
     ///
     /// - MUST return [`create::Error::Duplicate`] if an [`Item`] with the same [`Code`] already exists.
-    fn create(
-        &self,
-        request: CreateRequest,
-    ) -> impl Future<Output = Result<(), CreateError>> + Send;
-}
-
-/// The fields required by the domain to create an [Item].
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, From, Getters, Dissolve)]
-pub struct CreateRequest {
-    item: Item,
-}
-
-#[derive(Debug, ThisError)]
-pub enum CreateError {
-    #[error("item with id {id} already exists")]
-    Duplicate { id: Id },
-    #[error(transparent)]
-    InvalidItem(#[from] item::Error),
-    #[error(transparent)]
-    Unknown(#[from] anyhow::Error),
-}
-
-impl From<CreateError> for item::Error {
-    fn from(value: CreateError) -> Self {
-        match value {
-            CreateError::Unknown(err) => Self::Unknown(err),
-            CreateError::Duplicate { id } => Self::Id(id::DuplicateError(id).into()),
-            CreateError::InvalidItem(err) => err,
-        }
-    }
+    fn create(&self, item: &Item) -> impl Future<Output = Result<(), Error>> + Send;
 }
 
 // MARK: Update
@@ -174,33 +63,7 @@ pub trait Update: Send + Sync + 'static {
     /// # Errors
     ///
     /// - MUST return [`update::Error::Duplicate`] if an [`Item`] with the same [`Code`] already exists.
-    fn update(
-        &self,
-        request: UpdateRequest,
-    ) -> impl Future<Output = Result<(), UpdateError>> + Send;
-}
-
-/// The fields required by the domain to update an [Item].
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, From, Getters, Dissolve)]
-pub struct UpdateRequest {
-    item: Item,
-}
-
-#[derive(Debug, ThisError)]
-pub enum UpdateError {
-    #[error(transparent)]
-    InvalidItem(#[from] item::Error),
-    #[error(transparent)]
-    Unknown(#[from] anyhow::Error),
-}
-
-impl From<UpdateError> for item::Error {
-    fn from(value: UpdateError) -> Self {
-        match value {
-            UpdateError::Unknown(err) => Self::Unknown(err),
-            UpdateError::InvalidItem(err) => err,
-        }
-    }
+    fn update(&self, item: &Item) -> impl Future<Output = Result<(), Error>> + Send;
 }
 
 // MARK: Delete
@@ -212,52 +75,17 @@ pub trait Delete: Send + Sync + 'static {
     /// # Errors
     ///
     /// - MUST return [`delete::Error::NotFound`] if an [`Item`] with the given [`Id`] does not exist.
-    fn delete(
-        &self,
-        request: DeleteRequest,
-    ) -> impl Future<Output = Result<(), DeleteError>> + Send;
-}
-
-/// The fields required by the domain to delete an [Item].
-#[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, From, Getters, Dissolve)]
-pub struct DeleteRequest {
-    id: Id,
-}
-
-#[derive(Debug, ThisError)]
-pub enum DeleteError {
-    #[error("item not found")]
-    NotFound,
-    #[error(transparent)]
-    Invalid(#[from] item::Error),
-    #[error(transparent)]
-    Unknown(#[from] anyhow::Error),
-}
-
-impl From<id::Error> for DeleteError {
-    fn from(value: id::Error) -> Self {
-        item::Error::Id(value).into()
-    }
-}
-
-impl From<DeleteError> for item::Error {
-    fn from(value: DeleteError) -> Self {
-        match value {
-            DeleteError::Unknown(err) => Self::Unknown(err),
-            DeleteError::NotFound => Self::Id(id::NotFoundError.into()),
-            DeleteError::Invalid(err) => err,
-        }
-    }
+    fn delete(&self, id: &Id) -> impl Future<Output = Result<(), Error>> + Send;
 }
 
 // MARK: Service
 
 #[derive(Debug, Clone)]
-pub struct ItemRepository<DB: SqliteConnection> {
+pub struct Service<DB: SqliteConnection> {
     db: Arc<DB>,
 }
 
-impl<DB> ItemRepository<DB>
+impl<DB> Service<DB>
 where
     DB: SqliteConnection + Clone,
 {
@@ -266,12 +94,21 @@ where
         Self { db }
     }
 
-    #[must_use]
-    async fn fetch_item(&self, id: &Id) -> Result<Item, GetError> {
-        let id = id.to_string();
+    async fn fetch_item(&self, id: &Id) -> Result<Item, Error> {
+        let id = id.value();
 
         let query = sqlx::query!(
-            "SELECT id, display_name, title, description, state, etag, uid, create_time, update_time FROM item WHERE id = $1",
+            "SELECT
+                id,
+                display_name,
+                title,
+                description,
+                state,
+                etag,
+                uid,
+                create_time,
+                update_time
+            FROM item WHERE id = $1",
             id
         );
 
@@ -280,8 +117,8 @@ where
                 .fetch_one(self.db.pool())
                 .await
                 .map_err(|e| match SqlxError::from(&e) {
-                    SqlxError::RowNotFound => GetError::NotFound,
-                    _ => GetError::from(
+                    SqlxError::RowNotFound => Error::Id(id::NotFoundError.into()),
+                    _ => Error::from(
                         anyhow!(e).context(format!("failed to fetch item with id {id:?}")),
                     ),
                 })?;
@@ -290,12 +127,12 @@ where
         let display_name = result.display_name;
         let title = result.title;
         let description = result.description;
-        let state = num_traits::FromPrimitive::from_i64(result.state).ok_or(GetError::Invalid(
-            item::Error::Unknown(anyhow!(format!("invalid state {0}", result.state))),
+        let state = num_traits::FromPrimitive::from_i64(result.state).ok_or(Error::Unknown(
+            anyhow!(format!("invalid state {0}", result.state)),
         ))?;
         let etag = result.etag.try_into()?;
-        let uid = uuid::Uuid::try_parse(&result.uid)
-            .map_err(|e| GetError::Invalid(item::Error::Unknown(anyhow!(e))))?;
+        let uid =
+            uuid::Uuid::try_parse(&result.uid).map_err(|e| item::Error::Unknown(anyhow!(e)))?;
         let create_time = Timestamp::try_from(result.create_time)?;
         let update_time = Timestamp::try_from(result.update_time)?;
 
@@ -313,50 +150,282 @@ where
 
         Ok(item)
     }
+
+    async fn fetch_items(&self, request: &ListRequest) -> Result<ListResponse, Error> {
+        let page_size = request.page_size();
+        let page_token = request.page_token();
+        let order_by = request.order_by();
+        let filter = request.filter();
+
+        let query = sqlx::query!(
+            "SELECT
+                id,
+                display_name,
+                title,
+                description,
+                state,
+                etag,
+                uid,
+                create_time,
+                update_time
+            FROM item WHERE $1
+            ORDER BY $2
+            LIMIT $3 OFFSET $4",
+            filter,
+            order_by,
+            page_size,
+            page_token
+        );
+
+        let result =
+            query
+                .fetch_all(self.db.pool())
+                .await
+                .map_err(|e| match SqlxError::from(&e) {
+                    SqlxError::RowNotFound => Error::Id(id::NotFoundError.into()),
+                    _ => Error::from(anyhow!(e).context("failed to fetch items")),
+                })?;
+
+        let mut items: Vec<Item> = vec![];
+
+        for r in result {
+            let id = Id::try_from(r.id)?;
+            let display_name = r.display_name;
+            let title = r.title;
+            let description = r.description;
+            let state = num_traits::FromPrimitive::from_i64(r.state).ok_or(Error::Unknown(
+                anyhow!(format!("invalid state {0}", r.state)),
+            ))?;
+            let etag = r.etag.try_into()?;
+            let uid =
+                uuid::Uuid::try_parse(&r.uid).map_err(|e| item::Error::Unknown(anyhow!(e)))?;
+            let create_time = Timestamp::try_from(r.create_time)?;
+            let update_time = Timestamp::try_from(r.update_time)?;
+
+            let item = Item::from((
+                id,
+                display_name,
+                title,
+                description,
+                state,
+                etag,
+                uid,
+                create_time,
+                update_time,
+            ));
+
+            items.push(item);
+        }
+
+        Ok(ListResponse::new(items, None, 0))
+    }
+
+    async fn save_item(&self, tx: &mut Transaction<'_, Sqlite>, item: &Item) -> Result<(), Error> {
+        let id = &item.id.value();
+        let display_name = &item.display_name;
+        let title = &item.title;
+        let description = &item.description;
+        let state = &item.state.to_i64();
+        let etag = &item.etag.to_string();
+        let uid = &item.uid.to_string();
+        let create_time = &item.create_time.value().to_string();
+        let update_time = &item.update_time.value().to_string();
+
+        let query = sqlx::query!(
+            "INSERT INTO item (
+                id,
+                display_name,
+                title,
+                description,
+                state,
+                etag,
+                uid,
+                create_time,
+                update_time
+            ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)",
+            id,
+            display_name,
+            title,
+            description,
+            state,
+            etag,
+            uid,
+            create_time,
+            update_time,
+        );
+
+        tx.execute(query)
+            .await
+            .map_err(|e| match SqlxError::from(&e) {
+                SqlxError::Sqlite { inner } => match inner {
+                    SqliteError::UniqueConstraintViolationCode => {
+                        Error::Id(id::DuplicateError(item.id.clone()).into())
+                    }
+                    SqliteError::Unknown { message } => anyhow!(e)
+                        .context(format!(
+                            "failed to insert item with id {:?}, with message from database: {:?}",
+                            item.id(),
+                            message
+                        ))
+                        .into(),
+                },
+                SqlxError::RowNotFound | SqlxError::Unknown => anyhow!(e)
+                    .context(format!("failed to insert item with id {:?}", item.id()))
+                    .into(),
+            })?;
+
+        Ok(())
+    }
+
+    async fn modify_item(
+        &self,
+        tx: &mut Transaction<'_, Sqlite>,
+        item: &Item,
+    ) -> Result<(), Error> {
+        let id = &item.id.value();
+        let display_name = &item.display_name;
+        let title = &item.title;
+        let description = &item.description;
+        let state = &item.state.to_i64();
+        let etag = &item.etag.to_string();
+        let uid = &item.uid.to_string();
+        let create_time = &item.create_time.value().to_string();
+        let update_time = &item.update_time.value().to_string();
+
+        let query = sqlx::query!(
+            "UPDATE item SET
+                id              = $1,
+                display_name    = $2,
+                title           = $3,
+                description     = $4,
+                state           = $5,
+                etag            = $6,
+                uid             = $7,
+                create_time     = $8,
+                update_time     = $9",
+            id,
+            display_name,
+            title,
+            description,
+            state,
+            etag,
+            uid,
+            create_time,
+            update_time,
+        );
+
+        tx.execute(query)
+            .await
+            .map_err(|e| match SqlxError::from(&e) {
+                SqlxError::RowNotFound => Error::Id(id::NotFoundError.into()),
+                _ => {
+                    Error::from(anyhow!(e).context(format!("failed to delete item with id {id:?}")))
+                }
+            })?;
+
+        Ok(())
+    }
+
+    async fn remove_item(&self, tx: &mut Transaction<'_, Sqlite>, id: &Id) -> Result<(), Error> {
+        let id = &id.to_string();
+
+        let query = sqlx::query!("DELETE FROM item WHERE id = $1", id);
+
+        tx.execute(query)
+            .await
+            .map_err(|e| match SqlxError::from(&e) {
+                SqlxError::RowNotFound => Error::Id(id::NotFoundError.into()),
+                _ => {
+                    Error::from(anyhow!(e).context(format!("failed to delete item with id {id:?}")))
+                }
+            })?;
+
+        Ok(())
+    }
 }
 
-impl<DB> Get for ItemRepository<DB>
+impl<DB> Get for Service<DB>
 where
     DB: SqliteConnection + Clone,
 {
-    async fn get(&self, request: GetRequest) -> Result<Item, GetError> {
-        let item = self.fetch_item(&request.id).await?;
+    async fn get(&self, id: &Id) -> Result<Item, Error> {
+        let item = self.fetch_item(id).await?;
         Ok(item)
     }
 }
 
-impl<DB> List for ItemRepository<DB>
+impl<DB> List for Service<DB>
 where
     DB: SqliteConnection + Clone,
 {
-    async fn list(&self, _request: ListRequest) -> Result<ListResponse, ListError> {
-        todo!()
+    async fn list(&self, request: &ListRequest) -> Result<ListResponse, Error> {
+        let response = self.fetch_items(request).await?;
+        Ok(response)
     }
 }
 
-impl<DB> Create for ItemRepository<DB>
+impl<DB> Create for Service<DB>
 where
     DB: SqliteConnection + Clone,
 {
-    async fn create(&self, _request: CreateRequest) -> Result<(), CreateError> {
-        todo!()
+    async fn create(&self, item: &Item) -> Result<(), Error> {
+        let mut tx = self
+            .db
+            .pool()
+            .begin()
+            .await
+            .with_context(|| "failed to start SQLite transaction")?;
+
+        self.save_item(&mut tx, item).await?;
+
+        tx.commit()
+            .await
+            .context("failed to commit SQLite transaction")?;
+
+        Ok(())
     }
 }
 
-impl<DB> Update for ItemRepository<DB>
+impl<DB> Update for Service<DB>
 where
     DB: SqliteConnection + Clone,
 {
-    async fn update(&self, _request: UpdateRequest) -> Result<(), UpdateError> {
-        todo!()
+    async fn update(&self, item: &Item) -> Result<(), Error> {
+        let mut tx = self
+            .db
+            .pool()
+            .begin()
+            .await
+            .with_context(|| "failed to start SQLite transaction")?;
+
+        self.modify_item(&mut tx, item).await?;
+
+        tx.commit()
+            .await
+            .context("failed to commit SQLite transaction")?;
+
+        Ok(())
     }
 }
 
-impl<DB> Delete for ItemRepository<DB>
+impl<DB> Delete for Service<DB>
 where
     DB: SqliteConnection + Clone,
 {
-    async fn delete(&self, _request: DeleteRequest) -> Result<(), DeleteError> {
-        todo!()
+    async fn delete(&self, id: &Id) -> Result<(), Error> {
+        let mut tx = self
+            .db
+            .pool()
+            .begin()
+            .await
+            .with_context(|| "failed to start SQLite transaction")?;
+
+        self.remove_item(&mut tx, id).await?;
+
+        tx.commit()
+            .await
+            .context("failed to commit SQLite transaction")?;
+
+        Ok(())
     }
 }

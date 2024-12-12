@@ -33,18 +33,18 @@ tracing-subscriber = { version = "0.3.18", default-features = false, features = 
 uuid = { version = "1.11.0", default-features = false, features = ["v4"] }
 
 [build-dependencies]
+prost-build = { version = "0.13.4", default-features = false }
 tonic-build = { version = "0.12.3", default-features = false, features = ["prost", "transport"] }
 
 [lints.rust]
 unsafe_code = "forbid"
 
 [lints.clippy]
-all = "warn"
-pedantic = "warn"
-nursery = "warn"
+all = { level = "warn", priority = -1 }
+pedantic = { level = "warn", priority = -1 }
+nursery = { level = "warn", priority = -1 }
 dbg_macro = "forbid"
-expect_used = "forbid"
+expect_used = "deny"
 panic = "forbid"
 todo = "forbid"
-unused_must_use = "forbid"
 unwrap_used = "forbid"
