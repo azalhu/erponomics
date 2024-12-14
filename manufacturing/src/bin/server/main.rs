@@ -1,3 +1,5 @@
+use config::Config;
+
 mod config;
 mod grpc;
 mod sqlite;
@@ -6,7 +8,8 @@ mod sqlite;
 async fn main() -> anyhow::Result<()> {
     tracing_subscriber::fmt::init();
 
-    grpc::serve().await?;
+    let config = Config::from_env()?;
+    grpc::serve(&config).await?;
 
     #[allow(clippy::expect_used)]
     Ok(())

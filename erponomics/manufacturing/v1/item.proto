@@ -75,6 +75,34 @@ service ItemService {
       metadata_type: "DeleteItemMetadata"
     };
   }
+
+  // Blocks an item. Returns INVALID_ARGUMENT if the name of the item
+  // is non-empty and does not equal the existing name.
+  rpc BlockItem(BlockItemRequest) returns (google.longrunning.Operation) {
+    option (google.api.http) = {
+      post: "/v1/{name=items/*}:block"
+      body: "*"
+    };
+    option (google.api.method_signature) = "name,etag";
+    option (google.longrunning.operation_info) = {
+      response_type: "Item"
+      metadata_type: "BlockItemMetadata"
+    };
+  }
+
+  // Unblocks  an item. Returns INVALID_ARGUMENT if the name of the item
+  // is non-empty and does not equal the existing name.
+  rpc UnblockItem(UnblockItemRequest) returns (google.longrunning.Operation) {
+    option (google.api.http) = {
+      post: "/v1/{name=items/*}:unblock"
+      body: "*"
+    };
+    option (google.api.method_signature) = "name,etag";
+    option (google.longrunning.operation_info) = {
+      response_type: "Item"
+      metadata_type: "UnblockItemMetadata"
+    };
+  }
 }
 
 // An item used in manufacturing.
@@ -254,4 +282,42 @@ message DeleteItemRequest {
 
 // Metadata for ItemService.DeleteItem.
 message DeleteItemMetadata {
+}
+
+// Request message for ItemService.BlockItem.
+message BlockItemRequest {
+  // The name of the item to block.
+  // Format: items/{item}
+  string name = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (google.api.resource_reference) = {
+      type: "manufacturing.erponomics.com/Item"
+    }];
+
+    // The etag of the item.
+    // It must match the server's etag.
+    string etag = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+// Metadata for ItemService.BlockItem.
+message BlockItemMetadata {
+}
+
+// Request message for ItemService.UnblockItem.
+message UnblockItemRequest {
+  // The name of the item to unblock.
+  // Format: items/{item}
+  string name = 1 [
+    (google.api.field_behavior) = REQUIRED,
+    (google.api.resource_reference) = {
+      type: "manufacturing.erponomics.com/Item"
+    }];
+
+    // The etag of the item.
+    // It must match the server's etag.
+    string etag = 2 [(google.api.field_behavior) = REQUIRED];
+}
+
+// Metadata for ItemService.UnblockItem.
+message UnblockItemMetadata {
 }

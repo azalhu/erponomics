@@ -1,16 +1,17 @@
-#![allow(clippy::all, clippy::pedantic, clippy::nursery)]
-pub mod base;
-pub mod core;
+pub mod item;
+pub mod status;
+pub mod timestamp;
 
 pub mod proto {
-    pub(crate) mod google {
-        pub(crate) mod api {
+    #![allow(clippy::all, clippy::pedantic, clippy::nursery)]
+    pub mod google {
+        pub mod api {
             tonic::include_proto!("google.api");
         }
-        pub(crate) mod longrunning {
+        pub mod longrunning {
             tonic::include_proto!("google.longrunning");
         }
-        pub(crate) mod rpc {
+        pub mod rpc {
             tonic::include_proto!("google.rpc");
         }
     }
