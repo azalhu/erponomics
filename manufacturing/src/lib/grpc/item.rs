@@ -19,11 +19,6 @@ use crate::{
     Item, ItemState,
 };
 
-use super::proto::google::longrunning::{
-    operations_server::Operations, CancelOperationRequest, DeleteOperationRequest,
-    GetOperationRequest, ListOperationsRequest, ListOperationsResponse, WaitOperationRequest,
-};
-
 #[derive(Debug, Clone)]
 pub struct Service<ICS: Create + Update + Delete + Block + Unblock + Clone, IQS: Get + List + Clone>
 {
@@ -337,49 +332,5 @@ impl From<query::ListResponse> for ListItemsResponse {
             next_page_token,
             total_size,
         }
-    }
-}
-
-// MARK: Operations
-
-#[tonic::async_trait]
-impl<ICS, IQS> Operations for Service<ICS, IQS>
-where
-    ICS: Create + Update + Delete + Block + Unblock + Clone,
-    IQS: Get + List + Clone,
-{
-    async fn list_operations(
-        &self,
-        _request: Request<ListOperationsRequest>,
-    ) -> Result<Response<ListOperationsResponse>, Status> {
-        todo!()
-    }
-
-    async fn get_operation(
-        &self,
-        _request: Request<GetOperationRequest>,
-    ) -> Result<Response<Operation>, Status> {
-        todo!()
-    }
-
-    async fn delete_operation(
-        &self,
-        _request: Request<DeleteOperationRequest>,
-    ) -> Result<Response<()>, Status> {
-        todo!()
-    }
-
-    async fn cancel_operation(
-        &self,
-        _request: Request<CancelOperationRequest>,
-    ) -> Result<Response<()>, Status> {
-        todo!()
-    }
-
-    async fn wait_operation(
-        &self,
-        _request: Request<WaitOperationRequest>,
-    ) -> Result<Response<Operation>, Status> {
-        todo!()
     }
 }

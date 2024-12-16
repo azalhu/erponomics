@@ -1,5 +1,6 @@
 pub mod item;
 pub mod status;
+pub mod sync;
 pub mod timestamp;
 
 pub mod proto {
