@@ -1,23 +1,18 @@
 #![warn(clippy::all, clippy::pedantic, clippy::nursery)]
-use manufacturing::{
-    proto::item::{
-        item_command_service_client::ItemCommandServiceClient,
-        item_query_service_client::ItemQueryServiceClient, CreateItemRequest, DeleteItemRequest,
-        GetItemRequest, Item,
-    },
-    ItemState,
+
+use manufacturing::proto::{
+    item_service_client::ItemServiceClient, CreateItemRequest, DeleteItemRequest, GetItemRequest,
+    Item,
 };
-use num_traits::ToPrimitive;
 use tonic::Request;
 
 #[tokio::test]
 async fn it_does_not_create_duplicate_item() -> Result<(), Box<dyn std::error::Error>> {
     let path = "http://localhost:8081";
-    let mut command_client = ItemCommandServiceClient::connect(path).await?;
-    let mut query_client = ItemQueryServiceClient::connect(path).await?;
+    let mut item_client = ItemServiceClient::connect(path).await?;
 
     let id = String::from("b-max");
-    let name = None;
+    let name = String::new();
     let display_name = Some(String::from("Bike"));
     let title = None;
     let description = Some(String::from("Bike with maximum power"));
@@ -45,12 +40,12 @@ async fn it_does_not_create_duplicate_item() -> Result<(), Box<dyn std::error::E
 
     let request = Request::new(request);
 
-    command_client.create_item(request).await?;
+    item_client.create_item(request).await?;
 
     let request = GetItemRequest { name: id.clone() };
     let request = Request::new(request);
 
-    let response = query_client.get_item(request).await?;
+    let response = item_client.get_item(request).await?;
     let item = response.into_inner();
 
     //    assert_eq!(id, item.name.clone().unwrap());
@@ -69,12 +64,12 @@ async fn it_does_not_create_duplicate_item() -> Result<(), Box<dyn std::error::E
     };
     let request = Request::new(request);
 
-    command_client.delete_item(request).await?;
+    item_client.delete_item(request).await?;
 
     let request = GetItemRequest { name: id };
     let request = Request::new(request);
 
-    let response = query_client.get_item(request).await?;
+    let response = item_client.get_item(request).await?;
     let _item = response.into_inner();
 
     //    assert_eq!(ItemState::Deleting.to_i32(), item.state.clone());

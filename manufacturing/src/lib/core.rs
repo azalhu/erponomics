@@ -5,7 +5,6 @@ use uuid::Uuid;
 use crate::{EntityTag, Id, Timestamp};
 
 pub mod item;
-pub mod sync;
 
 #[repr(i32)]
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, FromPrimitive, ToPrimitive)]

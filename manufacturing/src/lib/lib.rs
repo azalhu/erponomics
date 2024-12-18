@@ -10,3 +10,4 @@ pub(crate) mod base;
 pub(crate) mod core;
 pub mod grpc;
 pub mod sqlx;
+pub mod sync;

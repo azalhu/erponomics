@@ -2,12 +2,11 @@ use anyhow::anyhow;
 use uuid::Uuid;
 
 pub use super::Error;
+use super::{repository, sync::Metadata};
 
 use std::{future::Future, sync::Arc};
 
-use crate::{id, Id, Item};
-
-use super::repository;
+use crate::{id, sync::Operation, Id, Item};
 
 // MARK: Create
 
@@ -165,7 +164,10 @@ where
         Self { item_repository }
     }
 
-    async fn validate_create_request(&self, request: CreateRequest) -> Result<Item, Error> {
+    async fn validate_create_request(
+        &self,
+        request: CreateRequest,
+    ) -> Result<Operation<Metadata>, Error> {
         let id = match request.id {
             Some(id) => match Id::try_from(id) {
                 Ok(id) => match self.item_repository.get(&id).await {
@@ -180,10 +182,15 @@ where
             _ => Uuid::new_v4().to_string(),
         };
 
-        Item::new(id, request.display_name, request.title, request.description)
+        let item = Item::new(id, request.display_name, request.title, request.description)?;
+
+        Ok(Operation::new(Id::new(), Metadata::new(item), None))
     }
 
-    async fn validate_update_request(&self, request: UpdateRequest) -> Result<Item, Error> {
+    async fn validate_update_request(
+        &self,
+        request: UpdateRequest,
+    ) -> Result<Operation<Metadata>, Error> {
         let id = Id::try_from(request.id)?;
         let item = self.item_repository.get(&id).await?;
 
@@ -191,10 +198,15 @@ where
             return Err(Error::Id(crate::id::EmptyError.into()));
         }
 
-        item.update(request.display_name, request.title, request.description)
+        let item = item.update(request.display_name, request.title, request.description)?;
+
+        Ok(Operation::new(Id::new(), Metadata::new(item), None))
     }
 
-    async fn validate_delete_request(&self, request: DeleteRequest) -> Result<Item, Error> {
+    async fn validate_delete_request(
+        &self,
+        request: DeleteRequest,
+    ) -> Result<Operation<Metadata>, Error> {
         let id = Id::try_from(request.id)?;
         let item = self.item_repository.get(&id).await?;
 
@@ -202,10 +214,15 @@ where
             return Err(Error::Id(crate::id::EmptyError.into()));
         }
 
-        item.delete()
+        let item = item.delete()?;
+
+        Ok(Operation::new(Id::new(), Metadata::new(item), None))
     }
 
-    async fn validate_annihilate_request(&self, request: AnnihilateRequest) -> Result<Item, Error> {
+    async fn validate_annihilate_request(
+        &self,
+        request: AnnihilateRequest,
+    ) -> Result<Operation<Metadata>, Error> {
         let id = Id::try_from(request.id)?;
         let item = self.item_repository.get(&id).await?;
 
@@ -213,10 +230,15 @@ where
             return Err(Error::Id(crate::id::EmptyError.into()));
         }
 
-        item.annihilate()
+        let item = item.annihilate()?;
+
+        Ok(Operation::new(Id::new(), Metadata::new(item), None))
     }
 
-    async fn validate_block_request(&self, request: BlockRequest) -> Result<Item, Error> {
+    async fn validate_block_request(
+        &self,
+        request: BlockRequest,
+    ) -> Result<Operation<Metadata>, Error> {
         let id = Id::try_from(request.id)?;
         let item = self.item_repository.get(&id).await?;
 
@@ -224,10 +246,15 @@ where
             return Err(Error::Unknown(anyhow!("invalid etag")));
         }
 
-        item.block()
+        let item = item.block()?;
+
+        Ok(Operation::new(Id::new(), Metadata::new(item), None))
     }
 
-    async fn validate_unblock_request(&self, request: UnblockRequest) -> Result<Item, Error> {
+    async fn validate_unblock_request(
+        &self,
+        request: UnblockRequest,
+    ) -> Result<Operation<Metadata>, Error> {
         let id = Id::try_from(request.id)?;
         let item = self.item_repository.get(&id).await?;
 
@@ -235,7 +262,9 @@ where
             return Err(Error::Unknown(anyhow!("invalid etag")));
         }
 
-        item.unblock()
+        let item = item.unblock()?;
+
+        Ok(Operation::new(Id::new(), Metadata::new(item), None))
     }
 }
 
@@ -244,8 +273,8 @@ where
     IR: repository::Create + repository::Update + repository::Get + repository::Delete + Clone,
 {
     async fn create(&self, request: CreateRequest) -> Result<(), Error> {
-        let item = self.validate_create_request(request).await?;
-        self.item_repository.create(&item).await?;
+        let operation = self.validate_create_request(request).await?;
+        self.item_repository.create(&operation).await?;
 
         // TODO sync after create
 
@@ -258,8 +287,8 @@ where
     IR: repository::Create + repository::Update + repository::Get + repository::Delete + Clone,
 {
     async fn update(&self, request: UpdateRequest) -> Result<(), Error> {
-        let item = self.validate_update_request(request).await?;
-        self.item_repository.update(&item).await?;
+        let operation = self.validate_update_request(request).await?;
+        self.item_repository.update(&operation).await?;
 
         // TODO sync after update
 
@@ -272,8 +301,8 @@ where
     IR: repository::Create + repository::Update + repository::Get + repository::Delete + Clone,
 {
     async fn delete(&self, request: DeleteRequest) -> Result<(), Error> {
-        let item = self.validate_delete_request(request).await?;
-        self.item_repository.update(&item).await?;
+        let operation = self.validate_delete_request(request).await?;
+        self.item_repository.update(&operation).await?;
 
         // TODO sync after delete
 
@@ -286,8 +315,8 @@ where
     IR: repository::Create + repository::Update + repository::Get + repository::Delete + Clone,
 {
     async fn annihilate(&self, request: AnnihilateRequest) -> Result<(), Error> {
-        let item = self.validate_annihilate_request(request).await?;
-        self.item_repository.update(&item).await?;
+        let operation = self.validate_annihilate_request(request).await?;
+        self.item_repository.update(&operation).await?;
 
         // TODO sync after annihilate
 
@@ -300,8 +329,8 @@ where
     IR: repository::Get + repository::Create + repository::Update + repository::Delete + Clone,
 {
     async fn block(&self, request: BlockRequest) -> Result<(), Error> {
-        let item = self.validate_block_request(request).await?;
-        self.item_repository.update(&item).await?;
+        let operation = self.validate_block_request(request).await?;
+        self.item_repository.update(&operation).await?;
 
         // TODO sync after block
 
@@ -314,8 +343,8 @@ where
     IR: repository::Get + repository::Create + repository::Update + repository::Delete + Clone,
 {
     async fn unblock(&self, request: UnblockRequest) -> Result<(), Error> {
-        let item = self.validate_unblock_request(request).await?;
-        self.item_repository.update(&item).await?;
+        let operation = self.validate_unblock_request(request).await?;
+        self.item_repository.update(&operation).await?;
 
         // TODO sync after unblock
 

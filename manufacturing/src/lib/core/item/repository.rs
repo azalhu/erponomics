@@ -7,11 +7,13 @@ use sqlx::{Executor, Sqlite, Transaction};
 use crate::{
     id, item,
     sqlx::{Error as SqlxError, SqliteConnection, SqliteError},
+    sync::{Operation, OperationMetadata},
     Id, Item, Timestamp,
 };
 
 use super::{
     query::{ListRequest, ListResponse},
+    sync::Metadata,
     Error,
 };
 
@@ -51,7 +53,10 @@ pub trait Create: Send + Sync + 'static {
     /// # Errors
     ///
     /// - MUST return [`create::Error::Duplicate`] if an [`Item`] with the same [`Code`] already exists.
-    fn create(&self, item: &Item) -> impl Future<Output = Result<(), Error>> + Send;
+    fn create(
+        &self,
+        operation: &Operation<Metadata>,
+    ) -> impl Future<Output = Result<(), Error>> + Send;
 }
 
 // MARK: Update
@@ -63,7 +68,10 @@ pub trait Update: Send + Sync + 'static {
     /// # Errors
     ///
     /// - MUST return [`update::Error::Duplicate`] if an [`Item`] with the same [`Code`] already exists.
-    fn update(&self, item: &Item) -> impl Future<Output = Result<(), Error>> + Send;
+    fn update(
+        &self,
+        operation: &Operation<Metadata>,
+    ) -> impl Future<Output = Result<(), Error>> + Send;
 }
 
 // MARK: Delete
@@ -75,7 +83,10 @@ pub trait Delete: Send + Sync + 'static {
     /// # Errors
     ///
     /// - MUST return [`delete::Error::NotFound`] if an [`Item`] with the given [`Id`] does not exist.
-    fn delete(&self, id: &Id) -> impl Future<Output = Result<(), Error>> + Send;
+    fn delete(
+        &self,
+        operation: &Operation<Metadata>,
+    ) -> impl Future<Output = Result<(), Error>> + Send;
 }
 
 // MARK: Service
@@ -368,7 +379,7 @@ impl<DB> Create for Service<DB>
 where
     DB: SqliteConnection + Clone,
 {
-    async fn create(&self, item: &Item) -> Result<(), Error> {
+    async fn create(&self, operation: &Operation<Metadata>) -> Result<(), Error> {
         let mut tx = self
             .db
             .pool()
@@ -376,7 +387,8 @@ where
             .await
             .with_context(|| "failed to start SQLite transaction")?;
 
-        self.save_item(&mut tx, item).await?;
+        self.save_item(&mut tx, operation.metadata().entity())
+            .await?;
 
         tx.commit()
             .await
@@ -390,7 +402,7 @@ impl<DB> Update for Service<DB>
 where
     DB: SqliteConnection + Clone,
 {
-    async fn update(&self, item: &Item) -> Result<(), Error> {
+    async fn update(&self, operation: &Operation<Metadata>) -> Result<(), Error> {
         let mut tx = self
             .db
             .pool()
@@ -398,7 +410,8 @@ where
             .await
             .with_context(|| "failed to start SQLite transaction")?;
 
-        self.modify_item(&mut tx, item).await?;
+        self.modify_item(&mut tx, operation.metadata().entity())
+            .await?;
 
         tx.commit()
             .await
@@ -412,7 +425,7 @@ impl<DB> Delete for Service<DB>
 where
     DB: SqliteConnection + Clone,
 {
-    async fn delete(&self, id: &Id) -> Result<(), Error> {
+    async fn delete(&self, operation: &Operation<Metadata>) -> Result<(), Error> {
         let mut tx = self
             .db
             .pool()
@@ -420,7 +433,8 @@ where
             .await
             .with_context(|| "failed to start SQLite transaction")?;
 
-        self.remove_item(&mut tx, id).await?;
+        self.remove_item(&mut tx, operation.metadata().entity().id())
+            .await?;
 
         tx.commit()
             .await
