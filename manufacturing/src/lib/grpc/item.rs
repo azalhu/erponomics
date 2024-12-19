@@ -1,6 +1,7 @@
 use std::sync::Arc;
 
 use anyhow::anyhow;
+use prost_types::Any;
 use tonic::{Request, Response, Status};
 
 use crate::{
@@ -9,6 +10,7 @@ use crate::{
     item::{
         command::{self, Block, Create, Delete, Unblock, Update},
         query::{self, Get, List},
+        sync::Metadata,
         EmptyError, Error,
     },
     proto::{
@@ -18,6 +20,8 @@ use crate::{
     },
     Item, ItemState,
 };
+
+use super::proto::google::rpc;
 
 #[derive(Debug, Clone)]
 pub struct Service<ICS: Create + Update + Delete + Block + Unblock + Clone, IQS: Get + List + Clone>
@@ -48,6 +52,12 @@ impl From<Item> for proto::Item {
 impl From<Item> for Response<proto::Item> {
     fn from(value: Item) -> Self {
         Self::new(value.into())
+    }
+}
+
+impl From<Item> for Any {
+    fn from(value: Item) -> Self {
+        Self::from_msg(&proto::Item::from(value)).unwrap_or_else(|_| Self::default())
     }
 }
 
@@ -90,6 +100,26 @@ impl From<Status> for Error {
     }
 }
 
+impl From<Error> for rpc::Status {
+    fn from(value: Error) -> Self {
+        let status = Status::from(value);
+
+        Self {
+            code: status.code().into(),
+            message: status.message().to_string(),
+            details: vec![],
+        }
+    }
+}
+
+impl From<Metadata> for Option<Any> {
+    fn from(value: Metadata) -> Self {
+        let item = value.dissolve();
+
+        Any::from_msg(&proto::Item::from(item)).ok()
+    }
+}
+
 impl<ICS, IQS> Service<ICS, IQS>
 where
     ICS: Create + Update + Delete + Block + Unblock + Clone,
@@ -103,7 +133,7 @@ where
     }
 }
 
-// MARK: ItemService
+// MARK: Service
 
 #[tonic::async_trait]
 impl<ICS, IQS> ItemService for Service<ICS, IQS>
@@ -117,17 +147,13 @@ where
     ) -> Result<Response<Operation>, Status> {
         let request = request.try_into().map_err(Status::from)?;
 
-        self.item_command_service
+        let operation = self
+            .item_command_service
             .create(request)
             .await
             .map_err(Status::from)?;
 
-        Ok(Response::new(Operation {
-            name: String::new(),
-            metadata: None,
-            done: false,
-            result: None,
-        }))
+        Ok(Response::new(operation.into()))
     }
 
     async fn update_item(

@@ -1,14 +1,46 @@
+use prost_types::Any;
 use tonic::{Request, Response, Status};
 
-use super::proto::google::longrunning::{
-    operations_server::Operations, CancelOperationRequest, DeleteOperationRequest,
-    GetOperationRequest, ListOperationsRequest, ListOperationsResponse, Operation,
-    WaitOperationRequest,
+use crate::sync::{self, OperationMetadata};
+
+use super::proto::google::{
+    longrunning::{
+        operation, operations_server::Operations, CancelOperationRequest, DeleteOperationRequest,
+        GetOperationRequest, ListOperationsRequest, ListOperationsResponse, Operation,
+        WaitOperationRequest,
+    },
+    rpc,
 };
 
 pub struct Service;
 
-// MARK: Operations
+impl<T> From<sync::Operation<T>> for Operation
+where
+    T: OperationMetadata + Into<Option<Any>>,
+    <T as OperationMetadata>::Response: Into<Any>,
+    <T as OperationMetadata>::Error: Into<rpc::Status>,
+{
+    fn from(value: sync::Operation<T>) -> Self {
+        let (id, metadata, result) = value.dissolve();
+
+        let name = id.into();
+        let metadata = metadata.into();
+        let result = result.map(|res| match res {
+            Ok(ent) => operation::Result::Response(ent.into()),
+            Err(err) => operation::Result::Error(err.into()),
+        });
+        let done = result.is_some();
+
+        Self {
+            name,
+            metadata,
+            done,
+            result,
+        }
+    }
+}
+
+// MARK: Service
 
 #[tonic::async_trait]
 impl Operations for Service {

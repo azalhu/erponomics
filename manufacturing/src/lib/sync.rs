@@ -1,4 +1,4 @@
-use derive_getters::Getters;
+use derive_getters::{Dissolve, Getters};
 
 use crate::Id;
 
@@ -49,7 +49,7 @@ pub trait OperationMetadata {
     fn entity(&self) -> &Self::Entity;
 }
 
-#[derive(Getters)]
+#[derive(Dissolve, Getters)]
 pub struct Operation<T: OperationMetadata> {
     id: Id,
     metadata: T,

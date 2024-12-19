@@ -1,4 +1,4 @@
-use derive_getters::Getters;
+use derive_getters::{Dissolve, Getters};
 
 use crate::{
     item,
@@ -30,7 +30,7 @@ impl OperationEntity for Item {
     }
 }
 
-#[derive(Getters)]
+#[derive(Dissolve, Getters)]
 pub struct Metadata {
     item: Item,
 }

@@ -11,7 +11,11 @@ use crate::{id, sync::Operation, Id, Item};
 // MARK: Create
 
 pub trait Create: Send + Sync + 'static {
-    fn create(&self, request: CreateRequest) -> impl Future<Output = Result<(), Error>> + Send;
+    #[must_use]
+    fn create(
+        &self,
+        request: CreateRequest,
+    ) -> impl Future<Output = Result<Operation<Metadata>, Error>> + Send;
 }
 
 pub struct CreateRequest {
@@ -41,7 +45,11 @@ impl CreateRequest {
 // MARK: Update
 
 pub trait Update: Send + Sync + 'static {
-    fn update(&self, request: UpdateRequest) -> impl Future<Output = Result<(), Error>> + Send;
+    #[must_use]
+    fn update(
+        &self,
+        request: UpdateRequest,
+    ) -> impl Future<Output = Result<Operation<Metadata>, Error>> + Send;
 }
 
 pub struct UpdateRequest {
@@ -74,7 +82,11 @@ impl UpdateRequest {
 // MARK: Delete
 
 pub trait Delete: Send + Sync + 'static {
-    fn delete(&self, request: DeleteRequest) -> impl Future<Output = Result<(), Error>> + Send;
+    #[must_use]
+    fn delete(
+        &self,
+        request: DeleteRequest,
+    ) -> impl Future<Output = Result<Operation<Metadata>, Error>> + Send;
 }
 
 pub struct DeleteRequest {
@@ -92,10 +104,11 @@ impl DeleteRequest {
 // MARK: Annihilate
 
 pub trait Annihilate: Send + Sync + 'static {
+    #[must_use]
     fn annihilate(
         &self,
         request: AnnihilateRequest,
-    ) -> impl Future<Output = Result<(), Error>> + Send;
+    ) -> impl Future<Output = Result<Operation<Metadata>, Error>> + Send;
 }
 
 pub struct AnnihilateRequest {
@@ -113,7 +126,11 @@ impl AnnihilateRequest {
 // MARK: Block
 
 pub trait Block: Send + Sync + 'static {
-    fn block(&self, request: BlockRequest) -> impl Future<Output = Result<(), Error>> + Send;
+    #[must_use]
+    fn block(
+        &self,
+        request: BlockRequest,
+    ) -> impl Future<Output = Result<Operation<Metadata>, Error>> + Send;
 }
 
 pub struct BlockRequest {
@@ -131,7 +148,11 @@ impl BlockRequest {
 // MARK: Unblock
 
 pub trait Unblock: Send + Sync + 'static {
-    fn unblock(&self, request: UnblockRequest) -> impl Future<Output = Result<(), Error>> + Send;
+    #[must_use]
+    fn unblock(
+        &self,
+        request: UnblockRequest,
+    ) -> impl Future<Output = Result<Operation<Metadata>, Error>> + Send;
 }
 
 pub struct UnblockRequest {
@@ -272,13 +293,11 @@ impl<IR> Create for Service<IR>
 where
     IR: repository::Create + repository::Update + repository::Get + repository::Delete + Clone,
 {
-    async fn create(&self, request: CreateRequest) -> Result<(), Error> {
+    async fn create(&self, request: CreateRequest) -> Result<Operation<Metadata>, Error> {
         let operation = self.validate_create_request(request).await?;
         self.item_repository.create(&operation).await?;
 
-        // TODO sync after create
-
-        Ok(())
+        Ok(operation)
     }
 }
 
@@ -286,13 +305,11 @@ impl<IR> Update for Service<IR>
 where
     IR: repository::Create + repository::Update + repository::Get + repository::Delete + Clone,
 {
-    async fn update(&self, request: UpdateRequest) -> Result<(), Error> {
+    async fn update(&self, request: UpdateRequest) -> Result<Operation<Metadata>, Error> {
         let operation = self.validate_update_request(request).await?;
         self.item_repository.update(&operation).await?;
 
-        // TODO sync after update
-
-        Ok(())
+        Ok(operation)
     }
 }
 
@@ -300,13 +317,11 @@ impl<IR> Delete for Service<IR>
 where
     IR: repository::Create + repository::Update + repository::Get + repository::Delete + Clone,
 {
-    async fn delete(&self, request: DeleteRequest) -> Result<(), Error> {
+    async fn delete(&self, request: DeleteRequest) -> Result<Operation<Metadata>, Error> {
         let operation = self.validate_delete_request(request).await?;
         self.item_repository.update(&operation).await?;
 
-        // TODO sync after delete
-
-        Ok(())
+        Ok(operation)
     }
 }
 
@@ -314,13 +329,11 @@ impl<IR> Annihilate for Service<IR>
 where
     IR: repository::Create + repository::Update + repository::Get + repository::Delete + Clone,
 {
-    async fn annihilate(&self, request: AnnihilateRequest) -> Result<(), Error> {
+    async fn annihilate(&self, request: AnnihilateRequest) -> Result<Operation<Metadata>, Error> {
         let operation = self.validate_annihilate_request(request).await?;
         self.item_repository.update(&operation).await?;
 
-        // TODO sync after annihilate
-
-        Ok(())
+        Ok(operation)
     }
 }
 
@@ -328,13 +341,11 @@ impl<IR> Block for Service<IR>
 where
     IR: repository::Get + repository::Create + repository::Update + repository::Delete + Clone,
 {
-    async fn block(&self, request: BlockRequest) -> Result<(), Error> {
+    async fn block(&self, request: BlockRequest) -> Result<Operation<Metadata>, Error> {
         let operation = self.validate_block_request(request).await?;
         self.item_repository.update(&operation).await?;
 
-        // TODO sync after block
-
-        Ok(())
+        Ok(operation)
     }
 }
 
@@ -342,13 +353,11 @@ impl<IR> Unblock for Service<IR>
 where
     IR: repository::Get + repository::Create + repository::Update + repository::Delete + Clone,
 {
-    async fn unblock(&self, request: UnblockRequest) -> Result<(), Error> {
+    async fn unblock(&self, request: UnblockRequest) -> Result<Operation<Metadata>, Error> {
         let operation = self.validate_unblock_request(request).await?;
         self.item_repository.update(&operation).await?;
 
-        // TODO sync after unblock
-
-        Ok(())
+        Ok(operation)
     }
 }
 
